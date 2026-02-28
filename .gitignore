@@ -6,3 +6,12 @@ artifacts/
 .DS_Store
 *.log
 dist-app/
+
+# Old engine artifacts (deprecated - should be removed)
+packages/engine/artifacts/
+
+# Fixtures (if generated)
+fixtures/**/
+
+# Migration markers (local only)
+.migrated

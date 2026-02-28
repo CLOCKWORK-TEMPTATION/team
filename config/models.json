@@ -1,0 +1,85 @@
+{
+  "$schema": "./models.schema.json",
+  "description": "Model configuration for repo-refactor-ai agents",
+  "profiles": {
+    "PLANNING": {
+      "description": "Agents that analyze and plan refactoring steps",
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4-20250514",
+          "params": { "thinking": "enabled" }
+        },
+        {
+          "provider": "openai",
+          "model": "gpt-4.1",
+          "params": { "reasoning_effort": "high" }
+        }
+      ]
+    },
+    "CODING": {
+      "description": "Agents that generate code patches",
+      "models": [
+        {
+          "provider": "openai",
+          "model": "gpt-4.1",
+          "params": { "reasoning_effort": "xhigh" }
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-4-20250514",
+          "params": { "thinking": "enabled" }
+        }
+      ]
+    },
+    "SUMMARIZE": {
+      "description": "Agents that summarize and condense information",
+      "models": [
+        {
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "params": { "reasoning_effort": "medium" }
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-haiku-3-20250514"
+        }
+      ]
+    },
+    "CONTRACTS_AUGMENT": {
+      "description": "Agents that extract and augment API contracts",
+      "models": [
+        {
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "params": { "reasoning_effort": "medium" }
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-haiku-3-20250514"
+        }
+      ]
+    },
+    "RISK_EXPLAIN": {
+      "description": "Agents that explain risk assessments",
+      "models": [
+        {
+          "provider": "openai",
+          "model": "gpt-4.1-mini",
+          "params": { "reasoning_effort": "medium" }
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4-20250514"
+        }
+      ]
+    }
+  },
+  "env_keys": {
+    "openai": "OPENAI_API_KEY",
+    "openai_compat": ["OPENAI_COMPAT_BASE_URL", "OPENAI_COMPAT_API_KEY"],
+    "anthropic": "ANTHROPIC_API_KEY",
+    "google": "GOOGLE_API_KEY",
+    "mistral": "MISTRAL_API_KEY"
+  }
+}

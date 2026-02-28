@@ -5,8 +5,13 @@ import {
 } from "./profiles.js";
 import type { ProviderId } from "./providers/types.js";
 import { AGENT_LLM_SPECS } from "./agent-mapping.js";
-import { generatePlannerPrompt } from "./prompts/planner-prompt.js";
 import { loadPrompt } from "./prompt-loader.js";
+import {
+  loadModelsConfig,
+  selectModelForProfile,
+  isProviderAvailable,
+  type ModelConfig,
+} from "./config-loader.js";
 import { OpenAIProvider } from "./providers/openai.js";
 import { OpenAICompatProvider } from "./providers/openai-compatible.js";
 import { AnthropicProvider } from "./providers/anthropic.js";
@@ -46,34 +51,34 @@ export function getAgentSpec(agentName: string) {
 
 /**
  * يختار أول موديل متاح (حسب توفر مفاتيح API في env)
+ * يتحقق أولاً من ملف الإعدادات، ثم يرجع للإعدادات الافتراضية
  */
 export function routeModel(
   profile: ModelProfileId,
   env: NodeJS.ProcessEnv = process.env
 ): RoutedModel {
+  // محاولة استخدام الإعدادات من ملف JSON
+  const configModel = selectModelForProfile(profile, env);
+  if (configModel) {
+    const result: RoutedModel = {
+      provider: configModel.provider,
+      model: configModel.model,
+    };
+    if (configModel.params) {
+      result.params = configModel.params;
+    }
+    return result;
+  }
+
+  // Fallback للإعدادات الافتراضية (hardcoded)
   const choices = MODEL_PROFILES[profile];
   for (const c of choices) {
     const base = { provider: c.provider, model: c.model };
-    if (c.provider === "openai" && env.OPENAI_API_KEY) {
-      return c.params ? { ...base, params: c.params } : base;
-    }
-    if (
-      c.provider === "openai_compat" &&
-      env.OPENAI_COMPAT_BASE_URL &&
-      env.OPENAI_COMPAT_API_KEY
-    ) {
-      return c.params ? { ...base, params: c.params } : base;
-    }
-    if (c.provider === "anthropic" && env.ANTHROPIC_API_KEY) {
-      return c.params ? { ...base, params: c.params } : base;
-    }
-    if (c.provider === "google" && env.GOOGLE_API_KEY) {
-      return c.params ? { ...base, params: c.params } : base;
-    }
-    if (c.provider === "mistral" && env.MISTRAL_API_KEY) {
+    if (isProviderAvailable(c.provider, env)) {
       return c.params ? { ...base, params: c.params } : base;
     }
   }
+
   throw new Error(`No provider keys available for profile=${profile}`);
 }
 
@@ -112,20 +117,10 @@ export async function invokeAgent(
 
 /** @deprecated Use invokeAgent("RefactorPlannerReportAgent", ...) — محفوظ للتوافق */
 export async function askPlanner(findingsSummary: string): Promise<string> {
-  try {
-    return await invokeAgent(
-      "RefactorPlannerReportAgent",
-      `Here are the Findings summary in JSON format:\n${findingsSummary}\n\nGenerate the steps JSON array now:`
-    );
-  } catch {
-    const prompt = generatePlannerPrompt(findingsSummary);
-    const provider = new OpenAIProvider();
-    const resp = await provider.generateText({
-      model: "gpt-4o",
-      messages: [{ role: "user", content: prompt }],
-    });
-    return resp.text;
-  }
+  return await invokeAgent(
+    "RefactorPlannerReportAgent",
+    `Here are the Findings summary in JSON format:\n${findingsSummary}\n\nGenerate the steps JSON array now:`
+  );
 }
 
 /** @deprecated Use invokeAgent("PatchAuthor", ...) — محفوظ للتوافق */

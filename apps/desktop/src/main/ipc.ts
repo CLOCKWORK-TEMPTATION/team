@@ -1,13 +1,21 @@
-import { ipcMain, dialog } from "electron";
-import { execa } from "execa";
+import { ipcMain, dialog, app } from "electron";
 import * as path from "node:path";
-import { fileURLToPath } from "node:url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const cliPath = path.resolve(__dirname, "../../../../packages/engine/dist/cli/index.js");
+import {
+  initializeArtifacts,
+  runScan,
+  runPlan,
+  runApply,
+  runVerify,
+  recordApproval,
+  assertApproved,
+} from "./pipeline-runner.js";
 
 export function registerIpcHandlers() {
+  // تهيئة مسار الـ artifacts
+  const isDev = !app.isPackaged;
+  initializeArtifacts(app.getPath("userData"), isDev);
+
+  // فتح مربع حوار اختيار المجلد
   ipcMain.handle("dialog:openDirectory", async () => {
     const { canceled, filePaths } = await dialog.showOpenDialog({
       properties: ["openDirectory"],
@@ -19,21 +27,42 @@ export function registerIpcHandlers() {
     }
   });
 
+  // Scan
   ipcMain.handle("pipeline:scan", async (_, repoPath: string) => {
-    try {
-      const { stdout } = await execa("node", [cliPath, "scan", repoPath]);
-      return { success: true, output: stdout };
-    } catch (error: any) {
-      return { success: false, error: error.message };
-    }
+    const result = await runScan(repoPath);
+    return result;
   });
 
+  // Plan
   ipcMain.handle("pipeline:plan", async (_, runId: string) => {
-    try {
-      const { stdout } = await execa("node", [cliPath, "plan", runId]);
-      return { success: true, output: stdout };
-    } catch (error: any) {
-      return { success: false, error: error.message };
+    const result = await runPlan(runId);
+    return result;
+  });
+
+  // Approve (يكتب الموافقة في الخطة ويسجلها)
+  ipcMain.handle(
+    "pipeline:approve",
+    async (_, runId: string, approvedBy: string, notes?: string) => {
+      const result = recordApproval(runId, approvedBy, notes);
+      return result;
     }
+  );
+
+  // Check Approval
+  ipcMain.handle("pipeline:checkApproval", async (_, runId: string) => {
+    const result = assertApproved(runId);
+    return result;
+  });
+
+  // Apply (مع التحقق من الموافقة)
+  ipcMain.handle("pipeline:apply", async (_, runId: string) => {
+    const result = await runApply(runId);
+    return result;
+  });
+
+  // Verify
+  ipcMain.handle("pipeline:verify", async (_, runId: string) => {
+    const result = await runVerify(runId);
+    return result;
   });
 }

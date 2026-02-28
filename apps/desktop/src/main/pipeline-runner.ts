@@ -1,0 +1,201 @@
+import { execa } from "execa";
+import * as path from "node:path";
+import * as fs from "node:fs";
+import { fileURLToPath } from "node:url";
+import {
+  setArtifactsRoot,
+  getArtifactsRoot,
+  ensureArtifactsStructure,
+} from "../../../../packages/storage/src/artifacts/paths.js";
+import { runMigration } from "../../../../packages/storage/src/db/migrate.js";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// مسار CLI
+const cliPath = path.resolve(
+  __dirname,
+  "../../../../packages/engine/dist/cli/index.js"
+);
+
+/**
+ * يُهيئ مسار الـ artifacts للـ Electron
+ * Dev: مجلد artifacts في جذر المشروع
+ * Prod: userData + "/artifacts"
+ */
+export function initializeArtifacts(userDataPath: string, isDev: boolean): void {
+  const artifactsDir = isDev
+    ? path.resolve(__dirname, "../../../../artifacts")
+    : path.join(userDataPath, "artifacts");
+
+  // تعيين المسار للحزم الأخرى
+  setArtifactsRoot(artifactsDir);
+
+  // التأكد من وجود البنية
+  ensureArtifactsStructure();
+
+  // تشغيل الترحيل إذا لزم الأمر
+  const migrationResult = runMigration();
+  if (migrationResult.migrated) {
+    console.log("[pipeline-runner] Migration completed:", migrationResult.message);
+  }
+
+  console.log("[pipeline-runner] Artifacts initialized at:", artifactsDir);
+}
+
+/**
+* يُنشئ record موافقة في SQLite
+* يُستخدم عند الضغط على زر "Approve" في UI
+*/
+export function recordApproval(
+  runId: string,
+  approvedBy: string,
+  notes?: string
+): { success: boolean; error?: string } {
+  try {
+    const artifactsDir = getArtifactsRoot();
+    const planPath = path.join(
+      artifactsDir,
+      "runs",
+      runId,
+      "plan",
+      "refactor_plan.json"
+    );
+    const reportPath = path.join(
+      artifactsDir,
+      "runs",
+      runId,
+      "report",
+      "report.md"
+    );
+
+    // تحديث ملف الخطة
+    if (fs.existsSync(planPath)) {
+      const planContent = fs.readFileSync(planPath, "utf8");
+      const plan = JSON.parse(planContent);
+      plan.approvalStatus = "APPROVED";
+      plan.approvedAt = new Date().toISOString();
+      plan.approvedBy = approvedBy;
+      fs.writeFileSync(planPath, JSON.stringify(plan, null, 2), "utf8");
+    }
+
+    // TODO: إضافة record في SQLite (يتطلب import من storage package)
+    console.log(`[pipeline-runner] Approval recorded for run ${runId} by ${approvedBy}`);
+
+    return { success: true };
+  } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : String(error);
+    return { success: false, error: errorMsg };
+  }
+}
+
+/**
+ * يتحقق من وجود موافقة صالحة
+ */
+export function assertApproved(runId: string): { approved: boolean; message: string } {
+  try {
+    const artifactsDir = getArtifactsRoot();
+    const planPath = path.join(
+      artifactsDir,
+      "runs",
+      runId,
+      "plan",
+      "refactor_plan.json"
+    );
+
+    if (!fs.existsSync(planPath)) {
+      return { approved: false, message: "Plan not found" };
+    }
+
+    const planContent = fs.readFileSync(planPath, "utf8");
+    const plan = JSON.parse(planContent);
+
+    if (plan.approvalStatus !== "APPROVED") {
+      return {
+        approved: false,
+        message: `Plan status is ${plan.approvalStatus || "PENDING"}. Approval required before apply.`,
+      };
+    }
+
+    return { approved: true, message: "Plan is approved" };
+  } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : String(error);
+    return { approved: false, message: `Error checking approval: ${errorMsg}` };
+  }
+}
+
+/**
+ * يُنفذ أمر scan
+ */
+export async function runScan(repoPath: string): Promise<{
+  success: boolean;
+  output?: string;
+  error?: string;
+  runId?: string;
+}> {
+  try {
+    const { stdout } = await execa("node", [cliPath, "scan", repoPath]);
+
+    // استخراج runId من الخرج
+    const runIdMatch = stdout.match(/run[_-]?([a-f0-9]+)/i);
+    const runId = runIdMatch ? runIdMatch[0] : undefined;
+
+    return { success: true, output: stdout, runId };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}
+
+/**
+ * يُنفذ أمر plan
+ */
+export async function runPlan(runId: string): Promise<{
+  success: boolean;
+  output?: string;
+  error?: string;
+}> {
+  try {
+    const { stdout } = await execa("node", [cliPath, "plan", runId]);
+    return { success: true, output: stdout };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}
+
+/**
+ * يُنفذ أمر apply (مع التحقق من الموافقة)
+ */
+export async function runApply(runId: string): Promise<{
+  success: boolean;
+  output?: string;
+  error?: string;
+}> {
+  // التحقق من الموافقة قبل التنفيذ
+  const approvalCheck = assertApproved(runId);
+  if (!approvalCheck.approved) {
+    return { success: false, error: approvalCheck.message };
+  }
+
+  try {
+    const { stdout } = await execa("node", [cliPath, "apply", runId]);
+    return { success: true, output: stdout };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}
+
+/**
+ * يُنفذ أمر verify
+ */
+export async function runVerify(runId: string): Promise<{
+  success: boolean;
+  output?: string;
+  error?: string;
+}> {
+  try {
+    const { stdout } = await execa("node", [cliPath, "verify", runId]);
+    return { success: true, output: stdout };
+  } catch (error: any) {
+    return { success: false, error: error.message };
+  }
+}
