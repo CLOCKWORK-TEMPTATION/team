@@ -1,0 +1,34 @@
+{
+  "name": "@pkg/engine",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "cli:scan": "node dist/cli/index.js scan",
+    "cli:plan": "node dist/cli/index.js plan",
+    "cli:apply": "node dist/cli/index.js apply",
+    "cli:verify": "node dist/cli/index.js verify"
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.0.1",
+    "@pkg/analysis": "workspace:*",
+    "@pkg/harness": "workspace:*",
+    "@pkg/llm": "workspace:*",
+    "@pkg/planning": "workspace:*",
+    "@pkg/refactor": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "@pkg/shared": "workspace:*",
+    "@pkg/storage": "workspace:*",
+    "@pkg/tooling": "workspace:*",
+    "commander": "^12.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

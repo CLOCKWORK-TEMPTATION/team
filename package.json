@@ -1,0 +1,30 @@
+{
+  "name": "repo-refactor-ai",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "dev": "pnpm -C apps/desktop dev",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint",
+    "typecheck": "pnpm -r typecheck",
+    "engine:scan": "pnpm -C packages/engine cli:scan",
+    "engine:plan": "pnpm -C packages/engine cli:plan",
+    "engine:apply": "pnpm -C packages/engine cli:apply",
+    "engine:verify": "pnpm -C packages/engine cli:verify"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^25.3.2",
+    "eslint": "^9.0.0",
+    "eslint-plugin-boundaries": "^5.0.0",
+    "globals": "^15.0.0",
+    "prettier": "^3.3.0",
+    "typescript": "^5.5.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^4.0.18"
+  }
+}

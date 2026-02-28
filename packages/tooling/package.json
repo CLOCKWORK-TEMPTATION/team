@@ -1,0 +1,21 @@
+{
+  "name": "@pkg/tooling",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "deps:check": "depcruise -c ../../dependency-cruiser.js ../../"
+  },
+  "dependencies": {
+    "@pkg/shared": "workspace:*",
+    "@pkg/schemas": "workspace:*"
+  },
+  "devDependencies": {
+    "dependency-cruiser": "^16.0.0",
+    "typescript": "^5.5.0"
+  }
+}

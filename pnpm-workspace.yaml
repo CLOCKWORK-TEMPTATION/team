@@ -1,0 +1,7 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+pnpm:
+  overrides:
+    tar: ">=7.5.8"

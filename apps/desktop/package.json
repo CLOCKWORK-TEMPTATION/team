@@ -1,0 +1,35 @@
+{
+  "name": "@app/desktop",
+  "version": "0.1.0",
+  "description": "Repo Refactor AI Desktop App",
+  "author": "Mohmed Aimen Raed",
+  "private": true,
+  "type": "module",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "dev": "vite --config src/renderer/vite.config.ts",
+    "dev:electron": "ts-node src/main/main.ts",
+    "build": "pnpm build:renderer && pnpm build:main && pnpm package",
+    "build:renderer": "vite build --config src/renderer/vite.config.ts",
+    "build:main": "tsc -p tsconfig.json",
+    "package": "electron-builder"
+  },
+  "dependencies": {
+    "@pkg/engine": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "@pkg/storage": "workspace:*"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.1.4",
+    "electron": "^35.7.5",
+    "electron-builder": "^24.0.0",
+    "electron-builder-squirrel-windows": "^26.8.1",
+    "execa": "^9.6.1",
+    "prebuild-install": "^7.1.3",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0",
+    "esbuild": "0.25.0"
+  }
+}
