@@ -1,0 +1,478 @@
+{
+  "title": "مواصفة تنفيذ مباشرة",
+  "document": {
+    "1_core_rule": {
+      "title": "القاعدة الحاكمة (4.2) — إلزامية على مستوى التصميم والتنفيذ",
+      "description": "التحليل لا يعتمد على LLM وحده. يجب أن يرتكز أولًا على أدلة تحليل ساكن (AST/Type Graph/Import Graph/Call Graph/Tooling)، ثم يأتي دور النموذج في التحكيم وصياغة الخطة وتنفيذ الباتشات.",
+      "application": "تطبيقًا لذلك: أي حذف/دمج/نقل/توحيد يُمنع ما لم يكن معه Evidence Packet واضح (أدلة + درجة ثقة + مخاطر + نقاط دخول)."
+    },
+    "2_providers": {
+      "title": "مزودو النماذج المناسبون (Providers) + أمثلة نماذج عملية",
+      "goal": "تزويدك بـ 'أسماء مزودين' + 'عائلات نماذج مناسبة' لثلاث فئات: التخطيط/التحكيم، توليد/تعديل الكود، التلخيص. يمكنك تشغيل أكثر من مزود معًا حسب الدور (Multi-Provider).",
+      "cloud_apis": [
+        {
+          "provider": "OpenAI",
+          "reason": "قوي جدًا في كتابة باتشات طويلة الأفق + سياق ضخم",
+          "examples": "عائلة Codex لـ agentic coding مثل GPT-5.x-Codex (OpenAI Developers)"
+        },
+        {
+          "provider": "Anthropic",
+          "reason": "ممتاز في التحكيم، التخطيط، والقرارات المعمارية مع حساسية للمخاطر",
+          "examples": "عائلة Claude (Opus/… حسب المتاح) (Claude API Docs)"
+        },
+        {
+          "provider": "Google (Gemini / Vertex AI)",
+          "reason": "قوي في التحليل العام + إدارة إصدارات/دورات حياة نماذج مؤسسية",
+          "examples": "نماذج Gemini عبر Gemini API وVertex AI (Google AI for Developers)"
+        },
+        {
+          "provider": "Mistral AI",
+          "reason": "بديل قوي؛ خيارات نشر وتكاملات متنوعة",
+          "examples": "قائمة نماذج Mistral (Mistral AI)"
+        },
+        {
+          "provider": "xAI (Grok)",
+          "reason": "خيار إضافي، خاصة إذا أردت مزودًا آخر بقدرات reasoning",
+          "examples": "Grok models (xAI)"
+        },
+        {
+          "provider": "DeepSeek (API)",
+          "reason": "خيار اقتصادي/بديل؛ API متوافق بصيغة قريبة من OpenAI",
+          "examples": "DeepSeek API docs/models (DeepSeek API Docs)"
+        }
+      ],
+      "open_weights": [
+        {
+          "source": "Meta Llama",
+          "reason": "تشغيل محلي/على خوادمك، سيطرة أعلى على البيانات",
+          "examples": "وثائق/نماذج Llama (AI Meta)"
+        },
+        {
+          "source": "Qwen (Alibaba / Open Models)",
+          "reason": "أداء قوي في البرمجة/الاستدلال + توفر واسع",
+          "examples": "مستودعات/إصدارات Qwen (GitHub)"
+        }
+      ]
+    },
+    "3_agents": {
+      "title": "الفريق (Agents) — نسخة محسّنة لـ TypeScript/Node",
+      "proposed_count": 15,
+      "note": "عمليًا يمكن تنفيذ (12) كطبقة سياسات داخل الـ Orchestrator بدل وكيل مستقل، لكن وجوده ككيان صريح يقلل 'تجاوزات' LLM.",
+      "list": [
+        {
+          "id": 1,
+          "agent": "Intake Agent",
+          "primary_outputs": "repo_profile.json"
+        },
+        {
+          "id": 2,
+          "agent": "TS Stack Profiler (TypeScript/Node متخصص)",
+          "primary_outputs": "stack_fingerprint.json"
+        },
+        {
+          "id": 3,
+          "agent": "Indexer / Symbol DB Builder",
+          "primary_outputs": "symbol_index.sqlite"
+        },
+        {
+          "id": 4,
+          "agent": "Graph Builder (Import/Call/Type graph)",
+          "primary_outputs": "graphs/*.json"
+        },
+        {
+          "id": 5,
+          "agent": "Dead-Code Hunter",
+          "primary_outputs": "dead_code_candidates.json"
+        },
+        {
+          "id": 6,
+          "agent": "Semantic Clone Clustering Agent (7.1)",
+          "primary_outputs": "semantic_clone_clusters.json"
+        },
+        {
+          "id": 7,
+          "agent": "Duplicate API & Function Agent",
+          "primary_outputs": "duplicate_functions.json"
+        },
+        {
+          "id": 8,
+          "agent": "Boundaries & Merge Candidate Agent (7.5)",
+          "primary_outputs": "merge_candidates.json + boundary_violations.json"
+        },
+        {
+          "id": 9,
+          "agent": "Contract Miner Agent (7.4)",
+          "primary_outputs": "contracts.json"
+        },
+        {
+          "id": 10,
+          "agent": "Risk Scorer Agent (7.3)",
+          "primary_outputs": "risk_scores.json"
+        },
+        {
+          "id": 11,
+          "agent": "Refactor Planner / Report Writer",
+          "primary_outputs": "refactor_plan.json + report.md"
+        },
+        {
+          "id": 12,
+          "agent": "Evidence Gatekeeper (حارس 4.2)",
+          "primary_outputs": "يرفض أي خطوة بلا Evidence Packet"
+        },
+        {
+          "id": 13,
+          "agent": "Patch Author (Coding Model)",
+          "primary_outputs": "patch_series/ + commits"
+        },
+        {
+          "id": 14,
+          "agent": "Behavioral Equivalence Harness Agent (7.2)",
+          "primary_outputs": "harness/ + equivalence_report.json"
+        },
+        {
+          "id": 15,
+          "agent": "Verifier & QA Agent",
+          "primary_outputs": "verification_report.json"
+        }
+      ]
+    },
+    "4_tooling": {
+      "title": "أدوات التحليل الساكن (Tooling) — عمود النظام الفقري",
+      "essential": [
+        "TypeScript Compiler API / tsserver (لبناء AST/Types/Refs)",
+        "ts-morph لتسهيل عمليات AST وعمليات إعادة كتابة آمنة",
+        "ESLint + قواعد unused + boundaries (منع دمج يكسر الطبقات)",
+        "Typecheck: tsc --noEmit",
+        "Dependency Graph: dependency-cruiser أو madge",
+        "Unused exports/files: knip + depcheck (ممتازة في Node/TS)",
+        "Clone detection: jscpd (نصي/توكن) + طبقة clustering بنيوي (7.1)"
+      ],
+      "evidence_packet_layer": {
+        "title": "طبقة “الدليل” Evidence Packet (إلزامية قبل أي تعديل)",
+        "description": "كل Candidate (حذف/دمج/توحيد) يجب أن يحمل المرفقات التالية:",
+        "requirements": [
+          "Graph Evidence: لا inbound imports / لا callsites / ليس entrypoint",
+          "TS Evidence: لا symbol references (أو references ضمن tests فقط)",
+          "Tool Evidence: knip/depcheck/jscpd hits",
+          "Risk Evidence: درجة مخاطرة محسوبة (7.3)",
+          "Exception Flags: dynamic import / reflection / side-effects suspicion"
+        ]
+      }
+    },
+    "5_missing_elements": {
+      "title": "“النواقص” التي يجب إدخالها كنقاط رسمية داخل الخطة (إضافتها إلزامي)",
+      "entry_points": {
+        "title": "تعريف نقاط الدخول Entry Points بدقة",
+        "extraction_sources": [
+          "package.json (main, exports, bin, types)",
+          "configs: tsconfig, vite, next, jest/vitest",
+          "مسارات تشغيل CLI/Server"
+        ],
+        "classifications": [
+          "runtime_entrypoints",
+          "test_entrypoints",
+          "tooling_entrypoints"
+        ]
+      },
+      "dynamic_code_exceptions": {
+        "title": "استثناءات الكود الديناميكي (Dynamic/Reflective)",
+        "rules_for_lower_confidence": [
+          "dynamic import strings",
+          "plugin registries",
+          "event names كسلاسل",
+          "DI containers / decorators"
+        ],
+        "candidate_transformation": {
+          "condition": "أي candidate داخل منطقة ديناميكية يتحول إلى:",
+          "result": {
+            "risk": "high",
+            "action": "propose_only (لا تنفيذ) إلا إذا وُجد Evidence إضافي قوي"
+          }
+        }
+      },
+      "evidence_threshold": {
+        "title": "معيار الدليل (Evidence Threshold)",
+        "deletion_conditions": [
+          "لا inbound imports (بالرسوم)",
+          "لا symbol references (بالـ TS)",
+          "ليس ضمن exports العامة",
+          "ليس ضمن entrypoints"
+        ],
+        "conflict_resolution": "عند التعارض بين الأدوات: يُرفع للـ Planner مع 'سبب التعارض' بدل اتخاذ قرار تلقائي."
+      },
+      "public_api_protection": {
+        "title": "حماية الـ Public API",
+        "impacted_areas": [
+          "exports في package.json",
+          "ملفات index.ts العامة",
+          "أنواع TypeScript المصدّرة"
+        ],
+        "action": "يُعلّم: public_api_impact=true ويأخذ مخاطرة أعلى."
+      },
+      "atomic_patches": {
+        "title": "باتشات ذرّية + قابلية العكس",
+        "properties": [
+          "نطاق صغير",
+          "commit مستقل",
+          "تحقق سريع بعده"
+        ],
+        "stop_policy": "إذا فشل تحقق باتش → rollback → إعادة تخطيط تلقائيًا."
+      },
+      "formatting_guard": {
+        "title": "حارس التنسيق والضوضاء",
+        "tools": [
+          "prettier --write",
+          "eslint --fix"
+        ],
+        "rule": "منع تغييرات تنسيق واسعة في نفس باتش منطقي."
+      },
+      "scope_explosion_detector": {
+        "title": "كاشف “انفجار نطاق التغيير”",
+        "condition": "إذا زاد عدد الملفات/الأسطر المعدّلة عن حدود الخطة",
+        "actions": [
+          "توقف آلي",
+          "إعادة تخطيط",
+          "تقرير 'سبب الانفجار' (مثل: استخراج util أثّر على عشرات الملفات)."
+        ]
+      }
+    },
+    "6_pipeline_systems": {
+      "title": "إدراج 7.1–7.5 كنظم فعلية داخل الـ Pipeline",
+      "systems": {
+        "7_1_semantic_clone_clustering": {
+          "title": "Semantic Clone Clustering (تكرارات “بالمعنى” لا بالنص)",
+          "implementation_steps_ts": [
+            {
+              "step": "التطبيع Normalization",
+              "details": [
+                "إزالة أسماء المتغيرات (alpha-renaming)",
+                "تطبيع literals (استبدالها placeholders)",
+                "تطبيع ترتيب بعض البُنى إن أمكن"
+              ]
+            },
+            {
+              "step": "استخراج “بصمة بنيوية” لكل مقطع",
+              "details": [
+                "AST subtree hashing"
+              ]
+            },
+            {
+              "step": "التجميع",
+              "details": [
+                "clustering حسب hash + تشابه هيكلي"
+              ]
+            },
+            {
+              "step": "مخرجات",
+              "details": [
+                "Cluster مع “مقترح refactor”: Extract Function / Extract Module / Strategy"
+              ]
+            }
+          ],
+          "plan_integration": [
+            "لا تُحوّل التكرار إلى دمج تلقائي إلا بعد:",
+            "Risk scoring",
+            "Contracts (7.4)",
+            "Harness (7.2) عند الحاجة"
+          ]
+        },
+        "7_2_behavioral_equivalence_harness": {
+          "title": "Behavioral Equivalence Harness (حزام أمان سلوكي)",
+          "activation_conditions": [
+            "الاختبارات ضعيفة/غير موجودة",
+            "أو مخاطرة التغيير عالية"
+          ],
+          "tools_node_ts": {
+            "generate_tests": [
+              "Snapshot tests (مخرجات JSON/Strings)",
+              "Golden files لمخرجات parsers",
+              "Property-based tests (إن كانت الدوال نقية)"
+            ],
+            "differential_execution": [
+              "تشغيل قبل/بعد لنفس المدخلات",
+              "مقارنة المخرجات"
+            ]
+          },
+          "outputs": [
+            "equivalence_report.json يحدد: متطابق / اختلاف / اختلاف مقبول (وفق contract)"
+          ]
+        },
+        "7_3_risk_scored_refactor": {
+          "title": "Risk-Scored Refactor (ريفكتور بدرجات مخاطرة)",
+          "formula": "risk = w1*entrypoint_proximity + w2*fan_in + w3*public_api + w4*dynamic_suspicion + w5*test_coverage_inverse + w6*signature_change",
+          "usage": {
+            "patch_ordering": "Low → Medium → High",
+            "high_risk_actions": [
+              "يفرض Harness (7.2)",
+              "ويمنع “دمج واسع” في خطوة واحدة"
+            ]
+          }
+        },
+        "7_4_refactor_by_contracts": {
+          "title": "Refactor by Contracts (ريفكتور بالعقود)",
+          "extraction_sources": [
+            "TypeScript types (params/return/nullable)",
+            "استخدامات الاستدعاء (call sites)",
+            "JSDoc إن وجد",
+            "runtime guards إن وجدت (zod/io-ts/valibot)"
+          ],
+          "application": {
+            "before_modification": "توليد contract_assertions (أثناء الاختبارات/التطوير)",
+            "after_modification": "يجب ألا ينكسر العقد",
+            "harness_integration": "العقد تُستخدم أيضًا لتحديد “الاختلاف المقبول” في Harness (7.2)"
+          }
+        },
+        "7_5_boundaries_aware_merging": {
+          "title": "Boundaries-Aware Merging (دمج واعٍ بالحدود المعمارية)",
+          "merging_rules": "لا دمج بين طبقات مختلفة إلا إذا: الخطة تتضمن إعادة ضبط boundaries صراحة، وتوجد أدلة أن الدمج يقلل التعقيد ولا يخلق دوائر dependency",
+          "implementation": [
+            "ESLint boundaries rules",
+            "dependency-cruiser constraints"
+          ],
+          "outputs": [
+            "boundary_violations.json + اقتراحات إصلاح"
+          ]
+        }
+      }
+    },
+    "7_schemas": {
+      "title": "مواصفة البيانات (Schemas) — جاهزة لتشغيل وكلاء بلا فوضى",
+      "evidence_packet": {
+        "id": "cand_001",
+        "kind": "dead_code | merge | dedupe | move | rename",
+        "target": {
+          "file": "src/x.ts",
+          "symbol": "foo",
+          "range": [
+            10,
+            42
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          },
+          "tsReferences": {
+            "refCount": 0,
+            "refs": []
+          },
+          "toolHits": {
+            "knip": "unused-export",
+            "depcheck": null,
+            "jscpd": {
+              "clusterId": "cl_07",
+              "similarity": 0.92
+            }
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 18,
+          "band": "low",
+          "reasons": [
+            "no inbound",
+            "no refs"
+          ]
+        },
+        "recommendedAction": "delete | extract | merge | unify | keep",
+        "requiresHarness": false
+      },
+      "refactor_plan_step": {
+        "stepId": "step_05",
+        "patchTitle": "Extract shared normalizeEmail util",
+        "actions": [
+          "extract_function",
+          "update_imports",
+          "delete_duplicates"
+        ],
+        "targets": [
+          "src/a.ts",
+          "src/b.ts",
+          "src/shared/normalizeEmail.ts"
+        ],
+        "preChecks": [
+          "tsc_noEmit",
+          "eslint"
+        ],
+        "postChecks": [
+          "tsc_noEmit",
+          "unit_tests_subset"
+        ],
+        "evidenceRefs": [
+          "cand_014",
+          "cand_015"
+        ],
+        "riskBand": "medium",
+        "rollbackStrategy": "git_revert_commit"
+      }
+    },
+    "8_orchestrator": {
+      "title": "الـ Orchestrator (TypeScript) — تدفق عمل حتمي + بوابة موافقة",
+      "approval_gate": {
+        "title": "العقدة الحاسمة: Approval Gate",
+        "rules": [
+          "قبل Patch Author يجب أن تكون: approvalStatus = APPROVED",
+          "وإلا: لا يُنفّذ أي تعديل."
+        ]
+      },
+      "evidence_gatekeeper_rule": {
+        "title": "قاعدة “حارس الأدلة”",
+        "rule": "أي Action لا يحمل evidenceRefs[] صحيحة → رفض."
+      }
+    },
+    "9_electron_ui": {
+      "title": "Electron UI (واجهة محلية) — مواصفة تنفيذية",
+      "app_structure": {
+        "main_process": [
+          "إدارة اختيار repo",
+          "تشغيل pipeline (Node child_process)",
+          "إدارة SQLite artifacts",
+          "IPC مع Renderer"
+        ],
+        "renderer": [
+          "صفحات: اختيار repo → baseline → التقرير → الموافقة → التنفيذ → النتائج"
+        ],
+        "ipc_channels_examples": [
+          "repo.select",
+          "pipeline.start_scan",
+          "pipeline.get_report",
+          "approval.set_status",
+          "refactor.execute",
+          "artifacts.open_file_location",
+          "logs.stream"
+        ]
+      },
+      "ux_requirements": [
+        "عرض التقرير كمصفوفات قابلة للفلترة: Dead code / Duplicates / Semantic Clones / Merge candidates / Boundary issues",
+        "لكل عنصر: Evidence (روابط فتح الملفات على السطر)، Risk band، الإجراء المقترح",
+        "زر واحد للموافقة يبدأ التنفيذ.",
+        "زر “إيقاف طارئ” يوقف سلسلة الباتشات ويترك repo بحالة قابلة للاسترجاع."
+      ]
+    },
+    "10_immediate_implementation_plan": {
+      "title": "خطة التنفيذ الفورية (بدون إشارات زمنية)",
+      "steps": [
+        "إنشاء مشروع Electron (Main/Renderer) + مجلد artifacts/ + SQLite.",
+        "بناء “Analysis Engine” (Node/TS) كحزمة مستقلة تعمل CLI: scan → يولد findings + report، plan → يولد plan steps، apply → ينفذ patch series",
+        "دمج أدوات التحليل: tsserver/ts-morph + ESLint + dependency-cruiser/madge + knip/depcheck + jscpd",
+        "بناء Graphs + Symbol Index + Evidence Packets.",
+        "إدخال 7.1: normalized AST hashing + clustering outputs.",
+        "إدخال 7.4: Contract miner + حفظ contracts.json.",
+        "إدخال 7.3: Risk scoring + ترتيب الباتشات.",
+        "توليد التقرير report.md + refactor_plan.json.",
+        "عرض التقرير داخل Electron + تفعيل Approval Gate.",
+        "بعد الموافقة: تنفيذ apply بباتشات ذرّية + تحقق بعد كل باتش + rollback عند الفشل.",
+        "إدخال 7.2 عند الحاجة: توليد Harness تلقائي للتغييرات عالية المخاطر أو عند ضعف الاختبارات.",
+        "إدخال 7.5: تشغيل boundaries checks قبل تنفيذ أي دمج عبر الطبقات."
+      ]
+    }
+  }
+}

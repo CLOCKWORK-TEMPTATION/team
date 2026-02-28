@@ -1,0 +1,485 @@
+## packages/shared
+
+### `packages/shared/package.json`
+
+```json
+{
+  "name": "@pkg/shared",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pkg/schemas": "workspace:*",
+    "execa": "^9.5.2",
+    "fast-glob": "^3.3.2",
+    "ignore": "^5.3.2",
+    "pino": "^9.3.2",
+    "pino-pretty": "^11.2.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
+```
+
+### `packages/shared/tsconfig.json`
+
+```json
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+---
+
+## packages/storage
+
+### `packages/storage/package.json`
+
+```json
+{
+  "name": "@pkg/storage",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pkg/shared": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "better-sqlite3": "^11.1.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "typescript": "^5.5.0"
+  }
+}
+```
+
+### `packages/storage/tsconfig.json`
+
+```json
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+### `packages/storage/src/db/schema.sql`
+
+```sql
+PRAGMA journal_mode = WAL;
+PRAGMA foreign_keys = ON;
+
+-- Runs: كل تشغيل scan/plan/apply/verify له runId
+CREATE TABLE IF NOT EXISTS runs (
+  run_id TEXT PRIMARY KEY,
+  repo_id TEXT NOT NULL,
+  repo_path TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  status TEXT NOT NULL, -- CREATED | SCANNED | PLANNED | APPROVED | APPLIED | VERIFIED | FAILED
+  meta_json TEXT
+);
+
+-- Artifacts: تخزين مسارات الملفات الناتجة + نوعها
+CREATE TABLE IF NOT EXISTS artifacts (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  run_id TEXT NOT NULL,
+  kind TEXT NOT NULL,             -- evidence_pack | findings | plan | report | log | telemetry | verification | harness_template | etc
+  rel_path TEXT NOT NULL,         -- relative under artifacts/runs/<run_id> OR absolute in target repo for harness
+  created_at TEXT NOT NULL,
+  json_sha256 TEXT,
+  size_bytes INTEGER,
+  FOREIGN KEY (run_id) REFERENCES runs(run_id) ON DELETE CASCADE
+);
+
+-- Approvals: بوابة الموافقة قبل التنفيذ
+CREATE TABLE IF NOT EXISTS approvals (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  run_id TEXT NOT NULL,
+  approved_by TEXT,               -- local user label (اختياري)
+  approved_at TEXT,
+  status TEXT NOT NULL,           -- PENDING | APPROVED | REJECTED
+  report_rel_path TEXT NOT NULL,  -- where report.md lives
+  plan_rel_path TEXT NOT NULL,    -- where refactor_plan.json lives
+  notes TEXT,
+  FOREIGN KEY (run_id) REFERENCES runs(run_id) ON DELETE CASCADE
+);
+
+-- Telemetry events
+CREATE TABLE IF NOT EXISTS telemetry_events (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  run_id TEXT NOT NULL,
+  at TEXT NOT NULL,
+  level TEXT NOT NULL,            -- debug|info|warn|error
+  name TEXT NOT NULL,
+  data_json TEXT,
+  FOREIGN KEY (run_id) REFERENCES runs(run_id) ON DELETE CASCADE
+);
+
+CREATE INDEX IF NOT EXISTS idx_artifacts_run_kind ON artifacts(run_id, kind);
+CREATE INDEX IF NOT EXISTS idx_telemetry_run ON telemetry_events(run_id);
+```
+
+---
+
+## packages/analysis
+
+### `packages/analysis/package.json`
+
+```json
+{
+  "name": "@pkg/analysis",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pkg/shared": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "@pkg/storage": "workspace:*",
+    "@pkg/tooling": "workspace:*",
+    "fast-glob": "^3.3.2",
+    "ignore": "^5.3.2",
+    "ts-morph": "^24.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
+```
+
+### `packages/analysis/tsconfig.json`
+
+```json
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+---
+
+## packages/harness
+
+### `packages/harness/package.json`
+
+```json
+{
+  "name": "@pkg/harness",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pkg/shared": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "@pkg/storage": "workspace:*",
+    "@pkg/tooling": "workspace:*",
+    "@pkg/analysis": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
+```
+
+### `packages/harness/tsconfig.json`
+
+```json
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+---
+
+## packages/planning
+
+### `packages/planning/package.json`
+
+```json
+{
+  "name": "@pkg/planning",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pkg/shared": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "@pkg/storage": "workspace:*",
+    "@pkg/tooling": "workspace:*",
+    "@pkg/analysis": "workspace:*",
+    "@pkg/harness": "workspace:*",
+    "@pkg/llm": "workspace:*",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
+```
+
+### `packages/planning/tsconfig.json`
+
+```json
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+---
+
+## packages/refactor
+
+### `packages/refactor/package.json`
+
+```json
+{
+  "name": "@pkg/refactor",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pkg/shared": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "@pkg/storage": "workspace:*",
+    "@pkg/tooling": "workspace:*",
+    "@pkg/llm": "workspace:*",
+    "ts-morph": "^24.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
+```
+
+### `packages/refactor/tsconfig.json`
+
+```json
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+---
+
+## packages/llm
+
+### `packages/llm/package.json`
+
+```json
+{
+  "name": "@pkg/llm",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pkg/shared": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+
+    "openai": "^4.58.0",
+    "@anthropic-ai/sdk": "^0.32.1",
+    "@google/generative-ai": "^0.21.0",
+    "@mistralai/mistralai": "^1.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
+```
+
+### `packages/llm/tsconfig.json`
+
+```json
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+### `packages/llm/.env.example`
+
+```bash
+# OpenAI
+OPENAI_API_KEY=
+OPENAI_BASE_URL=
+
+# Anthropic
+ANTHROPIC_API_KEY=
+
+# Google Gemini
+GOOGLE_API_KEY=
+
+# Mistral
+MISTRAL_API_KEY=
+
+# Optional: OpenAI-compatible endpoints (DeepSeek / xAI إذا عبر compatible gateway)
+OPENAI_COMPAT_BASE_URL=
+OPENAI_COMPAT_API_KEY=
+```
+
+---
+
+## packages/engine
+
+### `packages/engine/package.json`
+
+```json
+{
+  "name": "@pkg/engine",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+
+    "cli:scan": "node dist/cli/index.js scan",
+    "cli:plan": "node dist/cli/index.js plan",
+    "cli:apply": "node dist/cli/index.js apply",
+    "cli:verify": "node dist/cli/index.js verify"
+  },
+  "dependencies": {
+    "@pkg/shared": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "@pkg/storage": "workspace:*",
+    "@pkg/tooling": "workspace:*",
+    "@pkg/analysis": "workspace:*",
+    "@pkg/harness": "workspace:*",
+    "@pkg/planning": "workspace:*",
+    "@pkg/refactor": "workspace:*",
+    "@pkg/llm": "workspace:*",
+
+    "commander": "^12.1.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
+```
+
+### `packages/engine/tsconfig.json`
+
+```json
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true
+  },
+  "include": ["src/**/*.ts"]
+}
+```
+
+---
+
+## ملاحظة اتساق ضرورية
+
+* `packages/tooling` و`packages/schemas` تم تزويدهما سابقًا.
+* جميع الحزم أعلاه مبنية على ESM (`"type": "module"`) ومتوافقة مع `module: NodeNext` في `tsconfig.base.json`.
