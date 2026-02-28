@@ -47,7 +47,7 @@ describe("detectDeadCode", () => {
       edges: [{ source: nodeId("/src/other.ts", "caller"), target: nodeId("/src/test.ts", "used") }]
     };
 
-    const candidates = detectDeadCode(project, new Map(), callGraphData as any, { runtime: [], test: [], tooling: [] });
+    const candidates = detectDeadCode(project, new Map(), callGraphData, { runtime: [], test: [], tooling: [] });
     expect(candidates).toHaveLength(0);
   });
 
