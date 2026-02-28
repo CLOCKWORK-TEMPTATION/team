@@ -1,0 +1,31 @@
+{
+  "name": "@app/desktop",
+  "private": true,
+  "type": "module",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "dev": "vite --config src/renderer/vite.config.ts",
+    "dev:electron": "electron .",
+    "build": "pnpm build:renderer && pnpm build:main",
+    "build:renderer": "vite build --config src/renderer/vite.config.ts",
+    "build:main": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pkg/engine": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "@pkg/storage": "workspace:*"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.0.0",
+    "typescript": "^5.5.0",
+    "vite": "^5.4.0",
+    "@vitejs/plugin-react": "^4.3.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0"
+  }
+}

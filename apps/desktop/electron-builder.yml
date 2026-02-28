@@ -1,0 +1,17 @@
+appId: com.local.reporefctorai
+productName: Repo Refactor AI
+directories:
+  output: dist-app
+files:
+  - "dist/**"
+  - "package.json"
+asar: true
+win:
+  target:
+    - nsis
+mac:
+  target:
+    - dmg
+linux:
+  target:
+    - AppImage

@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.node.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "composite": true,
+    "declaration": false
+  },
+  "include": [
+    "src/main/**/*.ts",
+    "src/preload/**/*.ts"
+  ]
+}

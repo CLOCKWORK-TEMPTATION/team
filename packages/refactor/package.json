@@ -1,0 +1,24 @@
+{
+  "name": "@pkg/refactor",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@pkg/shared": "workspace:*",
+    "@pkg/schemas": "workspace:*",
+    "@pkg/storage": "workspace:*",
+    "@pkg/tooling": "workspace:*",
+    "@pkg/llm": "workspace:*",
+    "ts-morph": "^24.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}
