@@ -1,0 +1,64 @@
+---
+id: d2d79d38-1ed1-486f-bca7-d442cc218d54
+---
+flowchart TB
+    subgraph root["e:\\team (repo-refactor-ai)"]
+        config["package.json, pnpm-workspace.yaml\nAGENTS.md, eslint.config.js"]
+        github[".github/workflows"]
+        apps["apps/"]
+        packages["packages/"]
+        docs["docs/"]
+        artifacts["artifacts/"]
+        dummy["dummy-project/"]
+    end
+
+    subgraph apps_desktop["apps/desktop (Electron)"]
+        main["main/"]
+        preload["preload/"]
+        renderer["renderer/"]
+    end
+
+    subgraph apps_renderer["renderer/src"]
+        api["api/"]
+        components["components/"]
+        routes["routes/"]
+        state["state/"]
+    end
+
+    subgraph pkgs["packages/"]
+        schemas["schemas"]
+        shared["shared"]
+        tooling["tooling"]
+        storage["storage"]
+        analysis["analysis"]
+        harness["harness"]
+        planning["planning"]
+        refactor["refactor"]
+        llm["llm"]
+        engine["engine"]
+    end
+
+    subgraph llm_src["llm/src"]
+        prompts["prompts/"]
+        providers["providers/"]
+        router["router.ts"]
+        generate_json["generate-json.ts"]
+    end
+
+    subgraph engine_src["engine/src"]
+        agents["agents/"]
+        cli["cli/"]
+        orchestrator["orchestrator/"]
+        api_engine["api/"]
+    end
+
+    root --> apps
+    root --> packages
+    apps --> apps_desktop
+    apps_desktop --> main
+    apps_desktop --> preload
+    apps_desktop --> renderer
+    renderer --> apps_renderer
+    packages --> pkgs
+    llm --> llm_src
+    engine --> engine_src

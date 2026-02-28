@@ -1,702 +1,407 @@
+# تقرير جاهزية الإنتاج
 
-### نقاط الضعف الرئيسية
+## ملخص التقنية
 
-- ثغرات أمنية في حزم التبعية (tar, electron)
-- غياب كامل لملفات الاختبار
-- غياب CI/CD pipeline
-- بعض المشكلات الأمنية في تكوين Electron
-
----
-
-## القسم الأول: ملخص التقنية
-
-### 1.1 هيكل المشروع
-
-المشروع عبارة عن Monorepo يستخدم pnpm workspaces ويتكون من الهيكل التالي:
-
-```
-repo-refactor-ai/
-├── apps/
-│   └── desktop/          # تطبيق Electron لسطح المكتب
-├── packages/
-│   ├── analysis/         # استخراج الأدلة والـ graphs
-│   ├── engine/           # المحرك الرئيسي و CLI
-│   ├── harness/          # اختبارات التكافؤ السلوكي
-│   ├── llm/              # مزودو LLM
-│   ├── planning/         # التخطيط وإدارة الموافقات
-│   ├── refactor/         # تنفيذ عمليات إعادة الهيكلة
-│   ├── schemas/          # مخططات Zod
-│   ├── shared/           # أدوات مشتركة
-│   ├── storage/          # SQLite والتخزين
-│   └── tooling/          # تشغيل أدوات التحليل
-├── package.json          # التكوين الرئيسي
-├── pnpm-workspace.yaml   # تكوين workspaces
-├── tsconfig.base.json    # تكوين TypeScript الأساسي
-├── eslint.config.js      # تكوين ESLint
-├── prettier.config.cjs   # تكوين Prettier
-└── vitest.config.ts     # تكوين الاختبارات
-```
-
-### 1.2 التقنيات المستخدمة
-
-| المكون | الإصدار | الوصف |
-|--------|---------|-------|
-| Node.js | >=20 | بيئة التشغيل |
-| TypeScript | ^5.5.0 | لغة البرمجة |
-| pnpm | 10.28.0 | مدير الحزم |
-| Electron | ^31.0.0 | إطار عمل سطح المكتب |
-| React | ^18.3.0 | واجهة المستخدم |
-| Vite | ^5.4.0 | أداة البناء |
-| better-sqlite3 | - | قاعدة البيانات |
-| Vitest | - | إطار الاختبارات |
-| ESLint | ^9.0.0 | فحص الكود |
-| Prettier | ^3.3.0 | تنسيق الكود |
-
-### 1.3 أوامر التشغيل
-
-```bash
-# البناء
-pnpm -r build
-
-# فحص النوع
-pnpm -r typecheck
-
-# فحص الكود
-pnpm -r lint
-
-# تشغيل المحرك
-pnpm engine:scan
-pnpm engine:plan
-pnpm engine:apply
-pnpm engine:verify
-
-# تشغيل التطبيق
-pnpm dev
-```
+| المكون | القيمة |
+|--------|-------|
+| اللغة | TypeScript |
+| الإطار | Electron (تطبيق سطح المكتب)، Node.js |
+| قاعدة البيانات | SQLite (better-sqlite3) |
+| مدير الحزم | pnpm (v10.28.0) |
+| الـ Monorepo | pnpm workspaces |
+| CI/CD | GitHub Actions |
+| ملف القفل | نعم (pnpm-lock.yaml) |
 
 ---
 
-## القسم الثاني: نتائج التقييم التفصيلية
+## النتيجة: PASS مشروط
 
-### 2.1 جدول الدرجات
+**الدرجة الإجمالية: 5.1/10**
 
-| الفئة | الدرجة (10) | الوزن (%) | المجموع المرجح |
-|-------|-------------|----------|---------------|
-| الأمان | 4.0 | 30% | 1.2 |
-| جودة الكود | 7.0 | 20% | 1.4 |
-| الأداء | 7.5 | 15% | 1.125 |
-| الاختبارات | 3.0 | 15% | 0.45 |
-| التكوين والتشغيل | 5.0 | 10% | 0.5 |
-| التوثيق | 6.0 | 10% | 0.6 |
-| **الإجمالي** | **5.8** | **100%** | **5.8** |
+**تفصيل الدرجات:**
 
-### 2.2 معايير الحكم
-
-- **PASS**: بدون مشكلات حرجة أو عالية،总分 ≥ 7.0
-- **CONDITIONAL PASS**: بدون مشكلات حرجة،总分 ≥ 5.0
-- **FAIL**: وجود مشكلات حرجة أو总分 < 5.0
+| الفئة | الدرجة (/10) | الوزن | المرجح |
+|-------|-------------|-------|--------|
+| الأمان | 5 | 30% | 1.5 |
+| جودة الكود | 6 | 20% | 1.2 |
+| الأداء | 5 | 15% | 0.75 |
+| الاختبارات | 3 | 15% | 0.45 |
+| التكوين والتشغيل | 6 | 10% | 0.6 |
+| التوثيق | 7 | 10% | 0.7 |
+| **الإجمالي** | | **100%** | **5.2** |
 
 ---
 
-## القسم الثالث: تدقيق الأمان
+## الفئة 1: الأمان (الدرجة: 5/10)
 
-### 3.1 النتائج الأمنية
+### النتائج
 
-تم إجراء فحص أمني شامل على الكود المصدري والحزم依赖ية. النتائج كالتالي:
+#### 1. [HIGH] ثغرة CVE في حزمة tar
 
-| المستوى | العدد | الحالة |
-|---------|-------|--------|
-| CRITICAL | 2 | ❌ موجود |
-| HIGH | 3 | ❌ موجود |
-| MEDIUM | 4 | ⚠️ موجود |
-| LOW | 3 | ✅ قابل للإصلاح |
-
-### 3.2 المشكلات الحرجة
-
-#### المشكلة الأولى: ثغرات متعددة في حزمة tar
-
-**الملف المتأثر**: `apps/desktop/package.json`
-
-**الوصف**: حزمة tar (التي تأتي كتبعية متعدية عبر electron-builder) تحتوي على أربع ثغرات أمنية خطيرة:
-
-1. **Path Traversal**: تسمح بإنشاء/كتابة ملفات عشوائية عبر هجمات hardlink و symlink
-2. **Symlink Poisoning**: تسمح بتسميم الروابط الرمزية
-3. **Unicode Ligature Collision**: سباق في حجز المسارات عبر تصادمات Unicode على نظام macOS APFS
-4. **Hardlink Path Traversal**: قراءة/كتابة ملفات عشوائية عبر سلسلة من الروابط الثابتة
-
-**معرفات الثغرات**:
-- GHSA-8qq5-rm4j-mr97
-- GHSA-34x7-hfp2-rc4v
-- GHSA-r6q2-hw4h-h46w
-
-**الإصلاح**: تحديث electron-builder إلى الإصدار 25.0.0 أو أعلى، أو إضافة التكوين التالي في `pnpm-workspace.yaml`:
-
-```yaml
-pnpm:
-  overrides:
-    tar: '>=7.5.8'
-```
-
-**الجهد المطلوب**: صغير (S)
-
----
-
-#### المشكلة الثانية: ثغرة Electron ASAR Integrity Bypass
-
-**الملف المتأثر**: `apps/desktop/package.json`
-
-**الوصف**: Electron بإصدارات أقل من 35.7.5 يحتوي على ثغرة تسمح بتجاوز التحقق من سلامة ملفات ASAR عبر تعديل الموارد.
-
-**معرف الثغرة**: GHSA-vmqv-hx8q-j7mg
-
-**الإصلاح**: تحديث Electron إلى الإصدار 35.7.5 أو أعلى:
-
-```json
-{
-  "devDependencies": {
-    "electron": "^35.7.5"
+- **الملف:** `pnpm-lock.yaml` (تبعية متعدية عبر electron-builder)
+- **الدليل:** حزمة tar بإصدارات <=7.5.3, <7.5.7, <=7.5.2, <7.5.8 تحتوي على 4 ثغرات (GHSA-r6q2-hw4h-h46w, GHSA-34x7-hfp2-rc4v, GHSA-8qq5-rm4j-mr97, GHSA-83g3-92jg-28cx)
+- **التأثير:** قراءة/كتابة ملفات عشوائية، هجمات path traversal أثناء الاستخراج
+- **الإصلاح:** الإضافة في `package.json`:
+  ```json
+  "pnpm": {
+    "overrides": {
+      "tar": ">=7.5.8"
+    }
   }
-}
-```
+  ```
+- **الجهد:** S
 
-**الجهد المطلوب**: متوسط (M)
+#### 2. [HIGH] ثغرة Command Injection - عدم التحقق من repoPath
 
----
+- **الملف:** `apps/desktop/src/main/ipc.ts:28`
+- **الدليل:**
+  ```typescript
+  ipcMain.handle("pipeline:scan", async (_, repoPath: string) => {
+    const { stdout } = await execa("node", [cliPath, "scan", repoPath]);
+  ```
+- **التأثير:** تنفيذ أوامر عشوائية إذا تم التحكم في repoPath
+- **الإصلاح:**
+  ```typescript
+  const sanitizedPath = path.resolve(repoPath);
+  if (!sanitizedPath.startsWith(process.cwd())) {
+    throw new Error("Path traversal detected");
+  }
+  ```
+- **الجهد:** S
 
-### 3.3 المشكلات العالية
+#### 3. [HIGH] ثغرة Command Injection - عدم التحقق من runId
 
-#### المشكلة الثالثة: غياب التحقق من مدخلات runId
+- **الملف:** `apps/desktop/src/main/ipc.ts:36-40`
+- **الدليل:**
+  ```typescript
+  ipcMain.handle("pipeline:plan", async (_, runId: string) => {
+    const { stdout } = await execa("node", [cliPath, "plan", runId]);
+  ```
+- **التأثير:** تنفيذ أوامر عشوائية
+- **الإصلاح:**
+  ```typescript
+  if (!/^[a-zA-Z0-9_]+$/.test(runId)) {
+    throw new Error("Invalid runId format");
+  }
+  ```
+- **الجهد:** S
 
-**الملف**: `packages/engine/src/cli/apply.ts:10`
+#### 4. [MEDIUM] غياب التحقق من المدخلات في CLI
 
-**الكود الحالي**:
-```typescript
-const planPath = path.resolve(`artifacts/runs/${runId}/plan/plan.json`);
-```
+- **الملف:** `packages/engine/src/cli/scan.ts:17`
+- **الدليل:**
+  ```typescript
+  .action(async (repoPathArg: string) => {
+    const repoPath = resolve(repoPathArg);
+  ```
+- **التأثير:** يمكن أن يسمح بالوصول خارج الدليل المحدد
+- **الإصلاح:** إضافة التحقق من الحدود
+- **الجهد:** S
 
-**الوصف**: معامل `runId` يُستخدم مباشرة في بناء مسار الملفات بدون أي تحقق، مما يسمح بهجوم Path Traversal إذا تمكن المهاجم من التحكم في قيمة هذا المعامل.
+### خطة الوصول إلى 10/10
 
-**الإصلاح**: إضافة التحقق التالي:
-
-```typescript
-// التحقق من صحة runId
-if (!/^[a-zA-Z0-9_]+$/.test(runId)) {
-  throw new Error('Invalid runId: must be alphanumeric with underscores only');
-}
-
-const planPath = path.resolve(`artifacts/runs/${runId}/plan/plan.json`);
-```
-
-**الجهد المطلوب**: صغير (S)
-
----
-
-#### المشكلة الرابعة: غياب CI/CD Pipeline
-
-**الملف**: المشروع ككل
-
-**الوصف**: لا يوجد أي تكوين CI/CD في المشروع (لا GitHub Actions, لا Jenkins, لا غيرها). هذا يعني:
-
-- لا توجد فحوصات آلية عند كل commit
-- لا يوجد نشر آلي
-- لا توجد فحوصات أمنية آلية
-- لا يوجد بناء آلي للإصدارات
-
-**الإصلاح**: إنشاء ملف `.github/workflows/ci.yml`:
-
-```yaml
-name: CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'pnpm'
-      - run: pnpm install
-      - run: pnpm -r typecheck
-      - run: pnpm -r lint
-      - run: pnpm -r build
-
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'pnpm'
-      - run: pnpm install
-      - run: pnpm test
-```
-
-**الجهد المطلوب**: كبير (L)
+1. إضافة override لحزمة tar في `package.json` → الجهد: S
+2. التحقق من صحة repoPath في معالج IPC → الملف: `apps/desktop/src/main/ipc.ts` → الجهد: S
+3. التحقق من صحة runId في معالج IPC → الملف: `apps/desktop/src/main/ipc.ts` → الجهد: S
+4. إضافة التحقق من المسارات في أوامر CLI → الملفات: `packages/engine/src/cli/*.ts` → الجهد: S
 
 ---
 
-#### المشكلة الخامسة: غياب ملفات الاختبار
+## الفئة 2: جودة الكود (الدرجة: 6/10)
 
-**الملف**: المشروع ككل
+### النتائج
 
-**الوصف**: تم تكوين Vitest في ملف `vitest.config.ts`، 但是 لا توجد أي ملفات اختبار `.test.ts` في الكود المصدري. هذا يعني:
+#### 1. عبارات console في كود الإنتاج
 
-- لا يوجد اختبار.Unit للوظائف الأساسية
-- لا يوجد اختبار التكافؤ السلوكي
-- لا يوجد ضمان لجودة الكود عند التعديل
+- **الملف:** `apps/desktop/src/main/main.ts:53,57`
+- **الدليل:**
+  ```typescript
+  console.log("App is shutting down gracefully...")
+  console.log("Received shutdown signal...")
+  ```
+- **التأثير:** عدم الاتساق مع نمط التسجيل المنظم
+- **الإصلاح:** الاستبدال بـ `logger.info()` من `@pkg/shared`
+- **الجهد:** S
 
-**الإصلاح**: إنشاء ملفات اختبار للحزم الأساسية:
+#### 2. فحص البيئة في منطق العمل
 
-```
-packages/
-├── storage/
-│   └── src/
-│       └── db/
-│           └── client.test.ts    # اختبارات قاعدة البيانات
-├── analysis/
-│   └── src/
-│       └── detectors/
-│           └── dead-code.test.ts  # اختبارات كاشف الكود الميت
-└── shared/
-    └── src/
-        └── fs/
-            └── fs.test.ts        # اختبارات نظام الملفات
-```
+- **الملف:** `apps/desktop/src/main/main.ts:27`
+- **الدليل:**
+  ```typescript
+  if (process.env.NODE_ENV === "development") { ... }
+  ```
+- **التأثير:** تقليل قابلية الصيانة
+- **الإصلاح:** النقل إلى تجريد التكوين
+- **الجهد:** S
 
-**الجهد المطلوب**: كبير (L)
+#### 3. جودة معالجة الأخطاء
 
----
+- **الحالة:** ✅ جيدة بشكل عام - معظم العمليات غير المتزامنة имеют try/catch
+- **الدليل:** `packages/planner/src/planner.ts:62-85` لديه معالجة أخطاء مناسبة مع fallback
 
-### 3.4 المشكلات المتوسطة
+#### 4. فصل الهندسة
 
-#### المشكلة السادسة: ثغرة esbuild SSRF
+- **الحالة:** ✅ monorepo хорошо структурирован с четкими границами пакетов
+- **الدليل:** 10 حزم مع حدود موثقة في `docs/boundaries.md`
 
-**الملف**: `apps/desktop/package.json`
+### خطة الوصول إلى 10/10
 
-**الوصف**: esbuild بإصدار 0.24.2 أو أقل يسمح لأي موقع ويب بإرسال طلبات إلى خادم التطوير وقراءة الاستجابة.
-
-**معرف الثغرة**: GHSA-67mh-4wv8-2f99
-
-**الإصلاح**: تحديث esbuild إلى 0.25.0 أو أعلى.
-
----
-
-#### المشكلة السابعة: غياب تكوين الأمان في Electron
-
-**الملف**: `apps/desktop/src/main/main.ts:14`
-
-**الكود الحالي**:
-```typescript
-const mainWindow = new BrowserWindow({
-  width: 1200,
-  height: 800,
-  webPreferences: {
-    preload: path.join(__dirname, "../preload/preload.js"),
-  },
-});
-```
-
-**الوصف**: نافذة BrowserWindow تُنشأ بدون إعدادات الأمان الأساسية مثل `nodeIntegration: false` و `contextIsolation: true` و `sandbox: true`.
-
-**الإصلاح**:
-```typescript
-const mainWindow = new BrowserWindow({
-  width: 1200,
-  height: 800,
-  webPreferences: {
-    preload: path.join(__dirname, "../preload/preload.js"),
-    nodeIntegration: false,
-    contextIsolation: true,
-    sandbox: true,
-  },
-});
-```
+1. استبدال console.log بتسجيل منظم في `apps/desktop/src/main/main.ts` → الجهد: S
+2. نقل شروط البيئة إلى تجريد التكوين → الجهد: S
+3. إضافة تعليقات JSDoc للوظائف المعقدة في `packages/analysis/src/` → الجهد: M
 
 ---
 
-#### المشكلة الثامنة: غياب Content Security Policy
+## الفئة 3: الأداء (الدرجة: 5/10)
 
-**الملف**: `apps/desktop/src/renderer/index.html`
+### النتائج
 
-**الوصف**: قالب HTML يفتقر إلى وسم Content-Security-Policy للحماية من هجمات XSS.
+#### 1. [HIGH] غياب فهارس قاعدة البيانات
 
-**الإصلاح**: إضافة في `<head>`:
-```html
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline';">
-```
+- **الملف:** `packages/storage/src/db/migrate.ts`
+- **الدليل:** جدول `runs` لا يحتوي على فهارس على الأعمدة `status`, `repo_id`, `created_at`
+- **التأثير:** فحص كامل للجدول عند القياس (O(n) → O(1) مع الفهارس)
+- **الإصلاح:**
+  ```sql
+  CREATE INDEX idx_runs_status ON runs(status);
+  CREATE INDEX idx_runs_repo_id ON runs(repo_id);
+  CREATE INDEX idx_runs_created_at ON runs(created_at);
+  ```
+- **الجهد:** S
 
----
+#### 2. [HIGH] إدخال/إخراج ملفات متسلسل
 
-#### المشكلة التاسعة: غياب فصل البيئات
+- **الملف:** `packages/harness/src/generators/snapshot.ts`
+- **الدليل:** كتابة 10+ ملفات بشكل متسلسل في حلقة
+- **الحالي:** O(n) متسلسل → **المحسّن:** O(1) متزامن مع Promise.all
+- **الإصلاح:**
+  ```typescript
+  await Promise.all(files.map(f => writeFile(f.path, f.content)));
+  ```
+- **الجهد:** S
 
-**الملف**: المشروع ككل
+#### 3. [HIGH] غياب مهلة LLM
 
-**الوصف**: لا يوجد تكوين منفصل للبيئات (development, staging, production).
+- **الملف:** `packages/llm/src/providers/openai.ts`
+- **الدليل:** استدعاءات API الخارجية يمكن أن تتوقف إلى أجل غير مسمى
+- **التأثير:** خطر استنزاف مجموعة الاتصالات
+- **الإصلاح:** إضافة مهلة لاستدعاءات fetch/execa
+- **الجهد:** S
 
-**الإصلاح**: إنشاء ملفات:
-- `.env.development`
-- `.env.staging`
-- `.env.production`
+#### 4. [MEDIUM] غياب التخزين المؤقت لـ ts-morph
 
----
+- **الملفات:** `packages/analysis/src/indexer/ts-morph.ts`
+- **التأثير:** إعادة بناء المشاريع من الصفر في كل تشغيل
+- **الإصلاح:** تنفيذ تخزين مؤقت بناءً على تجزئة الملفات
+- **الجهد:** M
 
-### 3.5 المشكلات المنخفضة
+#### 5. [MEDIUM] عمليات بحث O(n) في رسم الاتصال
 
-#### المشكلة العاشرة: غياب ملف README.md
+- **الملف:** `packages/analysis/src/graphs/call-graph.ts`
+- **الدليل:** `getCallers()` يفحص خطيًا جميع الحواف
+- **التأثير:** مع 100K حواف، يتسبب بملايين العمليات
+- **الإصلاح:** تحويل قائمة الحواف إلى Map لعمليات O(1)
+- **الجهد:** M
 
-لا يوجد ملف README يوضح كيفية إعداد وتشغيل المشروع.
+### خطة الوصول إلى 10/10
 
-#### المشكلة الحادية عشرة: غياب health checks
-
-لا توجد نهاية نقطة للتحقق من حالة التطبيق.
-
-#### المشكلة الثانية عشرة: غياب graceful shutdown
-
-التطبيق لا يعالج إشارات SIGTERM/SIGINT لإغلاق الاتصالات بشكل صحيح.
-
----
-
-## القسم الرابع: فحص جودة الكود
-
-### 4.1 النتائج
-
-تم فحص الكود المصدري من حيث:
-
-- **أنماط الكود**: ✅ متسقة بشكل عام
-- **التسمية**: ✅ واضحة ومفهومة
-- **الفصل بين الاهتمامات**: ✅ ممتاز (حزم منفصلة)
-- **Type Safety**: ✅ TypeScript مع strict mode
-- **تنفيذ الأخطاء**: ✅ معالجة أخطاء مناسبة
-
-### 4.2 نقاط القوة
-
-1. **بنية Monorepo ممتازة**: فصل واضح للمسؤوليات بين الحزم
-2. **TypeScript Strict**: المشروع يستخدم TypeScript مع وضع strict
-3. **ESLint + Prettier**: أدوات التنسيق والفحص مكونة
-4. **dependency-cruiser**: مكونات لمنع cycles والاختراق
+1. إضافة فهارس قاعدة البيانات على جدول runs → الملف: `packages/storage/src/db/migrate.ts` → الجهد: S
+2. تحويل الكتابات المتسلسلة إلى Promise.all → الملف: `packages/harness/src/generators/snapshot.ts` → الجهد: S
+3. إضافة مهلة لاستدعاءات LLM API → الملف: `packages/llm/src/providers/openai.ts` → الجهد: S
+4. تنفيذ التخزين المؤقت لمشاريع ts-morph → الملف: `packages/analysis/src/indexer/ts-morph.ts` → الجهد: M
+5. تحسين عمليات بحث رسم الاتصال إلى O(1) → الملف: `packages/analysis/src/graphs/call-graph.ts` → الجهد: M
 
 ---
 
-## القسم الخامس: فحص الأداء
+## الفئة 4: الاختبارات (الدرجة: 3/10)
 
-### 5.1 النتائج
+### خريطة تغطية الاختبارات
 
-| المعيار | الحالة |
-|--------|--------|
-| N+1 Queries | ✅ غير موجود (SQLite) |
-| Database Indexes | ✅ مهيأة بشكل صحيح |
-| Memory Leaks | ✅ لا توجد مؤشرات |
-| Timeouts | ✅ موجودة |
-| Connection Pooling | ✅ مطبقة (WAL mode) |
+| ملف الوحدة | فيه اختبارات؟ | نوع الاختبار | عدد الحالات | الفجوات |
+|-----------|--------------|-------------|-------------|---------|
+| packages/analysis/src/detectors/dead-code.ts | نعم | Unit | 4 | لا يوجد |
+| packages/shared/src/fs/index.ts | نعم | Unit | 5 | لا يوجد |
+| packages/storage/src/db/client.ts | نعم | Unit | 3 | لا يوجد |
+| packages/engine/src/cli/scan.ts | لا | - | 0 | مفقود: التحقق من معاملات CLI، مسارات الأخطاء |
+| packages/engine/src/cli/plan.ts | لا | - | 0 | مفقود: توليد الخطة، سلوك fallback |
+| packages/planning/src/planner.ts | لا | - | 0 | مفقود: تحليل استجابة LLM، التحقق من Zod |
+| packages/llm/src/router.ts | لا | - | 0 | مفقود: توجيه المزود، معالجة الأخطاء |
+| packages/refactor/src/git/index.ts | لا | - | 0 | مفقود: عمليات Git |
+| packages/harness/src/runner/before-after.ts | لا | - | 0 | مفقود: تنفيذ Harness |
+| packages/storage/src/artifacts/writer.ts | لا | - | 0 | مفقود: كتابة الملفات، حل المسارات |
+| apps/desktop/src/main/ipc.ts | لا | - | 0 | مفقود: معالجات IPC |
 
----
+### النتائج
 
-## القسم السادس: التكوين والتشغيل
+#### 1. [HIGH] فقط 12 حالة اختبار موجودة
 
-### 6.1 النتائج
+- **الحالة:** فقط 3 ملفات اختبار لـ monorepo من 10 حزم
+- **التأثير:** مسارات حرجة بدون اختبار (توليد الخطة، تنفيذ إعادة الهيكلة، توجيه LLM)
+- **الإصلاح:** إنشاء ملفات اختبار لجميع الوحدات غير المختبرة
 
-| المعيار | الحالة |
-|--------|--------|
-| فصل البيئات | ❌ غير موجود |
-| Logging | ⚠️ موجود (console.log) |
-| Error Reporting | ❌ غير موجود |
-| Health Checks | ❌ غير موجود |
-| Graceful Shutdown | ❌ غير موجود |
-| Migrations | ⚠️ موجودة لكن بسيطة |
+#### 2. [HIGH] لا يوجد نص اختبار في package.json
 
----
+- **الملف:** `package.json`
+- **الدليل:** `"test": "vitest run"` غير موجود في النصوص
+- **التأثير:** خط أنابيب CI معطل - مرحلة الاختبار تفشل
+- **الإصلاح:** إضافة `"test": "vitest run"` للنصوص
 
-## القسم السابع: التوثيق
+#### 3. [HIGH] لا يوجد تكوين تغطية
 
-### 7.1 النتائج
+- **الحالة:** لا توجد أداة تغطية مكونة
+- **التأثير:** لا رؤية لتغطية الاختبار
+- **إصلاح:** إضافة تكوين تغطية Vitest
 
-| المعيار | الحالة |
-|--------|--------|
-| README | ❌ غير موجود |
-| API Docs | ⚠️ جزئي |
-| Architecture Docs | ✅ موجود (AGENTS.md) |
-| Deployment Guide | ❌ غير موجود |
+#### 4. [MEDIUM] لا توجد خطافات ما قبل الالتزام
 
----
+- **الحالة:** لا يوجد husky أو lint-staged مكون
+- **التأثير:** فحص الكود غير مفروض قبل الالتزام
+- **إصلاح:** إضافة husky + lint-staged
 
-## القسم التاسع: خطة العمل للوصول إلى 10/10 لكل فئة
+### خطة الوصول إلى 10/10
 
----
-
-### 9.1 فئة الأمان (الحالية: 4.0/10 → المستهدفة: 10/10)
-
-#### المشكلات الحالية:
-1. ❌ ثغرات tar (CRITICAL)
-2. ❌ ثغرة Electron ASAR (CRITICAL)
-3. ❌ غياب التحقق من runId (HIGH)
-4. ❌ ثغرة esbuild SSRF (MEDIUM)
-5. ❌ غياب تكوين Electron الأمني (MEDIUM)
-6. ❌ غياب CSP (MEDIUM)
-
-#### المطلوب للوصول إلى 10/10:
-
-| الرقم | الإجراء | الملف | الجهد | الأولوية |
-|-------|---------|-------|-------|----------|
-| 1.1 | تحديث electron-builder إلى v25+ | apps/desktop/package.json | S | CRITICAL |
-| 1.2 | تحديث Electron إلى v35.7.5+ | apps/desktop/package.json | M | CRITICAL |
-| 1.3 | إضافة pnpm overrides لتحديث tar | pnpm-workspace.yaml | S | CRITICAL |
-| 1.4 | إضافة التحقق من صحة runId | packages/engine/src/cli/apply.ts | S | HIGH |
-| 1.5 | تحديث esbuild/vite | apps/desktop/package.json | S | MEDIUM |
-| 1.6 | إضافة nodeIntegration: false, contextIsolation: true, sandbox: true | apps/desktop/src/main/main.ts | S | MEDIUM |
-| 1.7 | إضافة CSP meta tag | apps/desktop/src/renderer/index.html | S | MEDIUM |
-| 1.8 | إضافة .env للـ secrets | packages/llm/.env.example | S | LOW |
+1. إضافة نص الاختبار في `package.json`: `"test": "vitest run"` → الجهد: S
+2. إنشاء `packages/engine/src/cli/scan.test.ts` (8 حالات اختبار) → الجهد: M
+3. إنشاء `packages/planning/src/planner.test.ts` (10 حالات اختبار) → الجهد: M
+4. إنشاء `packages/llm/src/router.test.ts` (6 حالات اختبار) → الجهد: M
+5. إنشاء `packages/refactor/src/git/index.test.ts` (5 حالات اختبار) → الجهد: M
+6. إنشاء `packages/harness/src/runner/before-after.test.ts` (5 حالات اختبار) → الجهد: M
+7. إضافة تغطية Vitest: `"test:coverage": "vitest run --coverage"` → الجهد: S
+8. إضافة خطافات husky ما قبل الالتزام → الجهد: S
 
 ---
 
-### 9.2 فئة جودة الكود (الحالية: 7.0/10 → المستهدفة: 10/10)
+## الفئة 5: التكوين والتشغيل (الدرجة: 6/10)
 
-#### ما جيد:
-- ✅ بنية Monorepo ممتازة
-- ✅ TypeScript strict mode
-- ✅ ESLint + Prettier مكونان
-- ✅ فصل واضح بين الحزم
+### مصفوفة الحالة
 
-#### المطلوب للوصول إلى 10/10:
+| الفحص | الحالة | الملاحظات |
+|-------|--------|----------|
+| فصل البيئات | ✅ | .env.development, .env.staging, .env.production موجودة |
+| التسجيل المنظم | ✅ | يستخدم Pino في `packages/shared/src/log/index.ts` |
+| الإبلاغ عن الأخطاء | ❌ | لا يوجد Sentry/Datadog/CloudWatch مكون |
+| فحوصات الصحة | ⚠️ | IPC health check موجود لكن لا يفحص التبعيات |
+| الإيقاف السلس | ✅ | معالجات SIGTERM/SIGINT في main.ts |
+| هجرة قاعدة البيانات | ⚠️ | موجودة لكن غير مُصدَّرة |
 
-| الرقم | الإجراء | الملف | الجهد | الأولوية |
-|-------|---------|-------|-------|----------|
-| 2.1 | إضافة JSDoc للتوثيق العام | جميع الملفات المصدرية | M | MEDIUM |
-| 2.2 | إضافة type hints للحقول العامة | packages/*/src/index.ts | S | LOW |
-| 2.3 | مراجعة Magic Numbers | جميع ملفات .ts | M | LOW |
-| 2.4 | إضافة error boundaries | apps/desktop/src/renderer | M | LOW |
-| 2.5 | توحيد أنماط معالجة الأخطاء | packages/engine/src/cli/* | S | MEDIUM |
+### النتائج
 
----
+#### 1. [HIGH] لا يوجد تتبع خارجي للأخطاء
 
-### 9.3 فئة الأداء (الحالية: 7.5/10 → المستهدفة: 10/10)
+- **الحالة:** لا يوجد Sentry، Datadog، أو CloudWatch
+- **الإصلاح:** تثبيت `@sentry/electron` لتطبيق Electron
+- **الجهد:** M
 
-#### ما جيد:
-- ✅ SQLite مع WAL mode
-- ✅ Database indexes مهيأة
-- ✅ No N+1 queries
-- ✅ Timeouts موجودة
+#### 2. [MEDIUM] فحص الصحة غير مكتمل
 
-#### المطلوب للوصول إلى 10/10:
+- **الملف:** `apps/desktop/src/main/main.ts`
+- **الدليل:** يُرجع فقط `{ status: "ok", uptime, timestamp }` - لا توجد فحوصات DB/خارجية
+- **الإصلاح:** إضافة فحص اتصال SQLite
+- **الجهد:** S
 
-| الرقم | الإجراء | الملف | الجهد | الأولوية |
-|-------|---------|-------|-------|----------|
-| 3.1 | إضافة caching للـ analysis results | packages/analysis/src | M | MEDIUM |
-| 3.2 | تحسين parallel processing | packages/engine/src/cli | M | MEDIUM |
-| 3.3 | إضافة lazy loading | apps/desktop/src/renderer | S | LOW |
-| 3.4 | تحسين حجم Bundle | apps/desktop/vite.config.ts | M | MEDIUM |
-| 3.5 | إضافة performance monitoring | packages/shared/src/log | S | LOW |
+#### 3. [MEDIUM] هجرة قاعدة البيانات غير مُصدَّرة
 
----
+- **الملف:** `packages/storage/src/db/migrate.ts`
+- **الدليل:** يشغل schema.sql مرة واحدة فقط - لا توجد جدولة للإصدارات
+- **الإصلاح:** تنفيذ نظام هجرة صحيح مع إصدارات
+- **الجهد:** H
 
-### 9.4 فئة الاختبارات (الحالية: 3.0/10 → المستهدفة: 10/10)
+### خطة الوصول إلى 10/10
 
-#### الوضع الحالي:
-- ❌ لا توجد ملفات اختبار
-- ✅ Vitest مكون
-
-#### المطلوب للوصول إلى 10/10:
-
-| الرقم | الإجراء | الملف | الجهد | الأولوية |
-|-------|---------|-------|-------|----------|
-| 4.1 | إنشاء اختبارات لـ storage/db/client.ts | packages/storage/src/db/client.test.ts | M | HIGH |
-| 4.2 | إنشاء اختبارات لـ analysis/detectors | packages/analysis/src/detectors/dead-code.test.ts | M | HIGH |
-| 4.3 | إنشاء اختبارات لـ shared/fs | packages/shared/src/fs/fs.test.ts | S | HIGH |
-| 4.4 | إنشاء اختبارات لـ shared/crypto | packages/shared/src/crypto/crypto.test.ts | S | HIGH |
-| 4.5 | إنشاء اختبارات لـ schemas | packages/schemas/src/*.test.ts | M | HIGH |
-| 4.6 | إنشاء اختبارات لـ planner | packages/planning/src/planner.test.ts | M | MEDIUM |
-| 4.7 | إنشاء اختبارات لـ CLI commands | packages/engine/src/cli/*.test.ts | M | MEDIUM |
-| 4.8 | إضافة integration tests | tests/integration/*.ts | L | MEDIUM |
-| 4.9 | إضافة coverage configuration | vitest.config.ts | S | MEDIUM |
-| 4.10 | إضافة e2e tests (Playwright) | tests/e2e/*.spec.ts | L | LOW |
+1. تثبيت وتكوين Sentry لـ Electron → الجهد: M
+2. إضافة فحوصات صحة التبعيات لنقطة النهاية → الملف: `apps/desktop/src/main/main.ts` → الجهد: S
+3. تنفيذ هجرة قاعدة البيانات المُصدَّرة → الملف: `packages/storage/src/db/migrate.ts` → الجهد: H
 
 ---
 
-### 9.5 فئة التكوين والتشغيل (الحالية: 5.0/10 → المستهدفة: 10/10)
+## الفئة 6: التوثيق (الدرجة: 7/10)
 
-#### الوضع الحالي:
-- ❌ لا يوجد فصل بيئات
-- ⚠️ Logging بسيط (console.log)
-- ❌ لا يوجد error reporting
-- ❌ لا يوجد health checks
-- ❌ لا يوجد graceful shutdown
+### اكتمال README
 
-#### المطلوب للوصول إلى 10/10:
+| القسم | الحالة | الملاحظات |
+|-------|--------|----------|
+| وصف المشروع | ✅ | وصف واضح لـ monorepo |
+| المتطلبات الأساسية | ✅ | Node.js v20+, pnpm v9/10+ |
+| خطوات الإعداد | ✅ | pnpm install موثق |
+| أوامر التشغيل | ✅ | جميع النصوص موثقة |
+| متغيرات البيئة | ⚠️ | يذكر .env.example لكن لا يسرد جميع المتغيرات |
+| نظرة عامة على الهندسة | ✅ | تفصيل جيد للحزم |
+| دليل المساهمة | ❌ | غير موجود |
 
-| الرقم | الإجراء | الملف | الجهد | الأولوية |
-|-------|---------|-------|-------|----------|
-| 5.1 | إنشاء .env.development | .env.development | S | MEDIUM |
-| 5.2 | إنشاء .env.staging | .env.staging | S | MEDIUM |
-| 5.3 | إنشاء .env.production | .env.production | S | MEDIUM |
-| 5.4 | إضافة dotenv config | packages/*/src/index.ts | S | MEDIUM |
-| 5.5 | استبدال console.log بـ proper logger | packages/shared/src/log/index.ts | M | MEDIUM |
-| 5.6 | إضافة Sentry/Datadog | packages/shared/src/log | M | HIGH |
-| 5.7 | إضافة /health IPC handler | apps/desktop/src/main/ipc.ts | S | MEDIUM |
-| 5.8 | إضافة graceful shutdown | apps/desktop/src/main/main.ts | S | MEDIUM |
-| 5.9 | إضافة startup checks | apps/desktop/src/main/main.ts | S | LOW |
-| 5.10 | إضافة environment validation | packages/engine/src/cli | S | LOW |
+### فجوات التوثيق
 
----
+- لا يوجد دليل مساهمة في المستودع
+- لا يوجد دليل نشر
+- متغيرات البيئة غير مدرجة بالكامل في README
 
-### 9.6 فئة التوثيق (الحالية: 6.0/10 → المستهدفة: 10/10)
+### النتائج
 
-#### الوضع الحالي:
-- ❌ لا يوجد README
-- ⚠️ API Docs جزئي
-- ✅ AGENTS.md موجود
-- ❌ لا يوجد deployment guide
+#### 1. [MEDIUM] غياب دليل المساهمة
 
-#### المطلوب للوصول إلى 10/10:
+- **الحالة:** لا يوجد ملف CONTRIBUTING.md
+- **الإصلاح:** إنشاء CONTRIBUTING.md مع عملية PR، أسلوب الكود، اتفاقيات الالتزام
 
-| الرقم | الإجراء | الملف | الجهد | الأولوية |
-|-------|---------|-------|-------|----------|
-| 6.1 | إنشاء README.md | README.md | M | HIGH |
-| 6.2 | إنشاء API Documentation | docs/api.md | M | HIGH |
-| 6.3 | إنشاء Deployment Guide | docs/deployment.md | M | HIGH |
-| 6.4 | إنشاء CONTRIBUTING.md | CONTRIBUTING.md | S | MEDIUM |
-| 6.5 | إضافة CHANGELOG.md | CHANGELOG.md | S | LOW |
-| 6.6 | إنشاء Architecture Decision Records | docs/adr/*.md | L | LOW |
+#### 2. [MEDIUM] غياب دليل النشر
+
+- **الحالة:** لا يوجد deployment.md أو production-deployment.md
+- **الإصلاح:** توثيق عملية بناء Electron، طرق التوزيع
+
+### خطة الوصول إلى 10/10
+
+1. إضافة قسم متغيرات البيئة الكامل في README.md → الجهد: S
+2. إنشاء CONTRIBUTING.md → الجهد: S
+3. إنشاء docs/deployment.md مع خطوات الإنتاج → الجهد: M
 
 ---
 
-### 9.7 ملخص المهام حسب الأولوية
+## خطة العمل الموحدة
 
-#### قبل الإصدار (مطلوب):
+### المرحلة 1: قبل الإطلاق (حرج + عالي)
 
-| الفئة | المهمة | الجهد | الدرجة قبل | الدرجة بعد |
-|-------|--------|-------|-----------|------------|
-| الأمان | تحديث electron-builder +Electron | M | 4.0 | 6.5 |
-| الأمان | إضافة التحقق من runId | S | 6.5 | 7.5 |
-| الاختبارات | إضافة 5+ اختبارات أساسية | M | 3.0 | 5.0 |
-| التكوين | إضافة Sentry | M | 5.0 | 6.5 |
-| التوثيق | إنشاء README + API docs | M | 6.0 | 8.0 |
+- [ ] [SEC-1] إضافة override لحزمة tar → الجهد: S
+- [ ] [SEC-2] التحقق من repoPath في IPC → الجهد: S
+- [ ] [SEC-3] التحقق من صحة runId في IPC → الجهد: S
+- [ ] [TEST-1] إضافة نص الاختبار في package.json → الجهد: S
+- [ ] [PERF-1] إضافة فهارس قاعدة البيانات → الجهد: S
 
-#### Sprint 1:
+### المرحلة 2: Sprint الأول بعد الإطلاق (متوسط)
 
-| الفئة | المهمة | الجهد | الدرجة قبل | الدرجة بعد |
-|-------|--------|-------|-----------|------------|
-| الأمان | إصلاح تكوين Electron + CSP | S | 7.5 | 9.0 |
-| التكوين | إضافة health checks + shutdown | S | 6.5 | 8.0 |
-| الاختبارات | إضافة 10+ اختبارات | M | 5.0 | 7.0 |
-| التوثيق | إنشاء Deployment Guide | M | 8.0 | 9.0 |
+- [ ] [SEC-4] إضافة التحقق من المسارات في CLI → الجهد: S
+- [ ] [CODE-1] استبدال console.log بـ logger → الجهد: S
+- [ ] [PERF-2] تحويل الكتابات المتسلسلة إلى Promise.all → الجهد: S
+- [ ] [PERF-3] إضافة مهلة LLM → الجهد: S
+- [ ] [TEST-2-7] إنشاء 6 ملفات اختبار (34 حالة اختبار) → الجهد: M
+- [ ] [OPS-1] إضافة تتبع Sentry → الجهد: M
 
-#### Sprint 2:
+### المرحلة 3: قائمة الانتظار (منخفض)
 
-| الفئة | المهمة | الجهد | الدرجة قبل | الدرجة بعد |
-|-------|--------|-------|-----------|------------|
-| جودة الكود | إضافة JSDoc + مراجعة الأنماط | M | 7.0 | 8.5 |
-| الأداء | تحسين caching + bundle size | M | 7.5 | 9.0 |
-| التوثيق | إضافة ADR + CHANGELOG | S | 9.0 | 10.0 |
+- [ ] [PERF-4] تنفيذ التخزين المؤقت لـ ts-morph → الجهد: M
+- [ ] [PERF-5] تحسين عمليات بحث رسم الاتصال → الجهد: M
+- [ ] [OPS-2] إضافة فحوصات صحة التبعيات → الجهد: S
+- [ ] [OPS-3] هجرة قاعدة البيانات المُصدَّرة → الجهد: H
+- [ ] [DOCS-1] إنشاء CONTRIBUTING.md → الجهد: S
+- [ ] [DOCS-2] إنشاء دليل النشر → الجهد: M
+- [ ] [TEST-8] إضافة تغطية Vitest → الجهد: S
 
----
-
-### 9.8 النتيجة المتوقعة بعد التنفيذ
-
-| الفئة | الحالية | بعد الإصدار | Sprint 1 | Sprint 2 | النهائية |
-|-------|---------|------------|----------|----------|----------|
-| الأمان | 4.0 | 7.5 | 9.0 | - | 9.5 |
-| جودة الكود | 7.0 | 7.0 | 7.0 | 8.5 | 9.0 |
-| الأداء | 7.5 | 7.5 | 7.5 | 9.0 | 9.5 |
-| الاختبارات | 3.0 | 5.0 | 7.0 | 8.0 | 9.0 |
-| التكوين | 5.0 | 6.5 | 8.0 | 9.0 | 9.5 |
-| التوثيق | 6.0 | 8.0 | 9.0 | 10.0 | 10.0 |
-| **الإجمالي** | **5.5** | **6.9** | **7.9** | **8.9** | **9.4** |
+**إجمالي الجهد المقدر:** ~15 ساعة (S=1ساعة، M=3ساعات، H=6ساعات)
 
 ---
 
-## الملحق ج: المهام مصنفة حسب الجهد
+## ملاحظات إيجابية
 
-### مهام صغيرة (S) - أقل من يوم عمل:
+1. **Monorepo جيد الهيكل** - فصل واضح للمسؤوليات بين الحزم (schemas, analysis, planning, refactor, llm, engine)
 
-1. تحديث electron-builder (CRITICAL-001)
-2. إضافة التحقق من runId (HIGH-003)
-3. تحديث esbuild (MED-006)
-4. إضافة تكوين Electron الأمني (MED-007)
-5. إضافة CSP (MED-008)
-6. إضافة JSDoc (2.1)
-7. إضافة health IPC handler (5.7)
-8. إضافة startup checks (5.9)
-9. إضافة CHANGELOG.md (6.5)
+2. **أنماط معالجة أخطاء جيدة** - معظم العمليات غير المتزامنة имеют try/cath مع سلوك fallback (مثال: planner.ts لديه fallback لفشل LLM)
 
-### مهام متوسطة (M) - 1-2 يوم عمل:
+3. **إعدادات أمان صحيحة في Electron** - contextIsolation: true, nodeIntegration: false, sandbox: true
 
-1. تحديث Electron (CRITICAL-002)
-2. إنشاء CI/CD pipeline (HIGH-004)
-3. إنشاء 10+ ملفات اختبار (HIGH-005)
-4. إضافة Sentry/Datadog (5.6)
-5. إنشاء README.md (6.1)
-6. إنشاء API Documentation (6.2)
-7. إنشاء Deployment Guide (6.3)
-8. استبدال console.log (5.5)
-9. تحسين Bundle size (3.4)
+4. **تسجيل منظم** - يستخدم Pino logger مع مستويات تسجيل مناسبة بدلاً من console.* في معظم الكود
 
-### مهام كبيرة (L) - أكثر من أسبوع:
+5. **معالجة إيقاف سلس** - معالجات SIGTERM/SIGINT مُنفذة بشكل صحيح في main.ts
 
-1. كتابة 20+ اختبار Unit (HIGH-005)
-2. إضافة integration tests (4.8)
-3. إضافة e2e tests (4.10)
-4. تحسين caching (3.1)
-5. تحسين parallel processing (3.2)
-6. إنشاء Architecture Decision Records (6.6)
+6. **إعادة الهيكلة القائمة على الأدلة** - المبدأ الأساسي "Evidence First" مع AST، TypeRefs، Import/Call graphs قبل أي تغييرات في الكود
 
 ---
 
-**نهاية التقرير المحدث**
-
-تم التحديث: 2026-03-01
-
-```
-E:\team\package.json
-E:\team\apps\desktop\package.json
-E:\team\apps\desktop\src\main\main.ts
-E:\team\apps\desktop\src\main\ipc.ts
-E:\team\packages\engine\src\cli\apply.ts
-E:\team\packages\engine\src\cli\scan.ts
-E:\team\packages\engine\src\cli\plan.ts
-E:\team\packages\engine\src\cli\verify.ts
-E:\team\packages\storage\src\db\client.ts
-E:\team\packages\storage\src\db\migrate.ts
-E:\team\packages\analysis\src\index.ts
-E:\team\packages\analysis\src\detectors\dead-code.ts
-E:\team\packages\planning\src\planner.ts
-E:\team\packages\refactor\src\git\index.ts
-E:\team\packages\llm\src\router.ts
-E:\team\packages\shared\src\log\index.ts
-E:\team\packages\schemas\src\plan.ts
-E:\team\packages\harness\src\generators\snapshot.ts
-E:\team\packages\tooling\src\index.ts
-E:\team\vitest.config.ts
-E:\team\tsconfig.base.json
-E:\team\eslint.config.js
-E:\team\prettier.config.cjs
-E:\team\dependency-cruiser.js
-E:\team\.gitignore
-E:\team\AGENTS.md
-```
-
----
-
-## الملحق ب: أدوات الفحص المستخدمة
-
-1. **فحص الأسرار المشفرة**: Search patterns في الملفات المصدرية
-2. **فحص الثغرات الأمنية**: تحليل package.json والتبعية
-3. **فحص جودة الكود**: مراجعة يدوية للملفات المصدرية
-4. **فحص الأداء**: تحليل أنماط قاعدة البيانات والكود
-5. **فحص التوثيق**: مراجعة الملفات الموجودة
-
----
-
-**نهاية التقرير**
-
-تم إعداد هذا التقرير بواسطة Matrix Agent
-التاريخ: 2026-03-01
+**تم إعداد هذا التقرير بواسطةMatrix Agent**
+**التاريخ: 2026-03-01
