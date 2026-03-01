@@ -48,14 +48,22 @@ pnpm install
 
 ```bash
 pnpm build
-```
+
+cd apps/desktop
+pnpm dev:vite
+
+
+cd apps/desktop
+pnpm dev:electron
 
 أو لبناء حزمة محددة:
 ```bash
 pnpm --filter @pkg/engine build
 pnpm --filter @app/desktop build
 ```
-
+🔍 جاري تحليل المستودع: E:\mo7rer...
+[٢:٤٤:٣٨ ص] ❌ فشل Scan: Command failed with exit code 1: node "E:\team\packages\engine\dist\cli\index.js" scan "E:\mo7rer" node:internal/modules/cjs/loader:1661\r return process.dlopen(module, path.toNamespacedPath(filename));\r ^\r \r Error: The module '\\?\E:\team\node_modules\.pnpm\better-sqlite3@11.10.0\node_modules\better-sqlite3\build\Release\better_sqlite3.node'\r was compiled against a different Node.js version using\r NODE_MODULE_VERSION 133. This version of Node.js requires\r NODE_MODULE_VERSION 115. Please try re-compiling or re-installing\r the module (for instance, using `npm rebuild` or `npm install`).\r at Module._extensions..node (node:internal/modules/cjs/loader:1661:18)\r at Module.load (node:internal/modules/cjs/loader:1266:32)\r at Module._load (node:internal/modules/cjs/loader:1091:12)\r at Module.require (node:internal/modules/cjs/loader:1289:19)\r at require (node:internal/modules/helpers:182:18)\r at bindings (E:\team\node_modules\.pnpm\bindings@1.5.0\node_modules\bindings\bindings.js:112:48)\r at new Database (E:\team\node_modules\.pnpm\better-sqlite3@11.10.0\node_modules\better-sqlite3\lib\database.js:48:64)\r at getDbClient (file:///E:/team/packages/storage/dist/db/client.js:14:16)\r at Command.<anonymous> (file:///E:/team/packages/engine/dist/cli/scan.js:18:16)\r at Command.listener [as _actionHandler] (E:\team\node_modules\.pnpm\commander@12.1.0\node_modules\commander\lib\command.js:542:17) {\r code: 'ERR_DLOPEN_FAILED'\r }\r \r Node.js v20.19.5 [02:44:38.196] INFO (82960): Starting repository scan runId: "run_16e522e1915988ce" repoPath: "E:\mo7rer"
+v0.1.0 | Built with Electr
 ---
 
 ## الخطوة 4: التشغيل

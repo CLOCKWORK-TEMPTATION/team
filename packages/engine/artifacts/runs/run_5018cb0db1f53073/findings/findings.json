@@ -1,0 +1,88 @@
+{
+  "runId": "run_5018cb0db1f53073",
+  "repoId": "local_repo",
+  "evidencePackets": [
+    {
+      "id": "ev_c6ef4c7768426fe5",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/team/dummy-project/src/totally-dead.ts",
+        "symbol": "totallyDead",
+        "range": [
+          1,
+          3
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    }
+  ],
+  "deadCode": [
+    {
+      "evidence": {
+        "id": "ev_c6ef4c7768426fe5",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/team/dummy-project/src/totally-dead.ts",
+          "symbol": "totallyDead",
+          "range": [
+            1,
+            3
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'totallyDead' has no callers and no import references"
+    }
+  ],
+  "textClones": [],
+  "semanticClones": [],
+  "duplicateFunctions": [],
+  "mergeCandidates": [],
+  "boundaryViolations": []
+}

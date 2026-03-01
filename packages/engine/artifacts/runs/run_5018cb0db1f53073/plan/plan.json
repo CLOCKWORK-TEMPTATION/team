@@ -1,0 +1,44 @@
+{
+  "planId": "plan_741faf0efef98d23",
+  "repoId": "local_repo",
+  "runId": "run_5018cb0db1f53073",
+  "generatedAt": "2026-02-28T20:06:22.987Z",
+  "approvalStatus": "APPROVED",
+  "steps": [
+    {
+      "stepId": "step_6154a89094850af2",
+      "patchTitle": "Delete dead code: ev_c6ef4c7768426fe5",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/team/dummy-project/src/totally-dead.ts"
+      ],
+      "evidenceRefs": [
+        "ev_c6ef4c7768426fe5"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    }
+  ],
+  "policies": {
+    "evidenceRequired": true,
+    "atomicCommits": true,
+    "stopOnScopeExplosion": true,
+    "harnessInRepo": true,
+    "testRunner": "vitest"
+  },
+  "scopeLimits": {
+    "maxChangedFilesPerStep": 50,
+    "maxChangedLinesPerStep": 2000
+  }
+}
