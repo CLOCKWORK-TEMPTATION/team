@@ -39,7 +39,9 @@ export async function writeJsonArtifact(
   runId: string,
   kind: string,
   filename: string,
-  data: unknown
+  data: unknown,
+  pretty: boolean = false
 ): Promise<string> {
-  return writeArtifact(db, runId, kind, filename, JSON.stringify(data, null, 2));
+  const content = pretty ? JSON.stringify(data, null, 2) : JSON.stringify(data);
+  return writeArtifact(db, runId, kind, filename, content);
 }

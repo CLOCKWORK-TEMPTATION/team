@@ -1,4 +1,4 @@
-# dodo.ps1
+
 # يغلق العمليات المفتوحة، ينظف الكاش، ثم يشغل التطبيق
 
 $ErrorActionPreference = "Stop"

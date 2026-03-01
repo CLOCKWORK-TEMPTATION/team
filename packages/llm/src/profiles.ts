@@ -7,7 +7,8 @@ export type ModelProfileId =
   | "CODING"
   | "SUMMARIZE"
   | "CONTRACTS_AUGMENT"
-  | "RISK_EXPLAIN";
+  | "RISK_EXPLAIN"
+  | "ANALYSIS";
 
 export interface ProviderModelChoice {
   provider: ProviderId;
@@ -18,14 +19,9 @@ export interface ProviderModelChoice {
 export const MODEL_PROFILES: Record<ModelProfileId, ProviderModelChoice[]> = {
   PLANNING: [
     {
-      provider: "anthropic",
-      model: "claude-sonnet-4-6",
-      params: { thinking: "enabled" },
-    },
-    {
-      provider: "openai",
-      model: "gpt-5.2",
-      params: { reasoning_effort: "high" },
+      provider: "google",
+      model: "gemini-3.1-pro-preview",
+      params: { thinkingConfig: { thinkingLevel: "HIGH" } },
     },
   ],
 
@@ -68,5 +64,14 @@ export const MODEL_PROFILES: Record<ModelProfileId, ProviderModelChoice[]> = {
       params: { reasoning_effort: "medium" },
     },
     { provider: "anthropic", model: "claude-sonnet-4-6" },
+  ],
+
+  /** طبقة LLM للتحليل (الخطوة 1) — scan-augment */
+  ANALYSIS: [
+    {
+      provider: "anthropic",
+      model: "claude-sonnet-4-6",
+      params: { thinking: { type: "adaptive" }, output_config: { effort: "medium" } },
+    },
   ],
 };

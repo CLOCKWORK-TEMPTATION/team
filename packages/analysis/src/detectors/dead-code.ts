@@ -1,8 +1,10 @@
-import type { SourceFile, Project } from "ts-morph";
+import type { SourceFile, Project, ExportDeclaration } from "ts-morph";
+import { SyntaxKind } from "ts-morph";
 import type { DeadCodeCandidate, EvidencePacket } from "@pkg/schemas";
 import { generateId } from "@pkg/shared";
 import { getCallers, nodeId } from "../graphs/call-graph.js";
 import { getImportEvidence } from "../graphs/import-graph.js";
+import { findSymbolReferences } from "../indexer/references.js";
 import type { CallGraphData } from "@pkg/schemas";
 
 export interface Entrypoints {
@@ -16,18 +18,44 @@ function isEntrypoint(filePath: string, entrypoints: Entrypoints): boolean {
   return all.some((ep) => filePath === ep || filePath.startsWith(ep));
 }
 
-function detectDynamicImportSuspicion(project: Project, sourceFile: SourceFile, symbol: string): boolean {
-  const baseName = sourceFile.getBaseNameWithoutExtension();
+/**
+ * Resolves dynamic import/require paths from AST nodes and checks
+ * whether any of them point to the given source file.
+ * Uses AST-based detection — NOT string matching on basenames.
+ */
+function detectDynamicImportSuspicion(project: Project, sourceFile: SourceFile, _symbol: string): boolean {
+  const targetPath = sourceFile.getFilePath();
+
   for (const sf of project.getSourceFiles()) {
     if (sf === sourceFile) continue;
-    const text = sf.getFullText();
-    // 1. بحث عن import()
-    if (text.includes("import(") && text.includes(baseName)) return true;
-    // 2. بحث عن require()
-    if (text.includes("require(") && text.includes(baseName)) return true;
-    // 3. بحث عن string references للـ symbol
-    if (text.includes(`"${symbol}"`) || text.includes(`'${symbol}'`) || text.includes(`\`${symbol}\``)) {
-      return true;
+
+    for (const callExpr of sf.getDescendantsOfKind(SyntaxKind.CallExpression)) {
+      const expr = callExpr.getExpression();
+
+      const isImportCall = expr.getKind() === SyntaxKind.ImportKeyword;
+      const isRequireCall = expr.getKind() === SyntaxKind.Identifier && expr.getText() === "require";
+
+      if (!isImportCall && !isRequireCall) continue;
+
+      const args = callExpr.getArguments();
+      if (args.length === 0) continue;
+      const arg = args[0]!;
+
+      if (arg.getKind() !== SyntaxKind.StringLiteral) continue;
+
+      const specifier = arg.getText().slice(1, -1);
+      if (!specifier.startsWith(".")) continue;
+
+      try {
+        const resolved = sf.getDirectory().getSourceFile(specifier) ??
+          sf.getDirectory().getSourceFile(specifier + ".ts") ??
+          sf.getDirectory().getSourceFile(specifier + ".tsx") ??
+          sf.getDirectory().getSourceFile(specifier + "/index.ts") ??
+          sf.getDirectory().getSourceFile(specifier + "/index.tsx");
+        if (resolved && resolved.getFilePath() === targetPath) return true;
+      } catch {
+        // resolution failure — skip
+      }
     }
   }
   return false;
@@ -54,8 +82,7 @@ function detectSideEffectModule(sourceFile: SourceFile, importReverseGraph: Map<
   for (const importer of importers) {
     const sf = project.getSourceFile(importer);
     if (!sf) continue;
-    const imports = sf.getImportDeclarations();
-    for (const imp of imports) {
+    for (const imp of sf.getImportDeclarations()) {
       if (imp.getModuleSpecifierSourceFile()?.getFilePath() === filePath) {
         if (imp.getNamedImports().length === 0 && !imp.getDefaultImport() && !imp.getNamespaceImport()) {
           return true;
@@ -66,6 +93,12 @@ function detectSideEffectModule(sourceFile: SourceFile, importReverseGraph: Map<
   return false;
 }
 
+/**
+ * Checks whether a specific symbol is imported/used from filePath,
+ * either directly or transitively through barrel re-exports.
+ * Handles: named imports, namespace imports, default imports,
+ * `export { X } from`, `export * from`, and recursive barrel chains.
+ */
 function isSymbolReachable(
   symbol: string,
   filePath: string,
@@ -81,30 +114,63 @@ function isSymbolReachable(
     const sf = project.getSourceFile(importer);
     if (!sf) continue;
 
-    // هل الملف المستورد بيعمل re-export (barrel)?
-    const isBarrel = sf.getExportDeclarations().some(
-      (ed) => ed.getModuleSpecifierSourceFile()?.getFilePath() === filePath
-    );
+    // Check direct import usage
+    for (const imp of sf.getImportDeclarations()) {
+      if (imp.getModuleSpecifierSourceFile()?.getFilePath() !== filePath) continue;
 
-    if (isBarrel) {
-      // تتبع السلسلة
-      if (isSymbolReachable(symbol, importer, reverseGraph, project, visited)) {
+      if (imp.getNamespaceImport()) return true;
+      if (imp.getDefaultImport() && symbol === "default") return true;
+      if (imp.getNamedImports().some((ni) => ni.getName() === symbol || ni.getAliasNode()?.getText() === symbol)) {
         return true;
       }
     }
 
-    // مستورد مباشر — فحص هل بيستخدم الـ symbol
-    const imports = sf.getImportDeclarations();
-    for (const imp of imports) {
-      if (imp.getModuleSpecifierSourceFile()?.getFilePath() === filePath) {
-        const namedImports = imp.getNamedImports();
-        if (namedImports.some((ni) => ni.getName() === symbol)) return true;
-        if (imp.getNamespaceImport()) return true;
-        if (imp.getDefaultImport() && symbol === "default") return true;
+    // Check re-export chains (barrel pattern)
+    for (const exp of sf.getExportDeclarations()) {
+      if (exp.getModuleSpecifierSourceFile()?.getFilePath() !== filePath) continue;
+
+      const isGlobExport = !exp.getNamedExports().length && !exp.isNamespaceExport();
+      const reExportsSymbol = exp.getNamedExports().some(
+        (ne) => ne.getName() === symbol || ne.getAliasNode()?.getText() === symbol
+      );
+
+      if (isGlobExport || reExportsSymbol || exp.isNamespaceExport()) {
+        if (isSymbolReachable(symbol, importer, reverseGraph, project, visited)) {
+          return true;
+        }
       }
     }
   }
   return false;
+}
+
+/**
+ * Uses ts-morph's TypeScript language service to find genuine references
+ * to a declaration across the entire project. Filters out the declaration
+ * site itself and same-file re-export lines.
+ */
+function hasExternalReferences(
+  project: Project,
+  filePath: string,
+  symbol: string
+): { found: boolean; refCount: number; refs: Array<{ file: string; line: number; col: number; kind: string }> } {
+  try {
+    const allRefs = findSymbolReferences(project, filePath, symbol);
+
+    const externalRefs = allRefs.filter(r => {
+      const refNormalized = r.file.replace(/\\/g, "/");
+      const srcNormalized = filePath.replace(/\\/g, "/");
+      return refNormalized !== srcNormalized;
+    });
+
+    return {
+      found: externalRefs.length > 0,
+      refCount: externalRefs.length,
+      refs: externalRefs,
+    };
+  } catch {
+    return { found: false, refCount: 0, refs: [] };
+  }
 }
 
 export function detectDeadCode(
@@ -118,6 +184,10 @@ export function detectDeadCode(
   for (const sourceFile of project.getSourceFiles()) {
     const filePath = sourceFile.getFilePath();
     if (isEntrypoint(filePath, entrypoints)) continue;
+
+    // Skip test/spec files from dead code detection
+    const normalized = filePath.replace(/\\/g, "/");
+    if (/\.(test|spec)\.(ts|tsx|js|jsx|mts|cts)$/.test(normalized)) continue;
 
     for (const [exportName, declarations] of sourceFile.getExportedDeclarations()) {
       if (!exportName || exportName.startsWith("_")) continue;
@@ -135,11 +205,12 @@ export function detectDeadCode(
         }
       }
 
+      // Gate 1: Call graph — are there callers?
       const nid = nodeId(filePath, internalName);
       const callers = getCallers(callGraphData.edges, nid);
-
       if (callers.length > 0) continue;
 
+      // Gate 2: Import graph — is the symbol reachable through imports/re-exports?
       const importEvidence = getImportEvidence(importReverseGraph, filePath);
       if (importEvidence.inboundCount > 0) {
         if (isSymbolReachable(exportName, filePath, importReverseGraph, project)) {
@@ -147,22 +218,43 @@ export function detectDeadCode(
         }
       }
 
+      // Gate 3: TS References — does TypeScript's language service find real usages?
+      const tsRefs = hasExternalReferences(project, filePath, exportName);
+      if (tsRefs.found) {
+        continue;
+      }
+
+      // All gates passed — this symbol appears genuinely unused
       const dynamicImportSuspicion = detectDynamicImportSuspicion(project, sourceFile, exportName);
       const sideEffectModule = detectSideEffectModule(sourceFile, importReverseGraph, project);
       const publicApiExposure = detectPublicApiExposure(filePath, entrypoints, project);
 
-      let riskScore = 50;
+      let riskScore = 30;
       let riskBand: "low" | "medium" | "high" | "critical" = "low";
       let requiresHarness = false;
-      const reasons = ["No callers found", "No import references"];
+      const reasons: string[] = [];
 
-      if (dynamicImportSuspicion || sideEffectModule || publicApiExposure) {
-        riskScore = 90;
+      if (callers.length === 0) reasons.push("No callers in call graph");
+      if (importEvidence.inboundCount === 0) reasons.push("No import references");
+      if (tsRefs.refCount === 0) reasons.push("No TS references in project");
+
+      if (dynamicImportSuspicion) {
+        riskScore = 80;
         riskBand = "high";
         requiresHarness = true;
-        if (dynamicImportSuspicion) reasons.push("Dynamic import suspected");
-        if (sideEffectModule) reasons.push("Module might be imported for side effects");
-        if (publicApiExposure) reasons.push("Exposed via public API entrypoint");
+        reasons.push("Dynamic import/require detected pointing to this file");
+      }
+      if (sideEffectModule) {
+        riskScore = Math.max(riskScore, 70);
+        if (riskBand === "low") riskBand = "medium";
+        requiresHarness = true;
+        reasons.push("Module may be imported for side effects");
+      }
+      if (publicApiExposure) {
+        riskScore = Math.max(riskScore, 90);
+        riskBand = "high";
+        requiresHarness = true;
+        reasons.push("Exposed via public API entrypoint");
       }
 
       const startLine = decl.getStartLineNumber();
@@ -176,11 +268,15 @@ export function detectDeadCode(
 
       const evidence: EvidencePacket["evidence"] = {
         importGraph: {
-          inboundCount: 0,
-          inboundFiles: [],
+          inboundCount: importEvidence.inboundCount,
+          inboundFiles: importEvidence.inboundFiles,
         },
         callGraph: {
           callers: [],
+        },
+        tsReferences: {
+          refCount: tsRefs.refCount,
+          refs: tsRefs.refs.map(r => ({ ...r, col: Math.max(r.col, 1) })),
         },
       };
 
@@ -203,13 +299,13 @@ export function detectDeadCode(
         evidence,
         exceptions,
         risk,
-        recommendedAction: "delete",
+        recommendedAction: dynamicImportSuspicion || publicApiExposure ? "propose_only" : "delete",
         requiresHarness,
       };
 
       candidates.push({
         evidence: packet,
-        reason: `Exported symbol '${exportName}' has no callers and no import references`,
+        reason: `Exported symbol '${exportName}' passed all 3 gates: no callers, not reachable via imports, no TS references`,
       });
     }
   }

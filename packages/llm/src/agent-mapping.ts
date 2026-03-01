@@ -63,6 +63,12 @@ export const AGENT_LLM_SPECS: AgentLlmSpec[] = [
     promptPath: "prompts/agents/risk-scorer.md",
   },
   {
+    agentName: "ScanAugmentAgent",
+    llmMode: "required",
+    profile: "ANALYSIS",
+    promptPath: "prompts/agents/scan-augment.md",
+  },
+  {
     agentName: "RefactorPlannerReportAgent",
     llmMode: "required",
     profile: "PLANNING",
@@ -78,5 +84,11 @@ export const AGENT_LLM_SPECS: AgentLlmSpec[] = [
     llmMode: "required",
     profile: "CODING",
     promptPath: "prompts/agents/patch-author.md",
+  },
+  {
+    agentName: "ReportGeneratorAgent",
+    llmMode: "required",
+    profile: "PLANNING",
+    promptPath: "prompts/agents/report-generator.md",
   },
 ];

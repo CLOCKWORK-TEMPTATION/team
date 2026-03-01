@@ -69,6 +69,29 @@ body {
   pointer-events: none;
 }
 
+/* تأكيد مشاركة النموذج اللغوي */
+.step-section.llm-confirm {
+  background: rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.step-section.llm-confirm h3 {
+  color: #a5b4fc;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.llm-confirm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.llm-confirm-list li {
+  padding: 6px 0;
+  color: #c4b5fd;
+}
+
 /* ===== Report Section ===== */
 .report-section {
   margin-top: 20px;

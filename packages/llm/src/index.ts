@@ -8,3 +8,4 @@ export * from "./generate-json.js";
 export * from "./providers/index.js";
 export * from "./json.js";
 export * from "./config-loader.js";
+export * from "./report.js";

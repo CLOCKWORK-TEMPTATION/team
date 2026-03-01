@@ -11,11 +11,14 @@
     "deps:check": "depcruise -c ../../dependency-cruiser.js ../../"
   },
   "dependencies": {
+    "@pkg/schemas": "workspace:*",
     "@pkg/shared": "workspace:*",
-    "@pkg/schemas": "workspace:*"
+    "execa": "^9.6.1"
   },
   "devDependencies": {
     "dependency-cruiser": "^16.0.0",
+    "jscpd": "^4.0.8",
+    "knip": "^5.85.0",
     "typescript": "^5.5.0"
   }
 }

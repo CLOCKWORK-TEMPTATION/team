@@ -200,9 +200,18 @@ function groupDeadCodeByFile(findings: Findings["deadCode"]): Map<string, DeadCo
  */
 function createBarrelCheckProject(repoPath: string): Project | null {
   try {
-    const project = new Project();
-    project.addSourceFilesAtPaths(`${repoPath}/**/*.ts`);
-    project.addSourceFilesAtPaths(`${repoPath}/**/*.tsx`);
+    const project = new Project({
+      skipFileDependencyResolution: true,
+      compilerOptions: {
+        allowJs: true,
+      },
+    });
+    project.addSourceFilesAtPaths([
+      `${repoPath}/**/index.ts`,
+      `${repoPath}/**/index.tsx`,
+      `!${repoPath}/**/*.d.ts`,
+      `!${repoPath}/**/node_modules/**`
+    ]);
     return project;
   } catch (error) {
     logger.warn({ error }, "Failed to create barrel check project");
@@ -278,7 +287,7 @@ function checkBarrelIntegrity(
   }
 }
 
-export async function generatePlan(findings: Findings): Promise<RefactorPlan> {
+export async function generatePlan(findings: Findings, repoPath: string = process.cwd()): Promise<RefactorPlan> {
   const plan: RefactorPlan = {
     planId: generateId("plan_"),
     repoId: findings.repoId,
@@ -300,14 +309,33 @@ export async function generatePlan(findings: Findings): Promise<RefactorPlan> {
   };
 
   try {
-    // Send only essential fields to LLM, without pretty-printing to reduce memory
+    // Create a compressed summary for the LLM
+    const groupedByFile = groupDeadCodeByFile(findings.deadCode);
+    const fileSummaries = Array.from(groupedByFile.entries()).map(([file, candidates]) => {
+      const riskBands = candidates.map(determineRiskBand);
+      const highestRisk = (riskBands.includes("critical") ? "critical" :
+                         riskBands.includes("high") ? "high" :
+                         riskBands.includes("medium") ? "medium" : "low") as "low" | "medium" | "high" | "critical" | "blocked";
+      return {
+        file,
+        candidateCount: candidates.length,
+        highestRisk,
+        symbols: candidates.map(c => c.evidence.target.symbol).filter(Boolean),
+      };
+    });
+
     const findingsSummary = JSON.stringify({
-      deadCode: findings.deadCode,
-      duplicateFunctions: findings.duplicateFunctions,
-      mergeCandidates: findings.mergeCandidates,
+      deadCodeFiles: fileSummaries,
+      totalDeadCode: findings.deadCode.length,
+      textClones: findings.textClones.length,
+      boundaryViolations: findings.boundaryViolations.length,
+      duplicateFunctions: findings.duplicateFunctions.length,
+      mergeCandidates: findings.mergeCandidates.length,
+      notes: findings.notes,
     });
 
     logger.info("Calling LLM to generate plan steps...");
+    console.log("[REPO_REFACTOR_LLM] STEP=2");
     const llmResponse = await askPlanner(findingsSummary);
 
     // Naive parsing of LLM response, looking for array []
@@ -342,7 +370,6 @@ export async function generatePlan(findings: Findings): Promise<RefactorPlan> {
     const groupedDeadCode = groupDeadCodeByFile(findings.deadCode);
 
     // Create a SINGLE shared Project for all barrel integrity checks
-    const repoPath = process.cwd();
     const sharedProject = createBarrelCheckProject(repoPath);
 
     // Generate detailed fallback plan steps based on findings
@@ -443,5 +470,10 @@ export async function generatePlan(findings: Findings): Promise<RefactorPlan> {
     }
   }
 
+  // Sort plan steps: low risk first (safe changes before risky ones)
+  const riskOrder: Record<string, number> = { low: 0, medium: 1, high: 2, critical: 3, blocked: 4 };
+  plan.steps.sort((a, b) => (riskOrder[a.riskBand] ?? 99) - (riskOrder[b.riskBand] ?? 99));
+
   return plan;
 }
+

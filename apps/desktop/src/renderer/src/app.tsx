@@ -9,8 +9,11 @@ export function App() {
   const [loading, setLoading] = useState(false);
   const [logs, setLogs] = useState<string[]>([]);
   const [currentStep, setCurrentStep] = useState<"idle" | "scanning" | "planning" | "approving" | "applying">("idle");
-  const [scanResult, setScanResult] = useState<{ success: boolean; runId?: string; error?: string } | null>(null);
+  const [scanResult, setScanResult] = useState<{ success: boolean; runId?: string; error?: string; output?: string; llmUsedInStep1?: boolean } | null>(null);
   const [planReport, setPlanReport] = useState<string | null>(null);
+  const [planResult, setPlanResult] = useState<{ success: boolean; output?: string; error?: string; llmUsedInStep2?: boolean } | null>(null);
+  const llmStep1Confirmed = Boolean(scanResult?.llmUsedInStep1 ?? scanResult?.output?.includes("[REPO_REFACTOR_LLM] STEP=1"));
+  const llmStep2Confirmed = Boolean(planResult?.llmUsedInStep2 ?? planResult?.output?.includes("[REPO_REFACTOR_LLM] STEP=2"));
 
   // رسالة ترحيب عند البداية
   useEffect(() => {
@@ -61,6 +64,11 @@ export function App() {
 
     if (result.success) {
       addLog(`✅ Scan ناجح! Run ID: ${result.runId}`);
+      if (result.llmUsedInStep1 ?? result.output?.includes("[REPO_REFACTOR_LLM] STEP=1")) {
+        addLog("🤖 تأكيد: النموذج اللغوي شارك في الخطوة 1 (التحليل)");
+      } else if (result.runId) {
+        addLog("ℹ️ لم يُستدَع النموذج في الخطوة 1 (لا مرشحين dead code)");
+      }
       addLog("📋 الخطوة التالية: اضغط 'Generate Plan' لتوليد خطة التعديل");
     } else {
       addLog(`❌ فشل Scan: ${result.error}`);
@@ -81,10 +89,16 @@ export function App() {
     addLog(`📝 جاري توليد خطة التعديل...`);
 
     const result = await repoRefactor.plan(scanResult.runId);
+    setPlanResult(result);
     setLoading(false);
 
     if (result.success) {
       addLog(`✅ Plan تم إنشاؤه بنجاح!`);
+      if (result.llmUsedInStep2 ?? result.output?.includes("[REPO_REFACTOR_LLM] STEP=2")) {
+        addLog("🤖 تأكيد: النموذج اللغوي شارك في الخطوة 2 (التخطيط)");
+      } else {
+        addLog("ℹ️ الخطة من المسار الاحتياطي (fallback) بدون استدعاء النموذج");
+      }
       addLog("📋 الخطوة التالية: راجع التقرير ثم اضغط 'Approve' للموافقة");
       // جلب وعرض التقرير
       const reportResult = await repoRefactor.getPlanReport(scanResult.runId!);
@@ -148,6 +162,7 @@ export function App() {
   const clearLogs = () => {
     setLogs([]);
     setPlanReport(null);
+    setPlanResult(null);
   };
 
   return (
@@ -191,6 +206,17 @@ export function App() {
             </button>
           </div>
         </section>
+
+        {/* تأكيد مشاركة النموذج */}
+        {(llmStep1Confirmed || llmStep2Confirmed) && (
+          <section className="step-section llm-confirm">
+            <h3>🤖 تأكيد مشاركة النموذج اللغوي</h3>
+            <ul className="llm-confirm-list">
+              {llmStep1Confirmed && <li>الخطوة 1 (التحليل): النموذج شارك ✓</li>}
+              {llmStep2Confirmed && <li>الخطوة 2 (التخطيط): النموذج شارك ✓</li>}
+            </ul>
+          </section>
+        )}
 
         {/* Step 2: Generate Plan */}
         <section className={`step-section ${!scanResult?.success ? "step-disabled" : ""}`}>

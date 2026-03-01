@@ -1,0 +1,3053 @@
+{
+  "statistics": {
+    "detectionDate": "2026-03-01T17:42:00.331Z",
+    "formats": {
+      "powershell": {
+        "sources": {
+          "fixtures/dummy-project/node_modules/typescript/node_modules/.bin/tsserver.ps1": {
+            "lines": 40,
+            "tokens": 268,
+            "sources": 1,
+            "clones": 3,
+            "duplicatedLines": 75,
+            "duplicatedTokens": 483,
+            "percentage": 187.5,
+            "percentageTokens": 180.22,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/node_modules/.bin/tsc.ps1": {
+            "lines": 40,
+            "tokens": 268,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 25,
+            "duplicatedTokens": 161,
+            "percentage": 62.5,
+            "percentageTokens": 60.07,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/.bin/tsserver.ps1": {
+            "lines": 40,
+            "tokens": 268,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 25,
+            "duplicatedTokens": 161,
+            "percentage": 62.5,
+            "percentageTokens": 60.07,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/.bin/tsc.ps1": {
+            "lines": 40,
+            "tokens": 268,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 25,
+            "duplicatedTokens": 161,
+            "percentage": 62.5,
+            "percentageTokens": 60.07,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 160,
+          "tokens": 1072,
+          "sources": 4,
+          "clones": 3,
+          "duplicatedLines": 75,
+          "duplicatedTokens": 483,
+          "percentage": 46.88,
+          "percentageTokens": 45.06,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "javascript": {
+        "sources": {
+          "fixtures/dummy-project/node_modules/typescript/lib/_typingsInstaller.js": {
+            "lines": 221,
+            "tokens": 2599,
+            "sources": 1,
+            "clones": 3,
+            "duplicatedLines": 82,
+            "duplicatedTokens": 744,
+            "percentage": 37.1,
+            "percentageTokens": 28.63,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/_tsserver.js": {
+            "lines": 658,
+            "tokens": 7578,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 41,
+            "duplicatedTokens": 394,
+            "percentage": 6.23,
+            "percentageTokens": 5.2,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/watchGuard.js": {
+            "lines": 52,
+            "tokens": 468,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 41,
+            "duplicatedTokens": 350,
+            "percentage": 78.85,
+            "percentageTokens": 74.79,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/typingsInstaller.js": {
+            "lines": 7,
+            "tokens": 58,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/tsserverlibrary.js": {
+            "lines": 20,
+            "tokens": 53,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/tsserver.js": {
+            "lines": 7,
+            "tokens": 58,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/tsc.js": {
+            "lines": 7,
+            "tokens": 58,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 972,
+          "tokens": 10872,
+          "sources": 7,
+          "clones": 3,
+          "duplicatedLines": 82,
+          "duplicatedTokens": 744,
+          "percentage": 8.44,
+          "percentageTokens": 6.84,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "json": {
+        "sources": {
+          "fixtures/dummy-project/node_modules/typescript/lib/typesMap.json": {
+            "lines": 496,
+            "tokens": 3483,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/package.json": {
+            "lines": 119,
+            "tokens": 733,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/tsconfig.json": {
+            "lines": 10,
+            "tokens": 61,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/package.json": {
+            "lines": 18,
+            "tokens": 106,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 643,
+          "tokens": 4383,
+          "sources": 4,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "typescript": {
+        "sources": {
+          "fixtures/dummy-project/node_modules/typescript/lib/tsserverlibrary.d.ts": {
+            "lines": 16,
+            "tokens": 20,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.webworker.iterable.d.ts": {
+            "lines": 339,
+            "tokens": 3734,
+            "sources": 1,
+            "clones": 9,
+            "duplicatedLines": 330,
+            "duplicatedTokens": 3688,
+            "percentage": 97.35,
+            "percentageTokens": 98.77,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
+            "lines": 22,
+            "tokens": 32,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.webworker.asynciterable.d.ts": {
+            "lines": 40,
+            "tokens": 218,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 20,
+            "duplicatedTokens": 207,
+            "percentage": 50,
+            "percentageTokens": 94.95,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.scripthost.d.ts": {
+            "lines": 321,
+            "tokens": 1069,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.sharedmemory.d.ts": {
+            "lines": 24,
+            "tokens": 30,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.promise.d.ts": {
+            "lines": 33,
+            "tokens": 70,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.iterator.d.ts": {
+            "lines": 147,
+            "tokens": 844,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.intl.d.ts": {
+            "lines": 20,
+            "tokens": 18,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.full.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.float16.d.ts": {
+            "lines": 444,
+            "tokens": 1888,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 18,
+            "duplicatedTokens": 96,
+            "percentage": 4.05,
+            "percentageTokens": 5.08,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.error.d.ts": {
+            "lines": 23,
+            "tokens": 33,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.disposable.d.ts": {
+            "lines": 192,
+            "tokens": 661,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.decorators.d.ts": {
+            "lines": 27,
+            "tokens": 53,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.d.ts": {
+            "lines": 28,
+            "tokens": 27,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.collection.d.ts": {
+            "lines": 95,
+            "tokens": 424,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 58,
+            "duplicatedTokens": 350,
+            "percentage": 61.05,
+            "percentageTokens": 82.55,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.esnext.array.d.ts": {
+            "lines": 34,
+            "tokens": 145,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es6.d.ts": {
+            "lines": 22,
+            "tokens": 15,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2024.string.d.ts": {
+            "lines": 28,
+            "tokens": 38,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2024.sharedmemory.d.ts": {
+            "lines": 67,
+            "tokens": 268,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2024.regexp.d.ts": {
+            "lines": 24,
+            "tokens": 25,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2024.promise.d.ts": {
+            "lines": 34,
+            "tokens": 93,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2024.object.d.ts": {
+            "lines": 28,
+            "tokens": 79,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2024.full.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2024.d.ts": {
+            "lines": 25,
+            "tokens": 21,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2024.collection.d.ts": {
+            "lines": 28,
+            "tokens": 73,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2024.arraybuffer.d.ts": {
+            "lines": 64,
+            "tokens": 150,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2023.intl.d.ts": {
+            "lines": 55,
+            "tokens": 546,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2023.full.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2023.d.ts": {
+            "lines": 21,
+            "tokens": 13,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2023.collection.d.ts": {
+            "lines": 20,
+            "tokens": 20,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2023.array.d.ts": {
+            "lines": 923,
+            "tokens": 3678,
+            "sources": 1,
+            "clones": 19,
+            "duplicatedLines": 832,
+            "duplicatedTokens": 3740,
+            "percentage": 90.14,
+            "percentageTokens": 101.69,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2022.string.d.ts": {
+            "lines": 24,
+            "tokens": 33,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2022.regexp.d.ts": {
+            "lines": 38,
+            "tokens": 108,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2022.object.d.ts": {
+            "lines": 25,
+            "tokens": 35,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2022.intl.d.ts": {
+            "lines": 144,
+            "tokens": 417,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2022.full.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2022.error.d.ts": {
+            "lines": 74,
+            "tokens": 481,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2022.d.ts": {
+            "lines": 24,
+            "tokens": 19,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2022.array.d.ts": {
+            "lines": 120,
+            "tokens": 464,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2021.weakref.d.ts": {
+            "lines": 77,
+            "tokens": 250,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2021.string.d.ts": {
+            "lines": 32,
+            "tokens": 84,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2021.promise.d.ts": {
+            "lines": 47,
+            "tokens": 186,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2021.intl.d.ts": {
+            "lines": 165,
+            "tokens": 697,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2021.full.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2021.d.ts": {
+            "lines": 22,
+            "tokens": 15,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts": {
+            "lines": 40,
+            "tokens": 105,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.string.d.ts": {
+            "lines": 43,
+            "tokens": 114,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.sharedmemory.d.ts": {
+            "lines": 98,
+            "tokens": 446,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.promise.d.ts": {
+            "lines": 46,
+            "tokens": 183,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.number.d.ts": {
+            "lines": 27,
+            "tokens": 44,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.intl.d.ts": {
+            "lines": 473,
+            "tokens": 1942,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.full.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.date.d.ts": {
+            "lines": 41,
+            "tokens": 102,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.d.ts": {
+            "lines": 26,
+            "tokens": 23,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2020.bigint.d.ts": {
+            "lines": 764,
+            "tokens": 3817,
+            "sources": 1,
+            "clones": 8,
+            "duplicatedLines": 234,
+            "duplicatedTokens": 936,
+            "percentage": 30.63,
+            "percentageTokens": 24.52,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2019.symbol.d.ts": {
+            "lines": 23,
+            "tokens": 29,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2019.string.d.ts": {
+            "lines": 36,
+            "tokens": 64,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2019.object.d.ts": {
+            "lines": 32,
+            "tokens": 86,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2019.intl.d.ts": {
+            "lines": 22,
+            "tokens": 32,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2019.full.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2019.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2019.array.d.ts": {
+            "lines": 78,
+            "tokens": 431,
+            "sources": 1,
+            "clones": 2,
+            "duplicatedLines": 52,
+            "duplicatedTokens": 270,
+            "percentage": 66.67,
+            "percentageTokens": 62.65,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2018.regexp.d.ts": {
+            "lines": 36,
+            "tokens": 89,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2018.promise.d.ts": {
+            "lines": 29,
+            "tokens": 53,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2018.intl.d.ts": {
+            "lines": 82,
+            "tokens": 551,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2018.full.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2018.d.ts": {
+            "lines": 23,
+            "tokens": 17,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts": {
+            "lines": 52,
+            "tokens": 319,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts": {
+            "lines": 76,
+            "tokens": 321,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts": {
+            "lines": 52,
+            "tokens": 202,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2017.string.d.ts": {
+            "lines": 44,
+            "tokens": 60,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts": {
+            "lines": 134,
+            "tokens": 873,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2017.object.d.ts": {
+            "lines": 48,
+            "tokens": 205,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2017.intl.d.ts": {
+            "lines": 43,
+            "tokens": 171,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2017.full.d.ts": {
+            "lines": 22,
+            "tokens": 15,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2017.date.d.ts": {
+            "lines": 30,
+            "tokens": 71,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2017.d.ts": {
+            "lines": 25,
+            "tokens": 21,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2017.arraybuffer.d.ts": {
+            "lines": 20,
+            "tokens": 23,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2016.intl.d.ts": {
+            "lines": 30,
+            "tokens": 44,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2016.full.d.ts": {
+            "lines": 22,
+            "tokens": 15,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2016.d.ts": {
+            "lines": 20,
+            "tokens": 11,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2016.array.include.d.ts": {
+            "lines": 115,
+            "tokens": 425,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts": {
+            "lines": 325,
+            "tokens": 1501,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.symbol.d.ts": {
+            "lines": 45,
+            "tokens": 95,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.reflect.d.ts": {
+            "lines": 143,
+            "tokens": 684,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.proxy.d.ts": {
+            "lines": 127,
+            "tokens": 494,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.promise.d.ts": {
+            "lines": 80,
+            "tokens": 319,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.iterable.d.ts": {
+            "lines": 604,
+            "tokens": 3284,
+            "sources": 1,
+            "clones": 20,
+            "duplicatedLines": 382,
+            "duplicatedTokens": 1690,
+            "percentage": 63.25,
+            "percentageTokens": 51.46,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.generator.d.ts": {
+            "lines": 76,
+            "tokens": 308,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.d.ts": {
+            "lines": 27,
+            "tokens": 25,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.core.d.ts": {
+            "lines": 596,
+            "tokens": 2319,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.es2015.collection.d.ts": {
+            "lines": 146,
+            "tokens": 945,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.dom.iterable.d.ts": {
+            "lines": 570,
+            "tokens": 5144,
+            "sources": 1,
+            "clones": 9,
+            "duplicatedLines": 330,
+            "duplicatedTokens": 3688,
+            "percentage": 57.89,
+            "percentageTokens": 71.7,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.dom.asynciterable.d.ts": {
+            "lines": 40,
+            "tokens": 218,
+            "sources": 1,
+            "clones": 1,
+            "duplicatedLines": 20,
+            "duplicatedTokens": 207,
+            "percentage": 50,
+            "percentageTokens": 94.95,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.decorators.legacy.d.ts": {
+            "lines": 21,
+            "tokens": 155,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.decorators.d.ts": {
+            "lines": 383,
+            "tokens": 1317,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/lib/lib.d.ts": {
+            "lines": 21,
+            "tokens": 13,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/src/utils.ts": {
+            "lines": 25,
+            "tokens": 145,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/src/index.ts": {
+            "lines": 28,
+            "tokens": 263,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/src/app.ts": {
+            "lines": 7,
+            "tokens": 136,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 10059,
+          "tokens": 45496,
+          "sources": 101,
+          "clones": 36,
+          "duplicatedLines": 1138,
+          "duplicatedTokens": 7436,
+          "percentage": 11.31,
+          "percentageTokens": 16.34,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      },
+      "markdown": {
+        "sources": {
+          "fixtures/dummy-project/node_modules/typescript/ThirdPartyNoticeText.txt": {
+            "lines": 186,
+            "tokens": 11150,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/SECURITY.md": {
+            "lines": 40,
+            "tokens": 607,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/README.md": {
+            "lines": 46,
+            "tokens": 424,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          },
+          "fixtures/dummy-project/node_modules/typescript/LICENSE.txt": {
+            "lines": 54,
+            "tokens": 2897,
+            "sources": 1,
+            "clones": 0,
+            "duplicatedLines": 0,
+            "duplicatedTokens": 0,
+            "percentage": 0,
+            "percentageTokens": 0,
+            "newDuplicatedLines": 0,
+            "newClones": 0
+          }
+        },
+        "total": {
+          "lines": 326,
+          "tokens": 15078,
+          "sources": 4,
+          "clones": 0,
+          "duplicatedLines": 0,
+          "duplicatedTokens": 0,
+          "percentage": 0,
+          "percentageTokens": 0,
+          "newDuplicatedLines": 0,
+          "newClones": 0
+        }
+      }
+    },
+    "total": {
+      "lines": 12160,
+      "tokens": 76901,
+      "sources": 120,
+      "clones": 42,
+      "duplicatedLines": 1295,
+      "duplicatedTokens": 8663,
+      "percentage": 10.65,
+      "percentageTokens": 11.27,
+      "newDuplicatedLines": 0,
+      "newClones": 0
+    }
+  },
+  "duplicates": [
+    {
+      "format": "powershell",
+      "lines": 26,
+      "fragment": "#!/usr/bin/env pwsh\n$basedir=Split-Path $MyInvocation.MyCommand.Definition -Parent\n\n$exe=\"\"\n$pathsep=\":\"\n$env_node_path=$env:NODE_PATH\n$new_node_path=\"E:\\team\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\bin\\node_modules;E:\\team\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\node_modules;E:\\team\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules;E:\\team\\node_modules\\.pnpm\\node_modules\"\nif ($PSVersionTable.PSVersion -lt \"6.0\" -or $IsWindows) {\n  # Fix case when both the Windows and Linux builds of Node\n  # are installed in the same directory\n  $exe=\".exe\"\n  $pathsep=\";\"\n} else {\n  $new_node_path=\"/mnt/e/team/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/bin/node_modules:/mnt/e/team/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/node_modules:/mnt/e/team/node_modules/.pnpm/typescript@5.9.3/node_modules:/mnt/e/team/node_modules/.pnpm/node_modules\"\n}\nif ([string]::IsNullOrEmpty($env_node_path)) {\n  $env:NODE_PATH=$new_node_path\n} else {\n  $env:NODE_PATH=\"$new_node_path$pathsep$env_node_path\"\n}\n\n$ret=0\nif (Test-Path \"$basedir/node$exe\") {\n  # Support pipeline input\n  if ($MyInvocation.ExpectingInput) {\n    $input | & \"$basedir/node$exe\"  \"$basedir/../../bin/tsc\"",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\node_modules\\.bin\\tsc.ps1",
+        "start": 1,
+        "end": 26,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 26,
+          "column": 16,
+          "position": 161
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\node_modules\\.bin\\tsserver.ps1",
+        "start": 1,
+        "end": 26,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 26,
+          "column": 21,
+          "position": 161
+        }
+      }
+    },
+    {
+      "format": "javascript",
+      "lines": 42,
+      "fragment": "/*! *****************************************************************************\nCopyright (c) Microsoft Corporation. All rights reserved.\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use\nthis file except in compliance with the License. You may obtain a copy of the\nLicense at http://www.apache.org/licenses/LICENSE-2.0\n\nTHIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\nKIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED\nWARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,\nMERCHANTABLITY OR NON-INFRINGEMENT.\n\nSee the Apache Version 2.0 License for specific language governing permissions\nand limitations under the License.\n***************************************************************************** */\n\n\n\"use strict\";\nvar __create = Object.create;\nvar __defProp = Object.defineProperty;\nvar __getOwnPropDesc = Object.getOwnPropertyDescriptor;\nvar __getOwnPropNames = Object.getOwnPropertyNames;\nvar __getProtoOf = Object.getPrototypeOf;\nvar __hasOwnProp = Object.prototype.hasOwnProperty;\nvar __copyProps = (to, from, except, desc) => {\n  if (from && typeof from === \"object\" || typeof from === \"function\") {\n    for (let key of __getOwnPropNames(from))\n      if (!__hasOwnProp.call(to, key) && key !== except)\n        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });\n  }\n  return to;\n};\nvar __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, \"default\"), secondTarget && __copyProps(secondTarget, mod, \"default\"));\nvar __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(\n  // If the importer is in node compatibility mode or this is not an ESM\n  // file that has been converted to a CommonJS file using a Babel-\n  // compatible transform (i.e. \"__esModule\" has not been set), then set\n  // \"default\" to the CommonJS \"module.exports\" for node compatibility.\n  isNodeMode || !mod || !mod.__esModule ? __defProp(target, \"default\", { value: mod, enumerable: true }) : target,\n  mod\n));\n\n// src/tsserver/server.ts",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\_tsserver.js",
+        "start": 1,
+        "end": 42,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 42,
+          "column": 26,
+          "position": 394
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\_typingsInstaller.js",
+        "start": 1,
+        "end": 42,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 42,
+          "column": 48,
+          "position": 394
+        }
+      }
+    },
+    {
+      "format": "javascript",
+      "lines": 32,
+      "fragment": "/*! *****************************************************************************\nCopyright (c) Microsoft Corporation. All rights reserved.\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use\nthis file except in compliance with the License. You may obtain a copy of the\nLicense at http://www.apache.org/licenses/LICENSE-2.0\n\nTHIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\nKIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED\nWARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,\nMERCHANTABLITY OR NON-INFRINGEMENT.\n\nSee the Apache Version 2.0 License for specific language governing permissions\nand limitations under the License.\n***************************************************************************** */\n\n\n\"use strict\";\nvar __create = Object.create;\nvar __defProp = Object.defineProperty;\nvar __getOwnPropDesc = Object.getOwnPropertyDescriptor;\nvar __getOwnPropNames = Object.getOwnPropertyNames;\nvar __getProtoOf = Object.getPrototypeOf;\nvar __hasOwnProp = Object.prototype.hasOwnProperty;\nvar __copyProps = (to, from, except, desc) => {\n  if (from && typeof from === \"object\" || typeof from === \"function\") {\n    for (let key of __getOwnPropNames(from))\n      if (!__hasOwnProp.call(to, key) && key !== except)\n        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });\n  }\n  return to;\n};\nvar __toESM",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\watchGuard.js",
+        "start": 1,
+        "end": 32,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 32,
+          "column": 8,
+          "position": 234
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\_typingsInstaller.js",
+        "start": 1,
+        "end": 32,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 32,
+          "column": 11,
+          "position": 234
+        }
+      }
+    },
+    {
+      "format": "javascript",
+      "lines": 11,
+      "fragment": ";\nvar __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(\n  // If the importer is in node compatibility mode or this is not an ESM\n  // file that has been converted to a CommonJS file using a Babel-\n  // compatible transform (i.e. \"__esModule\" has not been set), then set\n  // \"default\" to the CommonJS \"module.exports\" for node compatibility.\n  isNodeMode || !mod || !mod.__esModule ? __defProp(target, \"default\", { value: mod, enumerable: true }) : target,\n  mod\n));\n\n// src/watchGuard/watchGuard.ts",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\watchGuard.js",
+        "start": 31,
+        "end": 41,
+        "startLoc": {
+          "line": 31,
+          "column": 2,
+          "position": 230
+        },
+        "endLoc": {
+          "line": 41,
+          "column": 32,
+          "position": 346
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\_typingsInstaller.js",
+        "start": 32,
+        "end": 42,
+        "startLoc": {
+          "line": 32,
+          "column": 2,
+          "position": 278
+        },
+        "endLoc": {
+          "line": 42,
+          "column": 48,
+          "position": 394
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 30,
+      "fragment": "<T> {\n    /**\n     * @returns a new Set containing all the elements in this Set and also all the elements in the argument.\n     */\n    union<U>(other: ReadonlySetLike<U>): Set<T | U>;\n    /**\n     * @returns a new Set containing all the elements which are both in this Set and in the argument.\n     */\n    intersection<U>(other: ReadonlySetLike<U>): Set<T & U>;\n    /**\n     * @returns a new Set containing all the elements in this Set which are not also in the argument.\n     */\n    difference<U>(other: ReadonlySetLike<U>): Set<T>;\n    /**\n     * @returns a new Set containing all the elements which are in either this Set or in the argument, but not in both.\n     */\n    symmetricDifference<U>(other: ReadonlySetLike<U>): Set<T | U>;\n    /**\n     * @returns a boolean indicating whether all the elements in this Set are also in the argument.\n     */\n    isSubsetOf(other: ReadonlySetLike<unknown>): boolean;\n    /**\n     * @returns a boolean indicating whether all the elements in the argument are also in this Set.\n     */\n    isSupersetOf(other: ReadonlySetLike<unknown>): boolean;\n    /**\n     * @returns a boolean indicating whether this Set has no elements in common with the argument.\n     */\n    isDisjointFrom(other: ReadonlySetLike<unknown>): boolean;\n}",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.esnext.collection.d.ts",
+        "start": 67,
+        "end": 96,
+        "startLoc": {
+          "line": 67,
+          "column": 12,
+          "position": 249
+        },
+        "endLoc": {
+          "line": 96,
+          "column": 2,
+          "position": 424
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.esnext.collection.d.ts",
+        "start": 36,
+        "end": 65,
+        "startLoc": {
+          "line": 36,
+          "column": 4,
+          "position": 68
+        },
+        "endLoc": {
+          "line": 65,
+          "column": 2,
+          "position": 243
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 19,
+      "fragment": "/**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends number>(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (value: number, index: number, array: this)",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 167,
+        "end": 185,
+        "startLoc": {
+          "line": 167,
+          "column": 5,
+          "position": 649
+        },
+        "endLoc": {
+          "line": 185,
+          "column": 2,
+          "position": 745
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.esnext.float16.d.ts",
+        "start": 115,
+        "end": 136,
+        "startLoc": {
+          "line": 115,
+          "column": 5,
+          "position": 353
+        },
+        "endLoc": {
+          "line": 136,
+          "column": 2,
+          "position": 453
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 41,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    /**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends number>(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (value: number, index: number, array: this) => unknown,\n        thisArg?: any,\n    ): number | undefined;\n\n    /**\n     * Returns the index of the last element in the array where predicate is true, and -1\n     * otherwise.\n     * @param predicate findLastIndex calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found,\n     * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLastIndex(\n        predicate: (value: number, index: number, array: this) => unknown,\n        thisArg?: any,\n    ): number;\n\n    /**\n     * Copies the array and returns the copy with the elements in reverse order.\n     */\n    toReversed(): Uint8Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 230,
+        "end": 270,
+        "startLoc": {
+          "line": 230,
+          "column": 11,
+          "position": 906
+        },
+        "endLoc": {
+          "line": 270,
+          "column": 11,
+          "position": 1100
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 166,
+        "end": 206,
+        "startLoc": {
+          "line": 166,
+          "column": 10,
+          "position": 638
+        },
+        "endLoc": {
+          "line": 206,
+          "column": 10,
+          "position": 832
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 48,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    /**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends number>(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number | undefined;\n\n    /**\n     * Returns the index of the last element in the array where predicate is true, and -1\n     * otherwise.\n     * @param predicate findLastIndex calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found,\n     * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLastIndex(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number;\n\n    /**\n     * Copies the array and returns the copy with the elements in reverse order.\n     */",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 294,
+        "end": 341,
+        "startLoc": {
+          "line": 294,
+          "column": 18,
+          "position": 1174
+        },
+        "endLoc": {
+          "line": 341,
+          "column": 8,
+          "position": 1374
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 166,
+        "end": 165,
+        "startLoc": {
+          "line": 166,
+          "column": 10,
+          "position": 638
+        },
+        "endLoc": {
+          "line": 165,
+          "column": 8,
+          "position": 542
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 41,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    /**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends number>(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (value: number, index: number, array: this) => unknown,\n        thisArg?: any,\n    ): number | undefined;\n\n    /**\n     * Returns the index of the last element in the array where predicate is true, and -1\n     * otherwise.\n     * @param predicate findLastIndex calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found,\n     * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLastIndex(\n        predicate: (value: number, index: number, array: this) => unknown,\n        thisArg?: any,\n    ): number;\n\n    /**\n     * Copies the array and returns the copy with the elements in reverse order.\n     */\n    toReversed(): Int16Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 366,
+        "end": 406,
+        "startLoc": {
+          "line": 366,
+          "column": 11,
+          "position": 1456
+        },
+        "endLoc": {
+          "line": 406,
+          "column": 11,
+          "position": 1650
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 166,
+        "end": 206,
+        "startLoc": {
+          "line": 166,
+          "column": 10,
+          "position": 638
+        },
+        "endLoc": {
+          "line": 206,
+          "column": 10,
+          "position": 832
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 49,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    /**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends number>(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number | undefined;\n\n    /**\n     * Returns the index of the last element in the array where predicate is true, and -1\n     * otherwise.\n     * @param predicate findLastIndex calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found,\n     * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLastIndex(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number;\n\n    /**\n     * Copies the array and returns the copy with the elements in reverse order.\n     */\n    toReversed(): Uint16Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 430,
+        "end": 478,
+        "startLoc": {
+          "line": 430,
+          "column": 12,
+          "position": 1724
+        },
+        "endLoc": {
+          "line": 478,
+          "column": 12,
+          "position": 1932
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 166,
+        "end": 342,
+        "startLoc": {
+          "line": 166,
+          "column": 10,
+          "position": 638
+        },
+        "endLoc": {
+          "line": 342,
+          "column": 18,
+          "position": 1382
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 41,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    /**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends number>(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (value: number, index: number, array: this) => unknown,\n        thisArg?: any,\n    ): number | undefined;\n\n    /**\n     * Returns the index of the last element in the array where predicate is true, and -1\n     * otherwise.\n     * @param predicate findLastIndex calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found,\n     * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLastIndex(\n        predicate: (value: number, index: number, array: this) => unknown,\n        thisArg?: any,\n    ): number;\n\n    /**\n     * Copies the array and returns the copy with the elements in reverse order.\n     */\n    toReversed(): Int32Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 502,
+        "end": 542,
+        "startLoc": {
+          "line": 502,
+          "column": 11,
+          "position": 2006
+        },
+        "endLoc": {
+          "line": 542,
+          "column": 11,
+          "position": 2200
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 166,
+        "end": 206,
+        "startLoc": {
+          "line": 166,
+          "column": 10,
+          "position": 638
+        },
+        "endLoc": {
+          "line": 206,
+          "column": 10,
+          "position": 832
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 49,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    /**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends number>(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number | undefined;\n\n    /**\n     * Returns the index of the last element in the array where predicate is true, and -1\n     * otherwise.\n     * @param predicate findLastIndex calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found,\n     * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLastIndex(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number;\n\n    /**\n     * Copies the array and returns the copy with the elements in reverse order.\n     */\n    toReversed(): Uint32Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 566,
+        "end": 614,
+        "startLoc": {
+          "line": 566,
+          "column": 12,
+          "position": 2274
+        },
+        "endLoc": {
+          "line": 614,
+          "column": 12,
+          "position": 2482
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 166,
+        "end": 342,
+        "startLoc": {
+          "line": 166,
+          "column": 10,
+          "position": 638
+        },
+        "endLoc": {
+          "line": 342,
+          "column": 18,
+          "position": 1382
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 49,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    /**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends number>(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number | undefined;\n\n    /**\n     * Returns the index of the last element in the array where predicate is true, and -1\n     * otherwise.\n     * @param predicate findLastIndex calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found,\n     * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLastIndex(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number;\n\n    /**\n     * Copies the array and returns the copy with the elements in reverse order.\n     */\n    toReversed(): Float32Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 638,
+        "end": 686,
+        "startLoc": {
+          "line": 638,
+          "column": 13,
+          "position": 2556
+        },
+        "endLoc": {
+          "line": 686,
+          "column": 13,
+          "position": 2764
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 166,
+        "end": 342,
+        "startLoc": {
+          "line": 166,
+          "column": 10,
+          "position": 638
+        },
+        "endLoc": {
+          "line": 342,
+          "column": 18,
+          "position": 1382
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 49,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    /**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends number>(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number | undefined;\n\n    /**\n     * Returns the index of the last element in the array where predicate is true, and -1\n     * otherwise.\n     * @param predicate findLastIndex calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found,\n     * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLastIndex(\n        predicate: (\n            value: number,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number;\n\n    /**\n     * Copies the array and returns the copy with the elements in reverse order.\n     */\n    toReversed(): Float64Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 710,
+        "end": 758,
+        "startLoc": {
+          "line": 710,
+          "column": 13,
+          "position": 2838
+        },
+        "endLoc": {
+          "line": 758,
+          "column": 13,
+          "position": 3046
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 166,
+        "end": 342,
+        "startLoc": {
+          "line": 166,
+          "column": 10,
+          "position": 638
+        },
+        "endLoc": {
+          "line": 342,
+          "column": 18,
+          "position": 1382
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 49,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    /**\n     * Returns the value of the last element in the array where predicate is true, and undefined\n     * otherwise.\n     * @param predicate findLast calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found, findLast\n     * immediately returns that element value. Otherwise, findLast returns undefined.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLast<S extends bigint>(\n        predicate: (\n            value: bigint,\n            index: number,\n            array: this,\n        ) => value is S,\n        thisArg?: any,\n    ): S | undefined;\n    findLast(\n        predicate: (\n            value: bigint,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): bigint | undefined;\n\n    /**\n     * Returns the index of the last element in the array where predicate is true, and -1\n     * otherwise.\n     * @param predicate findLastIndex calls predicate once for each element of the array, in descending\n     * order, until it finds one where predicate returns true. If such an element is found,\n     * findLastIndex immediately returns that element index. Otherwise, findLastIndex returns -1.\n     * @param thisArg If provided, it will be used as the this value for each invocation of\n     * predicate. If it is not provided, undefined is used instead.\n     */\n    findLastIndex(\n        predicate: (\n            value: bigint,\n            index: number,\n            array: this,\n        ) => unknown,\n        thisArg?: any,\n    ): number;\n\n    /**\n     * Copies the array and returns the copy with the elements in reverse order.\n     */\n    toReversed(): BigUint64Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 854,
+        "end": 902,
+        "startLoc": {
+          "line": 854,
+          "column": 15,
+          "position": 3402
+        },
+        "endLoc": {
+          "line": 902,
+          "column": 15,
+          "position": 3610
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2023.array.d.ts",
+        "start": 782,
+        "end": 830,
+        "startLoc": {
+          "line": 782,
+          "column": 14,
+          "position": 3120
+        },
+        "endLoc": {
+          "line": 830,
+          "column": 14,
+          "position": 3328
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 36,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike = ArrayBufferLike> {\n    /** The size in bytes of each element in the array. */\n    readonly BYTES_PER_ELEMENT: number;\n\n    /** The ArrayBuffer instance referenced by the array. */\n    readonly buffer: TArrayBuffer;\n\n    /** The length in bytes of the array. */\n    readonly byteLength: number;\n\n    /** The offset in bytes of the array. */\n    readonly byteOffset: number;\n\n    /**\n     * Returns the this object after copying a section of the array identified by start and end\n     * to the same array starting at position target\n     * @param target If target is negative, it is treated as length+target where length is the\n     * length of the array.\n     * @param start If start is negative, it is treated as length+start. If end is negative, it\n     * is treated as length+end.\n     * @param end If not specified, length of the this object is used as its default value.\n     */\n    copyWithin(target: number, start: number, end?: number): this;\n\n    /** Yields index, value pairs for every entry in the array. */\n    entries(): ArrayIterator<[number, bigint]>;\n\n    /**\n     * Determines whether all the members of an array satisfy the specified test.\n     * @param predicate A function that accepts up to three arguments. The every method calls\n     * the predicate function for each element in the array until the predicate returns false,\n     * or until the end of the array.\n     * @param thisArg An object to which the this keyword can refer in the predicate function.\n     * If thisArg is omitted, undefined is used as the this value.\n     */\n    every(predicate: (value: bigint, index: number, array: BigUint64Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts",
+        "start": 440,
+        "end": 475,
+        "startLoc": {
+          "line": 440,
+          "column": 15,
+          "position": 2220
+        },
+        "endLoc": {
+          "line": 475,
+          "column": 15,
+          "position": 2362
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts",
+        "start": 149,
+        "end": 184,
+        "startLoc": {
+          "line": 149,
+          "column": 14,
+          "position": 776
+        },
+        "endLoc": {
+          "line": 184,
+          "column": 14,
+          "position": 918
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 20,
+      "fragment": "<TArrayBuffer>) => boolean, thisArg?: any): boolean;\n\n    /**\n     * Changes all array elements from `start` to `end` index to a static `value` and returns the modified array\n     * @param value value to fill array section with\n     * @param start index to start filling the array at. If start is negative, it is treated as\n     * length+start where length is the length of the array.\n     * @param end index to stop filling the array at. If end is negative, it is treated as\n     * length+end.\n     */\n    fill(value: bigint, start?: number, end?: number): this;\n\n    /**\n     * Returns the elements of an array that meet the condition specified in a callback function.\n     * @param predicate A function that accepts up to three arguments. The filter method calls\n     * the predicate function one time for each element in the array.\n     * @param thisArg An object to which the this keyword can refer in the predicate function.\n     * If thisArg is omitted, undefined is used as the this value.\n     */\n    filter(predicate: (value: bigint, index: number, array: BigUint64Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts",
+        "start": 475,
+        "end": 494,
+        "startLoc": {
+          "line": 475,
+          "column": 15,
+          "position": 2363
+        },
+        "endLoc": {
+          "line": 494,
+          "column": 15,
+          "position": 2441
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts",
+        "start": 184,
+        "end": 203,
+        "startLoc": {
+          "line": 184,
+          "column": 14,
+          "position": 919
+        },
+        "endLoc": {
+          "line": 203,
+          "column": 14,
+          "position": 997
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 47,
+      "fragment": "<TArrayBuffer>) => void, thisArg?: any): void;\n\n    /**\n     * Determines whether an array includes a certain element, returning true or false as appropriate.\n     * @param searchElement The element to search for.\n     * @param fromIndex The position in this array at which to begin searching for searchElement.\n     */\n    includes(searchElement: bigint, fromIndex?: number): boolean;\n\n    /**\n     * Returns the index of the first occurrence of a value in an array.\n     * @param searchElement The value to locate in the array.\n     * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the\n     * search starts at index 0.\n     */\n    indexOf(searchElement: bigint, fromIndex?: number): number;\n\n    /**\n     * Adds all the elements of an array separated by the specified separator string.\n     * @param separator A string used to separate one element of an array from the next in the\n     * resulting String. If omitted, the array elements are separated with a comma.\n     */\n    join(separator?: string): string;\n\n    /** Yields each index in the array. */\n    keys(): ArrayIterator<number>;\n\n    /**\n     * Returns the index of the last occurrence of a value in an array.\n     * @param searchElement The value to locate in the array.\n     * @param fromIndex The array index at which to begin the search. If fromIndex is omitted, the\n     * search starts at index 0.\n     */\n    lastIndexOf(searchElement: bigint, fromIndex?: number): number;\n\n    /** The length of the array. */\n    readonly length: number;\n\n    /**\n     * Calls a defined callback function on each element of an array, and returns an array that\n     * contains the results.\n     * @param callbackfn A function that accepts up to three arguments. The map method calls the\n     * callbackfn function one time for each element in the array.\n     * @param thisArg An object to which the this keyword can refer in the callbackfn function.\n     * If thisArg is omitted, undefined is used as the this value.\n     */\n    map(callbackfn: (value: bigint, index: number, array: BigUint64Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts",
+        "start": 525,
+        "end": 571,
+        "startLoc": {
+          "line": 525,
+          "column": 15,
+          "position": 2593
+        },
+        "endLoc": {
+          "line": 571,
+          "column": 15,
+          "position": 2759
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts",
+        "start": 234,
+        "end": 280,
+        "startLoc": {
+          "line": 234,
+          "column": 14,
+          "position": 1149
+        },
+        "endLoc": {
+          "line": 280,
+          "column": 14,
+          "position": 1315
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 18,
+      "fragment": "<TArrayBuffer>) => U, initialValue: U): U;\n\n    /** Reverses the elements in the array. */\n    reverse(): this;\n\n    /**\n     * Sets a value or an array of values.\n     * @param array A typed or untyped array of values to set.\n     * @param offset The index in the current array at which the values are to be written.\n     */\n    set(array: ArrayLike<bigint>, offset?: number): void;\n\n    /**\n     * Returns a section of an array.\n     * @param start The beginning of the specified portion of the array.\n     * @param end The end of the specified portion of the array.\n     */\n    slice(start?: number, end?: number): BigUint64Array",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts",
+        "start": 619,
+        "end": 636,
+        "startLoc": {
+          "line": 619,
+          "column": 15,
+          "position": 2970
+        },
+        "endLoc": {
+          "line": 636,
+          "column": 15,
+          "position": 3052
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2020.bigint.d.ts",
+        "start": 328,
+        "end": 345,
+        "startLoc": {
+          "line": 328,
+          "column": 14,
+          "position": 1526
+        },
+        "endLoc": {
+          "line": 345,
+          "column": 14,
+          "position": 1608
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 27,
+      "fragment": "<T> {\n    /**\n     * Calls a defined callback function on each element of an array. Then, flattens the result into\n     * a new array.\n     * This is identical to a map followed by flat with depth 1.\n     *\n     * @param callback A function that accepts up to three arguments. The flatMap method calls the\n     * callback function one time for each element in the array.\n     * @param thisArg An object to which the this keyword can refer in the callback function. If\n     * thisArg is omitted, undefined is used as the this value.\n     */\n    flatMap<U, This = undefined>(\n        callback: (this: This, value: T, index: number, array: T[]) => U | ReadonlyArray<U>,\n        thisArg?: This,\n    ): U[];\n\n    /**\n     * Returns a new array with all sub-array elements concatenated into it recursively up to the\n     * specified depth.\n     *\n     * @param depth The maximum recursion depth\n     */\n    flat<A, D extends number = 1>(\n        this: A,\n        depth?: D,\n    ): FlatArray<A, D>[];\n}",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2019.array.d.ts",
+        "start": 53,
+        "end": 79,
+        "startLoc": {
+          "line": 53,
+          "column": 6,
+          "position": 296
+        },
+        "endLoc": {
+          "line": 79,
+          "column": 2,
+          "position": 431
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2019.array.d.ts",
+        "start": 25,
+        "end": 51,
+        "startLoc": {
+          "line": 25,
+          "column": 14,
+          "position": 155
+        },
+        "endLoc": {
+          "line": 51,
+          "column": 2,
+          "position": 290
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 21,
+      "fragment": "<K, V> {\n    /** Returns an iterable of entries in the map. */\n    [Symbol.iterator](): MapIterator<[K, V]>;\n\n    /**\n     * Returns an iterable of key, value pairs for every entry in the map.\n     */\n    entries(): MapIterator<[K, V]>;\n\n    /**\n     * Returns an iterable of keys in the map\n     */\n    keys(): MapIterator<K>;\n\n    /**\n     * Returns an iterable of values in the map\n     */\n    values(): MapIterator<V>;\n}\n\ninterface MapConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 161,
+        "end": 181,
+        "startLoc": {
+          "line": 161,
+          "column": 12,
+          "position": 878
+        },
+        "endLoc": {
+          "line": 181,
+          "column": 15,
+          "position": 969
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 141,
+        "end": 161,
+        "startLoc": {
+          "line": 141,
+          "column": 4,
+          "position": 786
+        },
+        "endLoc": {
+          "line": 161,
+          "column": 12,
+          "position": 877
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 21,
+      "fragment": "<T> {\n    /** Iterates over values in the set. */\n    [Symbol.iterator](): SetIterator<T>;\n\n    /**\n     * Returns an iterable of [v,v] pairs for every value `v` in the set.\n     */\n    entries(): SetIterator<[T, T]>;\n\n    /**\n     * Despite its name, returns an iterable of the values in the set.\n     */\n    keys(): SetIterator<T>;\n\n    /**\n     * Returns an iterable of values in the set.\n     */\n    values(): SetIterator<T>;\n}\n\ninterface SetConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 216,
+        "end": 236,
+        "startLoc": {
+          "line": 216,
+          "column": 12,
+          "position": 1228
+        },
+        "endLoc": {
+          "line": 236,
+          "column": 15,
+          "position": 1311
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 196,
+        "end": 216,
+        "startLoc": {
+          "line": 196,
+          "column": 4,
+          "position": 1144
+        },
+        "endLoc": {
+          "line": 216,
+          "column": 12,
+          "position": 1227
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 20,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    [Symbol.iterator](): ArrayIterator<number>;\n\n    /**\n     * Returns an array of key, value pairs for every entry in the array\n     */\n    entries(): ArrayIterator<[number, number]>;\n\n    /**\n     * Returns an list of keys in the array\n     */\n    keys(): ArrayIterator<number>;\n\n    /**\n     * Returns an list of values in the array\n     */\n    values(): ArrayIterator<number>;\n}\n\ninterface Uint8ArrayConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 312,
+        "end": 331,
+        "startLoc": {
+          "line": 312,
+          "column": 11,
+          "position": 1755
+        },
+        "endLoc": {
+          "line": 331,
+          "column": 22,
+          "position": 1839
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 275,
+        "end": 294,
+        "startLoc": {
+          "line": 275,
+          "column": 10,
+          "position": 1563
+        },
+        "endLoc": {
+          "line": 294,
+          "column": 21,
+          "position": 1647
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 20,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    [Symbol.iterator](): ArrayIterator<number>;\n\n    /**\n     * Returns an array of key, value pairs for every entry in the array\n     */\n    entries(): ArrayIterator<[number, number]>;\n\n    /**\n     * Returns an list of keys in the array\n     */\n    keys(): ArrayIterator<number>;\n\n    /**\n     * Returns an list of values in the array\n     */\n    values(): ArrayIterator<number>;\n}\n\ninterface Uint8ClampedArrayConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 349,
+        "end": 368,
+        "startLoc": {
+          "line": 349,
+          "column": 18,
+          "position": 1947
+        },
+        "endLoc": {
+          "line": 368,
+          "column": 29,
+          "position": 2031
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 275,
+        "end": 294,
+        "startLoc": {
+          "line": 275,
+          "column": 10,
+          "position": 1563
+        },
+        "endLoc": {
+          "line": 294,
+          "column": 21,
+          "position": 1647
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 19,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    [Symbol.iterator](): ArrayIterator<number>;\n    /**\n     * Returns an array of key, value pairs for every entry in the array\n     */\n    entries(): ArrayIterator<[number, number]>;\n\n    /**\n     * Returns an list of keys in the array\n     */\n    keys(): ArrayIterator<number>;\n\n    /**\n     * Returns an list of values in the array\n     */\n    values(): ArrayIterator<number>;\n}\n\ninterface Int16ArrayConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 386,
+        "end": 404,
+        "startLoc": {
+          "line": 386,
+          "column": 11,
+          "position": 2139
+        },
+        "endLoc": {
+          "line": 404,
+          "column": 22,
+          "position": 2222
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 275,
+        "end": 294,
+        "startLoc": {
+          "line": 275,
+          "column": 10,
+          "position": 1563
+        },
+        "endLoc": {
+          "line": 294,
+          "column": 21,
+          "position": 1647
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 20,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    [Symbol.iterator](): ArrayIterator<number>;\n\n    /**\n     * Returns an array of key, value pairs for every entry in the array\n     */\n    entries(): ArrayIterator<[number, number]>;\n\n    /**\n     * Returns an list of keys in the array\n     */\n    keys(): ArrayIterator<number>;\n\n    /**\n     * Returns an list of values in the array\n     */\n    values(): ArrayIterator<number>;\n}\n\ninterface Uint16ArrayConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 422,
+        "end": 441,
+        "startLoc": {
+          "line": 422,
+          "column": 12,
+          "position": 2330
+        },
+        "endLoc": {
+          "line": 441,
+          "column": 23,
+          "position": 2414
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 275,
+        "end": 294,
+        "startLoc": {
+          "line": 275,
+          "column": 10,
+          "position": 1563
+        },
+        "endLoc": {
+          "line": 294,
+          "column": 21,
+          "position": 1647
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 20,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    [Symbol.iterator](): ArrayIterator<number>;\n\n    /**\n     * Returns an array of key, value pairs for every entry in the array\n     */\n    entries(): ArrayIterator<[number, number]>;\n\n    /**\n     * Returns an list of keys in the array\n     */\n    keys(): ArrayIterator<number>;\n\n    /**\n     * Returns an list of values in the array\n     */\n    values(): ArrayIterator<number>;\n}\n\ninterface Int32ArrayConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 459,
+        "end": 478,
+        "startLoc": {
+          "line": 459,
+          "column": 11,
+          "position": 2522
+        },
+        "endLoc": {
+          "line": 478,
+          "column": 22,
+          "position": 2606
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 275,
+        "end": 294,
+        "startLoc": {
+          "line": 275,
+          "column": 10,
+          "position": 1563
+        },
+        "endLoc": {
+          "line": 294,
+          "column": 21,
+          "position": 1647
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 20,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    [Symbol.iterator](): ArrayIterator<number>;\n\n    /**\n     * Returns an array of key, value pairs for every entry in the array\n     */\n    entries(): ArrayIterator<[number, number]>;\n\n    /**\n     * Returns an list of keys in the array\n     */\n    keys(): ArrayIterator<number>;\n\n    /**\n     * Returns an list of values in the array\n     */\n    values(): ArrayIterator<number>;\n}\n\ninterface Uint32ArrayConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 496,
+        "end": 515,
+        "startLoc": {
+          "line": 496,
+          "column": 12,
+          "position": 2714
+        },
+        "endLoc": {
+          "line": 515,
+          "column": 23,
+          "position": 2798
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 275,
+        "end": 294,
+        "startLoc": {
+          "line": 275,
+          "column": 10,
+          "position": 1563
+        },
+        "endLoc": {
+          "line": 294,
+          "column": 21,
+          "position": 1647
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 20,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    [Symbol.iterator](): ArrayIterator<number>;\n\n    /**\n     * Returns an array of key, value pairs for every entry in the array\n     */\n    entries(): ArrayIterator<[number, number]>;\n\n    /**\n     * Returns an list of keys in the array\n     */\n    keys(): ArrayIterator<number>;\n\n    /**\n     * Returns an list of values in the array\n     */\n    values(): ArrayIterator<number>;\n}\n\ninterface Float32ArrayConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 533,
+        "end": 552,
+        "startLoc": {
+          "line": 533,
+          "column": 13,
+          "position": 2906
+        },
+        "endLoc": {
+          "line": 552,
+          "column": 24,
+          "position": 2990
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 275,
+        "end": 294,
+        "startLoc": {
+          "line": 275,
+          "column": 10,
+          "position": 1563
+        },
+        "endLoc": {
+          "line": 294,
+          "column": 21,
+          "position": 1647
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 20,
+      "fragment": "<TArrayBuffer extends ArrayBufferLike> {\n    [Symbol.iterator](): ArrayIterator<number>;\n\n    /**\n     * Returns an array of key, value pairs for every entry in the array\n     */\n    entries(): ArrayIterator<[number, number]>;\n\n    /**\n     * Returns an list of keys in the array\n     */\n    keys(): ArrayIterator<number>;\n\n    /**\n     * Returns an list of values in the array\n     */\n    values(): ArrayIterator<number>;\n}\n\ninterface Float64ArrayConstructor",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 570,
+        "end": 589,
+        "startLoc": {
+          "line": 570,
+          "column": 13,
+          "position": 3098
+        },
+        "endLoc": {
+          "line": 589,
+          "column": 24,
+          "position": 3182
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.es2015.iterable.d.ts",
+        "start": 275,
+        "end": 294,
+        "startLoc": {
+          "line": 275,
+          "column": 10,
+          "position": 1563
+        },
+        "endLoc": {
+          "line": 294,
+          "column": 21,
+          "position": 1647
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 52,
+      "fragment": ">;\n}\n\ninterface CSSTransformValue {\n    [Symbol.iterator](): ArrayIterator<CSSTransformComponent>;\n    entries(): ArrayIterator<[number, CSSTransformComponent]>;\n    keys(): ArrayIterator<number>;\n    values(): ArrayIterator<CSSTransformComponent>;\n}\n\ninterface CSSUnparsedValue {\n    [Symbol.iterator](): ArrayIterator<CSSUnparsedSegment>;\n    entries(): ArrayIterator<[number, CSSUnparsedSegment]>;\n    keys(): ArrayIterator<number>;\n    values(): ArrayIterator<CSSUnparsedSegment>;\n}\n\ninterface Cache {\n    /**\n     * The **`addAll()`** method of the Cache interface takes an array of URLs, retrieves them, and adds the resulting response objects to the given cache.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/Cache/addAll)\n     */\n    addAll(requests: Iterable<RequestInfo>): Promise<void>;\n}\n\ninterface CanvasPath {\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/roundRect) */\n    roundRect(x: number, y: number, w: number, h: number, radii?: number | DOMPointInit | Iterable<number | DOMPointInit>): void;\n}\n\ninterface CanvasPathDrawingStyles {\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/setLineDash) */\n    setLineDash(segments: Iterable<number>): void;\n}\n\ninterface CookieStoreManager {\n    /**\n     * The **`subscribe()`** method of the CookieStoreManager interface subscribes a ServiceWorkerRegistration to cookie change events.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CookieStoreManager/subscribe)\n     */\n    subscribe(subscriptions: Iterable<CookieStoreGetOptions>): Promise<void>;\n    /**\n     * The **`unsubscribe()`** method of the CookieStoreManager interface stops the ServiceWorkerRegistration from receiving previously subscribed events.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/CookieStoreManager/unsubscribe)\n     */\n    unsubscribe(subscriptions: Iterable<CookieStoreGetOptions>): Promise<void>;\n}\n\ninterface CustomStateSet",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts",
+        "start": 66,
+        "end": 117,
+        "startLoc": {
+          "line": 66,
+          "column": 7,
+          "position": 280
+        },
+        "endLoc": {
+          "line": 117,
+          "column": 15,
+          "position": 597
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.iterable.d.ts",
+        "start": 27,
+        "end": 78,
+        "startLoc": {
+          "line": 27,
+          "column": 16,
+          "position": 74
+        },
+        "endLoc": {
+          "line": 78,
+          "column": 14,
+          "position": 391
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 24,
+      "fragment": "}\n\ninterface FileList {\n    [Symbol.iterator](): ArrayIterator<File>;\n}\n\ninterface FontFaceSet extends Set<FontFace> {\n}\n\ninterface FormDataIterator<T> extends IteratorObject<T, BuiltinIteratorReturn, unknown> {\n    [Symbol.iterator](): FormDataIterator<T>;\n}\n\ninterface FormData {\n    [Symbol.iterator](): FormDataIterator<[string, FormDataEntryValue]>;\n    /** Returns an array of key, value pairs for every entry in the list. */\n    entries(): FormDataIterator<[string, FormDataEntryValue]>;\n    /** Returns a list of keys in the list. */\n    keys(): FormDataIterator<string>;\n    /** Returns a list of values in the list. */\n    values(): FormDataIterator<FormDataEntryValue>;\n}\n\ninterface HTMLAllCollection",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts",
+        "start": 140,
+        "end": 163,
+        "startLoc": {
+          "line": 140,
+          "column": 1,
+          "position": 768
+        },
+        "endLoc": {
+          "line": 163,
+          "column": 18,
+          "position": 935
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.iterable.d.ts",
+        "start": 80,
+        "end": 103,
+        "startLoc": {
+          "line": 80,
+          "column": 1,
+          "position": 411
+        },
+        "endLoc": {
+          "line": 103,
+          "column": 16,
+          "position": 578
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 18,
+      "fragment": ">;\n}\n\ninterface HeadersIterator<T> extends IteratorObject<T, BuiltinIteratorReturn, unknown> {\n    [Symbol.iterator](): HeadersIterator<T>;\n}\n\ninterface Headers {\n    [Symbol.iterator](): HeadersIterator<[string, string]>;\n    /** Returns an iterator allowing to go through all key/value pairs contained in this object. */\n    entries(): HeadersIterator<[string, string]>;\n    /** Returns an iterator allowing to go through all keys of the key/value pairs contained in this object. */\n    keys(): HeadersIterator<string>;\n    /** Returns an iterator allowing to go through all values of the key/value pairs contained in this object. */\n    values(): HeadersIterator<string>;\n}\n\ninterface Highlight",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts",
+        "start": 180,
+        "end": 197,
+        "startLoc": {
+          "line": 180,
+          "column": 18,
+          "position": 1059
+        },
+        "endLoc": {
+          "line": 197,
+          "column": 10,
+          "position": 1188
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.iterable.d.ts",
+        "start": 100,
+        "end": 117,
+        "startLoc": {
+          "line": 100,
+          "column": 19,
+          "position": 570
+        },
+        "endLoc": {
+          "line": 117,
+          "column": 12,
+          "position": 699
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 25,
+      "fragment": "}\n\ninterface IDBDatabase {\n    /**\n     * The **`transaction`** method of the IDBDatabase interface immediately returns a transaction object (IDBTransaction) containing the IDBTransaction.objectStore method, which you can use to access your object store.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBDatabase/transaction)\n     */\n    transaction(storeNames: string | Iterable<string>, mode?: IDBTransactionMode, options?: IDBTransactionOptions): IDBTransaction;\n}\n\ninterface IDBObjectStore {\n    /**\n     * The **`createIndex()`** method of the field/column defining a new data point for each database record to contain.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/IDBObjectStore/createIndex)\n     */\n    createIndex(name: string, keyPath: string | Iterable<string>, options?: IDBIndexParameters): IDBIndex;\n}\n\ninterface ImageTrackList {\n    [Symbol.iterator](): ArrayIterator<ImageTrack>;\n}\n\ninterface MIDIInputMap",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts",
+        "start": 201,
+        "end": 225,
+        "startLoc": {
+          "line": 201,
+          "column": 1,
+          "position": 1218
+        },
+        "endLoc": {
+          "line": 225,
+          "column": 13,
+          "position": 1339
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.iterable.d.ts",
+        "start": 115,
+        "end": 139,
+        "startLoc": {
+          "line": 115,
+          "column": 1,
+          "position": 694
+        },
+        "endLoc": {
+          "line": 139,
+          "column": 13,
+          "position": 815
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 9,
+      "fragment": ">;\n}\n\ninterface MessageEvent<T = any> {\n    /** @deprecated */\n    initMessageEvent(type: string, bubbles?: boolean, cancelable?: boolean, data?: any, origin?: string, lastEventId?: string, source?: MessageEventSource | null, ports?: Iterable<MessagePort>): void;\n}\n\ninterface MimeTypeArray",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts",
+        "start": 252,
+        "end": 260,
+        "startLoc": {
+          "line": 252,
+          "column": 7,
+          "position": 1541
+        },
+        "endLoc": {
+          "line": 260,
+          "column": 14,
+          "position": 1637
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.iterable.d.ts",
+        "start": 136,
+        "end": 144,
+        "startLoc": {
+          "line": 136,
+          "column": 11,
+          "position": 807
+        },
+        "endLoc": {
+          "line": 144,
+          "column": 33,
+          "position": 903
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 15,
+      "fragment": ";\n}\n\ninterface StylePropertyMapReadOnlyIterator<T> extends IteratorObject<T, BuiltinIteratorReturn, unknown> {\n    [Symbol.iterator](): StylePropertyMapReadOnlyIterator<T>;\n}\n\ninterface StylePropertyMapReadOnly {\n    [Symbol.iterator](): StylePropertyMapReadOnlyIterator<[string, Iterable<CSSStyleValue>]>;\n    entries(): StylePropertyMapReadOnlyIterator<[string, Iterable<CSSStyleValue>]>;\n    keys(): StylePropertyMapReadOnlyIterator<string>;\n    values(): StylePropertyMapReadOnlyIterator<Iterable<CSSStyleValue>>;\n}\n\ninterface StyleSheetList",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts",
+        "start": 353,
+        "end": 367,
+        "startLoc": {
+          "line": 353,
+          "column": 2,
+          "position": 2190
+        },
+        "endLoc": {
+          "line": 367,
+          "column": 15,
+          "position": 2317
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.iterable.d.ts",
+        "start": 141,
+        "end": 155,
+        "startLoc": {
+          "line": 141,
+          "column": 5,
+          "position": 896
+        },
+        "endLoc": {
+          "line": 155,
+          "column": 13,
+          "position": 1023
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 35,
+      "fragment": ";\n}\n\ninterface SubtleCrypto {\n    /**\n     * The **`deriveKey()`** method of the SubtleCrypto interface can be used to derive a secret key from a master key.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SubtleCrypto/deriveKey)\n     */\n    deriveKey(algorithm: AlgorithmIdentifier | EcdhKeyDeriveParams | HkdfParams | Pbkdf2Params, baseKey: CryptoKey, derivedKeyType: AlgorithmIdentifier | AesDerivedKeyParams | HmacImportParams | HkdfParams | Pbkdf2Params, extractable: boolean, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>;\n    /**\n     * The **`generateKey()`** method of the SubtleCrypto interface is used to generate a new key (for symmetric algorithms) or key pair (for public-key algorithms).\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SubtleCrypto/generateKey)\n     */\n    generateKey(algorithm: \"Ed25519\" | { name: \"Ed25519\" }, extractable: boolean, keyUsages: ReadonlyArray<\"sign\" | \"verify\">): Promise<CryptoKeyPair>;\n    generateKey(algorithm: RsaHashedKeyGenParams | EcKeyGenParams, extractable: boolean, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKeyPair>;\n    generateKey(algorithm: AesKeyGenParams | HmacKeyGenParams | Pbkdf2Params, extractable: boolean, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>;\n    generateKey(algorithm: AlgorithmIdentifier, extractable: boolean, keyUsages: Iterable<KeyUsage>): Promise<CryptoKeyPair | CryptoKey>;\n    /**\n     * The **`importKey()`** method of the SubtleCrypto interface imports a key: that is, it takes as input a key in an external, portable format and gives you a CryptoKey object that you can use in the Web Crypto API.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SubtleCrypto/importKey)\n     */\n    importKey(format: \"jwk\", keyData: JsonWebKey, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: boolean, keyUsages: ReadonlyArray<KeyUsage>): Promise<CryptoKey>;\n    importKey(format: Exclude<KeyFormat, \"jwk\">, keyData: BufferSource, algorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: boolean, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>;\n    /**\n     * The **`unwrapKey()`** method of the SubtleCrypto interface 'unwraps' a key.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/SubtleCrypto/unwrapKey)\n     */\n    unwrapKey(format: KeyFormat, wrappedKey: BufferSource, unwrappingKey: CryptoKey, unwrapAlgorithm: AlgorithmIdentifier | RsaOaepParams | AesCtrParams | AesCbcParams | AesGcmParams, unwrappedKeyAlgorithm: AlgorithmIdentifier | RsaHashedImportParams | EcKeyImportParams | HmacImportParams | AesKeyAlgorithm, extractable: boolean, keyUsages: Iterable<KeyUsage>): Promise<CryptoKey>;\n}\n\ninterface TextTrackCueList",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts",
+        "start": 368,
+        "end": 402,
+        "startLoc": {
+          "line": 368,
+          "column": 2,
+          "position": 2335
+        },
+        "endLoc": {
+          "line": 402,
+          "column": 17,
+          "position": 2800
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.iterable.d.ts",
+        "start": 152,
+        "end": 186,
+        "startLoc": {
+          "line": 152,
+          "column": 3,
+          "position": 1016
+        },
+        "endLoc": {
+          "line": 186,
+          "column": 24,
+          "position": 1481
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 18,
+      "fragment": ">;\n}\n\ninterface URLSearchParamsIterator<T> extends IteratorObject<T, BuiltinIteratorReturn, unknown> {\n    [Symbol.iterator](): URLSearchParamsIterator<T>;\n}\n\ninterface URLSearchParams {\n    [Symbol.iterator](): URLSearchParamsIterator<[string, string]>;\n    /** Returns an array of key, value pairs for every entry in the search params. */\n    entries(): URLSearchParamsIterator<[string, string]>;\n    /** Returns a list of keys in the search params. */\n    keys(): URLSearchParamsIterator<string>;\n    /** Returns a list of values in the search params. */\n    values(): URLSearchParamsIterator<string>;\n}\n\ninterface ViewTransitionTypeSet",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts",
+        "start": 411,
+        "end": 428,
+        "startLoc": {
+          "line": 411,
+          "column": 6,
+          "position": 2867
+        },
+        "endLoc": {
+          "line": 428,
+          "column": 22,
+          "position": 2996
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.iterable.d.ts",
+        "start": 183,
+        "end": 200,
+        "startLoc": {
+          "line": 183,
+          "column": 10,
+          "position": 1473
+        },
+        "endLoc": {
+          "line": 200,
+          "column": 19,
+          "position": 1602
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 143,
+      "fragment": "}\n\ninterface WEBGL_draw_buffers {\n    /**\n     * The **`WEBGL_draw_buffers.drawBuffersWEBGL()`** method is part of the WebGL API and allows you to define the draw buffers to which all fragment colors are written.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_draw_buffers/drawBuffersWEBGL)\n     */\n    drawBuffersWEBGL(buffers: Iterable<GLenum>): void;\n}\n\ninterface WEBGL_multi_draw {\n    /**\n     * The **`WEBGL_multi_draw.multiDrawArraysInstancedWEBGL()`** method of the WebGL API renders multiple primitives from array data.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_multi_draw/multiDrawArraysInstancedWEBGL)\n     */\n    multiDrawArraysInstancedWEBGL(mode: GLenum, firstsList: Int32Array<ArrayBufferLike> | Iterable<GLint>, firstsOffset: number, countsList: Int32Array<ArrayBufferLike> | Iterable<GLsizei>, countsOffset: number, instanceCountsList: Int32Array<ArrayBufferLike> | Iterable<GLsizei>, instanceCountsOffset: number, drawcount: GLsizei): void;\n    /**\n     * The **`WEBGL_multi_draw.multiDrawArraysWEBGL()`** method of the WebGL API renders multiple primitives from array data.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_multi_draw/multiDrawArraysWEBGL)\n     */\n    multiDrawArraysWEBGL(mode: GLenum, firstsList: Int32Array<ArrayBufferLike> | Iterable<GLint>, firstsOffset: number, countsList: Int32Array<ArrayBufferLike> | Iterable<GLsizei>, countsOffset: number, drawcount: GLsizei): void;\n    /**\n     * The **`WEBGL_multi_draw.multiDrawElementsInstancedWEBGL()`** method of the WebGL API renders multiple primitives from array data.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_multi_draw/multiDrawElementsInstancedWEBGL)\n     */\n    multiDrawElementsInstancedWEBGL(mode: GLenum, countsList: Int32Array<ArrayBufferLike> | Iterable<GLsizei>, countsOffset: number, type: GLenum, offsetsList: Int32Array<ArrayBufferLike> | Iterable<GLsizei>, offsetsOffset: number, instanceCountsList: Int32Array<ArrayBufferLike> | Iterable<GLsizei>, instanceCountsOffset: number, drawcount: GLsizei): void;\n    /**\n     * The **`WEBGL_multi_draw.multiDrawElementsWEBGL()`** method of the WebGL API renders multiple primitives from array data.\n     *\n     * [MDN Reference](https://developer.mozilla.org/docs/Web/API/WEBGL_multi_draw/multiDrawElementsWEBGL)\n     */\n    multiDrawElementsWEBGL(mode: GLenum, countsList: Int32Array<ArrayBufferLike> | Iterable<GLsizei>, countsOffset: number, type: GLenum, offsetsList: Int32Array<ArrayBufferLike> | Iterable<GLsizei>, offsetsOffset: number, drawcount: GLsizei): void;\n}\n\ninterface WebGL2RenderingContextBase {\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/clearBuffer) */\n    clearBufferfv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLfloat>, srcOffset?: number): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/clearBuffer) */\n    clearBufferiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLint>, srcOffset?: number): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/clearBuffer) */\n    clearBufferuiv(buffer: GLenum, drawbuffer: GLint, values: Iterable<GLuint>, srcOffset?: number): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/drawBuffers) */\n    drawBuffers(buffers: Iterable<GLenum>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/getActiveUniforms) */\n    getActiveUniforms(program: WebGLProgram, uniformIndices: Iterable<GLuint>, pname: GLenum): any;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/getUniformIndices) */\n    getUniformIndices(program: WebGLProgram, uniformNames: Iterable<string>): GLuint[] | null;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/invalidateFramebuffer) */\n    invalidateFramebuffer(target: GLenum, attachments: Iterable<GLenum>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/invalidateSubFramebuffer) */\n    invalidateSubFramebuffer(target: GLenum, attachments: Iterable<GLenum>, x: GLint, y: GLint, width: GLsizei, height: GLsizei): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/transformFeedbackVaryings) */\n    transformFeedbackVaryings(program: WebGLProgram, varyings: Iterable<string>, bufferMode: GLenum): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniform) */\n    uniform1uiv(location: WebGLUniformLocation | null, data: Iterable<GLuint>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniform) */\n    uniform2uiv(location: WebGLUniformLocation | null, data: Iterable<GLuint>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniform) */\n    uniform3uiv(location: WebGLUniformLocation | null, data: Iterable<GLuint>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniform) */\n    uniform4uiv(location: WebGLUniformLocation | null, data: Iterable<GLuint>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */\n    uniformMatrix2x3fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */\n    uniformMatrix2x4fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */\n    uniformMatrix3x2fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */\n    uniformMatrix3x4fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */\n    uniformMatrix4x2fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */\n    uniformMatrix4x3fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/vertexAttribI) */\n    vertexAttribI4iv(index: GLuint, values: Iterable<GLint>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/vertexAttribI) */\n    vertexAttribI4uiv(index: GLuint, values: Iterable<GLuint>): void;\n}\n\ninterface WebGL2RenderingContextOverloads {\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform1fv(location: WebGLUniformLocation | null, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform1iv(location: WebGLUniformLocation | null, data: Iterable<GLint>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform2fv(location: WebGLUniformLocation | null, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform2iv(location: WebGLUniformLocation | null, data: Iterable<GLint>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform3fv(location: WebGLUniformLocation | null, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform3iv(location: WebGLUniformLocation | null, data: Iterable<GLint>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform4fv(location: WebGLUniformLocation | null, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform4iv(location: WebGLUniformLocation | null, data: Iterable<GLint>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGL2RenderingContext/uniformMatrix) */\n    uniformMatrix2fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */\n    uniformMatrix3fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */\n    uniformMatrix4fv(location: WebGLUniformLocation | null, transpose: GLboolean, data: Iterable<GLfloat>, srcOffset?: number, srcLength?: GLuint): void;\n}\n\ninterface WebGLRenderingContextBase {\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/vertexAttrib) */\n    vertexAttrib1fv(index: GLuint, values: Iterable<GLfloat>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/vertexAttrib) */\n    vertexAttrib2fv(index: GLuint, values: Iterable<GLfloat>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/vertexAttrib) */\n    vertexAttrib3fv(index: GLuint, values: Iterable<GLfloat>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/vertexAttrib) */\n    vertexAttrib4fv(index: GLuint, values: Iterable<GLfloat>): void;\n}\n\ninterface WebGLRenderingContextOverloads {\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform1fv(location: WebGLUniformLocation | null, v: Iterable<GLfloat>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform1iv(location: WebGLUniformLocation | null, v: Iterable<GLint>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform2fv(location: WebGLUniformLocation | null, v: Iterable<GLfloat>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform2iv(location: WebGLUniformLocation | null, v: Iterable<GLint>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform3fv(location: WebGLUniformLocation | null, v: Iterable<GLfloat>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform3iv(location: WebGLUniformLocation | null, v: Iterable<GLint>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform4fv(location: WebGLUniformLocation | null, v: Iterable<GLfloat>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniform) */\n    uniform4iv(location: WebGLUniformLocation | null, v: Iterable<GLint>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */\n    uniformMatrix2fv(location: WebGLUniformLocation | null, transpose: GLboolean, value: Iterable<GLfloat>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */\n    uniformMatrix3fv(location: WebGLUniformLocation | null, transpose: GLboolean, value: Iterable<GLfloat>): void;\n    /** [MDN Reference](https://developer.mozilla.org/docs/Web/API/WebGLRenderingContext/uniformMatrix) */\n    uniformMatrix4fv(location: WebGLUniformLocation | null, transpose: GLboolean, value: Iterable<GLfloat>): void;\n}",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.iterable.d.ts",
+        "start": 429,
+        "end": 571,
+        "startLoc": {
+          "line": 429,
+          "column": 1,
+          "position": 3007
+        },
+        "endLoc": {
+          "line": 571,
+          "column": 2,
+          "position": 5144
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.iterable.d.ts",
+        "start": 198,
+        "end": 340,
+        "startLoc": {
+          "line": 198,
+          "column": 1,
+          "position": 1597
+        },
+        "endLoc": {
+          "line": 340,
+          "column": 2,
+          "position": 3734
+        }
+      }
+    },
+    {
+      "format": "typescript",
+      "lines": 21,
+      "fragment": "/////////////////////////////\n\ninterface FileSystemDirectoryHandleAsyncIterator<T> extends AsyncIteratorObject<T, BuiltinIteratorReturn, unknown> {\n    [Symbol.asyncIterator](): FileSystemDirectoryHandleAsyncIterator<T>;\n}\n\ninterface FileSystemDirectoryHandle {\n    [Symbol.asyncIterator](): FileSystemDirectoryHandleAsyncIterator<[string, FileSystemHandle]>;\n    entries(): FileSystemDirectoryHandleAsyncIterator<[string, FileSystemHandle]>;\n    keys(): FileSystemDirectoryHandleAsyncIterator<string>;\n    values(): FileSystemDirectoryHandleAsyncIterator<FileSystemHandle>;\n}\n\ninterface ReadableStreamAsyncIterator<T> extends AsyncIteratorObject<T, BuiltinIteratorReturn, unknown> {\n    [Symbol.asyncIterator](): ReadableStreamAsyncIterator<T>;\n}\n\ninterface ReadableStream<R = any> {\n    [Symbol.asyncIterator](options?: ReadableStreamIteratorOptions): ReadableStreamAsyncIterator<R>;\n    values(options?: ReadableStreamIteratorOptions): ReadableStreamAsyncIterator<R>;\n}",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.dom.asynciterable.d.ts",
+        "start": 21,
+        "end": 41,
+        "startLoc": {
+          "line": 21,
+          "column": 1,
+          "position": 11
+        },
+        "endLoc": {
+          "line": 41,
+          "column": 2,
+          "position": 218
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\lib\\lib.webworker.asynciterable.d.ts",
+        "start": 21,
+        "end": 41,
+        "startLoc": {
+          "line": 21,
+          "column": 1,
+          "position": 11
+        },
+        "endLoc": {
+          "line": 41,
+          "column": 2,
+          "position": 218
+        }
+      }
+    },
+    {
+      "format": "powershell",
+      "lines": 26,
+      "fragment": "#!/usr/bin/env pwsh\n$basedir=Split-Path $MyInvocation.MyCommand.Definition -Parent\n\n$exe=\"\"\n$pathsep=\":\"\n$env_node_path=$env:NODE_PATH\n$new_node_path=\"E:\\team\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\bin\\node_modules;E:\\team\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\node_modules;E:\\team\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules;E:\\team\\node_modules\\.pnpm\\node_modules\"\nif ($PSVersionTable.PSVersion -lt \"6.0\" -or $IsWindows) {\n  # Fix case when both the Windows and Linux builds of Node\n  # are installed in the same directory\n  $exe=\".exe\"\n  $pathsep=\";\"\n} else {\n  $new_node_path=\"/mnt/e/team/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/bin/node_modules:/mnt/e/team/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/node_modules:/mnt/e/team/node_modules/.pnpm/typescript@5.9.3/node_modules:/mnt/e/team/node_modules/.pnpm/node_modules\"\n}\nif ([string]::IsNullOrEmpty($env_node_path)) {\n  $env:NODE_PATH=$new_node_path\n} else {\n  $env:NODE_PATH=\"$new_node_path$pathsep$env_node_path\"\n}\n\n$ret=0\nif (Test-Path \"$basedir/node$exe\") {\n  # Support pipeline input\n  if ($MyInvocation.ExpectingInput) {\n    $input | & \"$basedir/node$exe\"  \"$basedir/../../../../node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/bin/tsserver\"",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\.bin\\tsserver.ps1",
+        "start": 1,
+        "end": 26,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 26,
+          "column": 87,
+          "position": 161
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\node_modules\\.bin\\tsserver.ps1",
+        "start": 1,
+        "end": 26,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 26,
+          "column": 21,
+          "position": 161
+        }
+      }
+    },
+    {
+      "format": "powershell",
+      "lines": 26,
+      "fragment": "#!/usr/bin/env pwsh\n$basedir=Split-Path $MyInvocation.MyCommand.Definition -Parent\n\n$exe=\"\"\n$pathsep=\":\"\n$env_node_path=$env:NODE_PATH\n$new_node_path=\"E:\\team\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\bin\\node_modules;E:\\team\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules\\typescript\\node_modules;E:\\team\\node_modules\\.pnpm\\typescript@5.9.3\\node_modules;E:\\team\\node_modules\\.pnpm\\node_modules\"\nif ($PSVersionTable.PSVersion -lt \"6.0\" -or $IsWindows) {\n  # Fix case when both the Windows and Linux builds of Node\n  # are installed in the same directory\n  $exe=\".exe\"\n  $pathsep=\";\"\n} else {\n  $new_node_path=\"/mnt/e/team/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/bin/node_modules:/mnt/e/team/node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/node_modules:/mnt/e/team/node_modules/.pnpm/typescript@5.9.3/node_modules:/mnt/e/team/node_modules/.pnpm/node_modules\"\n}\nif ([string]::IsNullOrEmpty($env_node_path)) {\n  $env:NODE_PATH=$new_node_path\n} else {\n  $env:NODE_PATH=\"$new_node_path$pathsep$env_node_path\"\n}\n\n$ret=0\nif (Test-Path \"$basedir/node$exe\") {\n  # Support pipeline input\n  if ($MyInvocation.ExpectingInput) {\n    $input | & \"$basedir/node$exe\"  \"$basedir/../../../../node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/bin/tsc\"",
+      "tokens": 0,
+      "firstFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\.bin\\tsc.ps1",
+        "start": 1,
+        "end": 26,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 26,
+          "column": 82,
+          "position": 161
+        }
+      },
+      "secondFile": {
+        "name": "fixtures\\dummy-project\\node_modules\\typescript\\node_modules\\.bin\\tsserver.ps1",
+        "start": 1,
+        "end": 26,
+        "startLoc": {
+          "line": 1,
+          "column": 1,
+          "position": 0
+        },
+        "endLoc": {
+          "line": 26,
+          "column": 21,
+          "position": 161
+        }
+      }
+    }
+  ]
+}

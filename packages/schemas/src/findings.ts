@@ -4,6 +4,8 @@ import { EvidencePacketSchema } from "./evidence.js";
 export const DeadCodeCandidateSchema = z.object({
   evidence: EvidencePacketSchema,
   reason: z.string(),
+  /** تفسير لغوي من طبقة LLM (التحليل اللغوي) — يُملأ مع التحليل الساكن */
+  llmRationale: z.string().optional(),
 });
 export type DeadCodeCandidate = z.infer<typeof DeadCodeCandidateSchema>;
 

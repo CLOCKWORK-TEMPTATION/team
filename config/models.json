@@ -3,17 +3,14 @@
   "description": "Model configuration for repo-refactor-ai agents",
   "profiles": {
     "PLANNING": {
-      "description": "Agents that analyze and plan refactoring steps",
+      "description": "Agents that analyze and plan refactoring steps (refactor-planner-report)",
       "models": [
         {
-          "provider": "anthropic",
-          "model": "claude-sonnet-4-20250514",
-          "params": { "thinking": "enabled" }
-        },
-        {
-          "provider": "openai",
-          "model": "gpt-4.1",
-          "params": { "reasoning_effort": "high" }
+          "provider": "google",
+          "model": "gemini-3.1-pro-preview",
+          "params": {
+            "thinkingConfig": { "thinkingLevel": "HIGH" }
+          }
         }
       ]
     },
@@ -71,6 +68,19 @@
         {
           "provider": "anthropic",
           "model": "claude-sonnet-4-20250514"
+        }
+      ]
+    },
+    "ANALYSIS": {
+      "description": "طبقة LLM للتحليل (الخطوة 1) — scan-augment",
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4-6",
+          "params": {
+            "thinking": { "type": "adaptive" },
+            "output_config": { "effort": "medium" }
+          }
         }
       ]
     }

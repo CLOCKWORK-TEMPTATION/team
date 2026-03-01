@@ -37,7 +37,10 @@ let sharedProject: Project | null = null;
 
 function getSharedProject(): Project {
   if (!sharedProject) {
-    sharedProject = new Project();
+    sharedProject = new Project({
+      skipFileDependencyResolution: true,
+      compilerOptions: { allowJs: true }
+    });
   }
   return sharedProject;
 }

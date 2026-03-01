@@ -1,7 +1,8 @@
 import { Command } from "commander";
 import * as p from "@clack/prompts";
-import { getDbClient, readJsonArtifact, writeJsonArtifact } from "@pkg/storage";
+import { getDbClient, readJsonArtifact, writeJsonArtifact, writeArtifact } from "@pkg/storage";
 import { generatePlan, approvePlan, rejectPlan } from "@pkg/planning";
+import { generateReport } from "@pkg/llm";
 import { logger } from "@pkg/shared";
 import type { Findings } from "@pkg/schemas";
 
@@ -14,6 +15,9 @@ export const planCommand = new Command("plan")
 
     const db = getDbClient();
 
+    const runRow = db.prepare(`SELECT repo_path FROM runs WHERE run_id = ?`).get(runId) as { repo_path: string } | undefined;
+    const repoPath = runRow?.repo_path || process.cwd();
+
     logger.info("Reading latest findings...");
     const findings = await readJsonArtifact<Findings>(db, runId, "findings", "findings.json");
 
@@ -24,7 +28,7 @@ export const planCommand = new Command("plan")
     }
 
     logger.info("Generating refactor plan...");
-    let plan = await generatePlan(findings);
+    let plan = await generatePlan(findings, repoPath);
 
     if (plan.steps.length === 0) {
       logger.info("No refactoring steps generated.");
@@ -32,6 +36,11 @@ export const planCommand = new Command("plan")
       db.close();
       return;
     }
+
+    logger.info("Generating refactor report...");
+    const reportContent = await generateReport(plan, findings);
+    await writeArtifact(db, runId, "plan", "report.md", reportContent);
+    logger.info("Refactor report saved.");
 
     if (opts.interactive) {
       p.intro("Refactor Plan");

@@ -8,6 +8,7 @@ import {
   ensureArtifactsStructure,
   runMigration,
   getPlanPath,
+  getArtifactsPath,
 } from "@pkg/storage";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -112,15 +113,17 @@ export async function runScan(repoPath: string): Promise<{
   output?: string;
   error?: string;
   runId?: string | undefined;
+  llmUsedInStep1?: boolean;
 }> {
   try {
-    const { stdout } = await execa("node", ["--max-old-space-size=4096", cliPath, "scan", repoPath]);
+    const { stdout, stderr } = await execa("node", ["--max-old-space-size=4096", cliPath, "scan", repoPath]);
+    const fullOutput = [stdout, stderr].filter(Boolean).join("\n");
 
-    // استخراج runId من الخرج
-    const runIdMatch = stdout.match(/run[_-]?([a-f0-9]+)/i);
+    const runIdMatch = fullOutput.match(/run[_-]?([a-f0-9]+)/i);
     const runId = runIdMatch?.[0];
+    const llmUsedInStep1 = fullOutput.includes("[REPO_REFACTOR_LLM] STEP=1");
 
-    return { success: true, output: stdout, runId };
+    return { success: true, output: fullOutput, runId, llmUsedInStep1 };
   } catch (error: any) {
     return { success: false, error: error.message };
   }
@@ -133,10 +136,13 @@ export async function runPlan(runId: string): Promise<{
   success: boolean;
   output?: string;
   error?: string;
+  llmUsedInStep2?: boolean;
 }> {
   try {
-    const { stdout } = await execa("node", ["--max-old-space-size=4096", cliPath, "plan", runId]);
-    return { success: true, output: stdout };
+    const { stdout, stderr } = await execa("node", ["--max-old-space-size=4096", cliPath, "plan", runId]);
+    const fullOutput = [stdout, stderr].filter(Boolean).join("\n");
+    const llmUsedInStep2 = fullOutput.includes("[REPO_REFACTOR_LLM] STEP=2");
+    return { success: true, output: fullOutput, llmUsedInStep2 };
   } catch (error: any) {
     return { success: false, error: error.message };
   }
@@ -147,37 +153,12 @@ export async function runPlan(runId: string): Promise<{
  */
 export function getPlanReport(runId: string): { success: boolean; report?: string; error?: string } {
   try {
-    const planPath = getPlanPath(runId);
-    if (!fs.existsSync(planPath)) {
-      return { success: false, error: "Plan not found" };
+    const reportPath = path.join(getArtifactsPath(runId, "plan"), "report.md");
+    if (!fs.existsSync(reportPath)) {
+      return { success: false, error: "Report artifact (report.md) not found" };
     }
-    const planContent = fs.readFileSync(planPath, "utf8");
-    const plan = JSON.parse(planContent);
-
-    const lines: string[] = [
-      "# تقرير خطة التعديل",
-      "",
-      `**Plan ID:** ${plan.planId}`,
-      `**Run ID:** ${plan.runId}`,
-      `**تاريخ الإنشاء:** ${plan.generatedAt}`,
-      `**حالة الموافقة:** ${plan.approvalStatus}`,
-      "",
-      "## خطوات التعديل",
-      "",
-    ];
-
-    for (let i = 0; i < plan.steps.length; i++) {
-      const step = plan.steps[i];
-      lines.push(`### ${i + 1}. ${step.patchTitle}`);
-      lines.push("");
-      lines.push(`- **الإجراءات:** ${step.actions.join(", ")}`);
-      lines.push(`- **الملفات المستهدفة:** ${step.targets.join(", ")}`);
-      lines.push(`- **مستوى المخاطرة:** ${step.riskBand}`);
-      lines.push(`- **يتطلب Harness:** ${step.requiresHarness ? "نعم" : "لا"}`);
-      lines.push("");
-    }
-
-    return { success: true, report: lines.join("\n") };
+    const reportContent = fs.readFileSync(reportPath, "utf8");
+    return { success: true, report: reportContent };
   } catch (error) {
     const errorMsg = error instanceof Error ? error.message : String(error);
     return { success: false, error: errorMsg };
