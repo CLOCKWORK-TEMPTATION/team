@@ -1,67 +1,267 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import "./styles.css";
 
 // @ts-ignore
 const repoRefactor = window.repoRefactor;
 
 export function App() {
-  const [repoPath, setRepoPath] = useState<string | null>(null);
+  const [repoPath, setRepoPath] = useState<string>("");
   const [loading, setLoading] = useState(false);
   const [logs, setLogs] = useState<string[]>([]);
+  const [currentStep, setCurrentStep] = useState<"idle" | "scanning" | "planning" | "approving" | "applying">("idle");
+  const [scanResult, setScanResult] = useState<{ success: boolean; runId?: string; error?: string } | null>(null);
 
-  const handleSelectRepo = async () => {
-    const path = await repoRefactor.selectRepo();
-    if (path) setRepoPath(path);
+  // رسالة ترحيب عند البداية
+  useEffect(() => {
+    addLog("👋 مرحباً بك في Repo Refactor AI");
+    addLog("📋 الخطوات: 1) اختر مستودع → 2) Scan → 3) Plan → 4) Approve → 5) Apply");
+    addLog("");
+  }, []);
+
+  const addLog = (message: string) => {
+    const timestamp = new Date().toLocaleTimeString("ar-SA");
+    setLogs((prev) => [...prev, `[${timestamp}] ${message}`]);
   };
 
-  const handleScan = async () => {
-    if (!repoPath) return;
-    setLoading(true);
-    setLogs((prev) => [...prev, `Starting scan for: ${repoPath}...`]);
-    const result = await repoRefactor.scan(repoPath);
-    setLoading(false);
-    if (result.success) {
-      setLogs((prev) => [...prev, "Scan successful!", result.output]);
-    } else {
-      setLogs((prev) => [...prev, `Scan failed: ${result.error}`]);
+  // اختيار المجلد عبر الحوار
+  const handleSelectRepo = async () => {
+    const path = await repoRefactor.selectRepo();
+    if (path) {
+      setRepoPath(path);
+      addLog(`📁 تم اختيار المستودع: ${path}`);
     }
   };
 
+  // إدخال يدوي للمسار
+  const handleManualPathChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRepoPath(e.target.value);
+  };
+
+  const confirmManualPath = () => {
+    if (repoPath.trim()) {
+      addLog(`📁 المسار المُدخل: ${repoPath}`);
+    }
+  };
+
+  // تشغيل Scan
+  const handleScan = async () => {
+    if (!repoPath.trim()) {
+      addLog("❌ الرجاء إدخال مسار المستودع أولاً");
+      return;
+    }
+
+    setLoading(true);
+    setCurrentStep("scanning");
+    addLog(`🔍 جاري تحليل المستودع: ${repoPath}...`);
+
+    const result = await repoRefactor.scan(repoPath);
+    setScanResult(result);
+    setLoading(false);
+
+    if (result.success) {
+      addLog(`✅ Scan ناجح! Run ID: ${result.runId}`);
+      addLog("📋 الخطوة التالية: اضغط 'Generate Plan' لتوليد خطة التعديل");
+    } else {
+      addLog(`❌ فشل Scan: ${result.error}`);
+    }
+
+    setCurrentStep("idle");
+  };
+
+  // تشغيل Plan
+  const handlePlan = async () => {
+    if (!scanResult?.runId) {
+      addLog("❌ الرجاء تشغيل Scan أولاً");
+      return;
+    }
+
+    setLoading(true);
+    setCurrentStep("planning");
+    addLog(`📝 جاري توليد خطة التعديل...`);
+
+    const result = await repoRefactor.plan(scanResult.runId);
+    setLoading(false);
+
+    if (result.success) {
+      addLog(`✅ Plan تم إنشاؤه بنجاح!`);
+      addLog("📋 الخطوة التالية: راجع التقرير ثم اضغط 'Approve' للموافقة");
+    } else {
+      addLog(`❌ فشل Plan: ${result.error}`);
+    }
+
+    setCurrentStep("idle");
+  };
+
+  // الموافقة
+  const handleApprove = async () => {
+    if (!scanResult?.runId) return;
+
+    setCurrentStep("approving");
+    addLog("✅ جاري تسجيل الموافقة...");
+
+    const result = await repoRefactor.approve(scanResult.runId, "user", "تمت الموافقة عبر UI");
+
+    if (result.success) {
+      addLog("✅ تمت الموافقة! يمكنك الآن تطبيق التعديلات");
+    } else {
+      addLog(`❌ فشل تسجيل الموافقة: ${result.error}`);
+    }
+
+    setCurrentStep("idle");
+  };
+
+  // تطبيق التعديلات
+  const handleApply = async () => {
+    if (!scanResult?.runId) return;
+
+    // التحقق من الموافقة أولاً
+    const approvalCheck = await repoRefactor.checkApproval(scanResult.runId);
+    if (!approvalCheck.approved) {
+      addLog(`❌ لا يمكن التطبيق: ${approvalCheck.message}`);
+      return;
+    }
+
+    setLoading(true);
+    setCurrentStep("applying");
+    addLog("🔧 جاري تطبيق التعديلات...");
+
+    const result = await repoRefactor.apply(scanResult.runId);
+    setLoading(false);
+
+    if (result.success) {
+      addLog("✅ تم تطبيق التعديلات بنجاح!");
+      addLog("📝 ملاحظة: تم إنشاء commits لكل خطوة");
+    } else {
+      addLog(`❌ فشل التطبيق: ${result.error}`);
+    }
+
+    setCurrentStep("idle");
+  };
+
+  // مسح السجل
+  const clearLogs = () => {
+    setLogs([]);
+  };
+
   return (
-    <div style={{ padding: 20, fontFamily: "system-ui, sans-serif", maxWidth: 800, margin: "0 auto" }}>
-      <h1>Repo Refactor AI Dashboard</h1>
-      
-      <div style={{ marginBottom: 20 }}>
-        <button onClick={handleSelectRepo} style={{ padding: "8px 16px", marginRight: 10 }}>
-          Select Repository
-        </button>
-        {repoPath && <span>Selected: <strong>{repoPath}</strong></span>}
-      </div>
+    <div className="app-container">
+      {/* Header */}
+      <header className="app-header">
+        <h1>🔄 Repo Refactor AI</h1>
+        <p className="subtitle">أداة ذكية لإعادة هيكلة الكود باستخدام AI</p>
+      </header>
 
-      <div style={{ marginBottom: 20 }}>
-        <button 
-          onClick={handleScan} 
-          disabled={!repoPath || loading}
-          style={{ padding: "8px 16px" }}
-        >
-          {loading ? "Scanning..." : "Run Analysis Scan"}
-        </button>
-      </div>
+      {/* Main Content */}
+      <main className="app-main">
+        {/* Step 1: Repository Selection */}
+        <section className="step-section">
+          <h2>📁 الخطوة 1: اختيار المستودع</h2>
 
-      <div style={{
-        background: "#1e1e1e",
-        color: "#d4d4d4",
-        padding: 16,
-        borderRadius: 8,
-        minHeight: 200,
-        fontFamily: "monospace",
-        whiteSpace: "pre-wrap",
-        overflowY: "auto"
-      }}>
-        {logs.map((log, i) => (
-          <div key={i}>{log}</div>
-        ))}
-        {logs.length === 0 && <div style={{ color: "#666" }}>Logs will appear here...</div>}
-      </div>
+          <div className="input-group">
+            <label>مسار المستودع:</label>
+            <div className="path-input-wrapper">
+              <input
+                type="text"
+                value={repoPath}
+                onChange={handleManualPathChange}
+                placeholder="E:\my-project أو اضغط 'Browse'"
+                className="path-input"
+              />
+              <button onClick={confirmManualPath} className="btn-confirm">✓</button>
+            </div>
+          </div>
+
+          <div className="button-group">
+            <button onClick={handleSelectRepo} className="btn-primary">
+              📂 Browse...
+            </button>
+            <button
+              onClick={handleScan}
+              disabled={!repoPath.trim() || loading}
+              className={`btn-action ${currentStep === "scanning" ? "btn-loading" : ""}`}
+            >
+              {currentStep === "scanning" ? "⏳ جاري التحليل..." : "🔍 Run Scan"}
+            </button>
+          </div>
+        </section>
+
+        {/* Step 2: Generate Plan */}
+        <section className={`step-section ${!scanResult?.success ? "step-disabled" : ""}`}>
+          <h2>📝 الخطوة 2: توليد خطة التعديل</h2>
+          <p className="step-description">يحلل AI الكود ويقترح تعديلات محسّنة</p>
+
+          <button
+            onClick={handlePlan}
+            disabled={!scanResult?.success || loading}
+            className={`btn-action ${currentStep === "planning" ? "btn-loading" : ""}`}
+          >
+            {currentStep === "planning" ? "⏳ جاري التخطيط..." : "📝 Generate Plan"}
+          </button>
+        </section>
+
+        {/* Step 3: Approve */}
+        <section className={`step-section ${!scanResult?.success ? "step-disabled" : ""}`}>
+          <h2>✅ الخطوة 3: الموافقة على التعديلات</h2>
+          <p className="step-description">راجع التقرير والمخاطر قبل التنفيذ</p>
+
+          <div className="approval-buttons">
+            <button
+              onClick={handleApprove}
+              disabled={!scanResult?.success || loading}
+              className="btn-approve"
+            >
+              ✅ Approve Plan
+            </button>
+          </div>
+        </section>
+
+        {/* Step 4: Apply */}
+        <section className={`step-section ${!scanResult?.success ? "step-disabled" : ""}`}>
+          <h2>🔧 الخطوة 4: تطبيق التعديلات</h2>
+          <p className="step-description">تنفيذ التعديلات فعلياً مع حماية Git</p>
+
+          <button
+            onClick={handleApply}
+            disabled={!scanResult?.success || loading}
+            className={`btn-action btn-apply ${currentStep === "applying" ? "btn-loading" : ""}`}
+          >
+            {currentStep === "applying" ? "⏳ جاري التطبيق..." : "🔧 Apply Changes"}
+          </button>
+        </section>
+
+        {/* Logs Section */}
+        <section className="logs-section">
+          <div className="logs-header">
+            <h3>📋 سجل العمليات</h3>
+            <button onClick={clearLogs} className="btn-clear">🗑 Clear</button>
+          </div>
+          <div className="logs-container">
+            {logs.length === 0 ? (
+              <div className="logs-empty">السجل فارغ...</div>
+            ) : (
+              logs.map((log, i) => (
+                <div key={i} className={`log-line ${getLogClass(log)}`}>
+                  {log}
+                </div>
+              ))
+            )}
+          </div>
+        </section>
+      </main>
+
+      {/* Footer */}
+      <footer className="app-footer">
+        <p>v0.1.0 | Built with Electron + React + TypeScript</p>
+      </footer>
     </div>
   );
+}
+
+// تحديد لون السجل بناءً على المحتوى
+function getLogClass(log: string): string {
+  if (log.includes("❌")) return "log-error";
+  if (log.includes("✅")) return "log-success";
+  if (log.includes("⚠️")) return "log-warning";
+  if (log.includes("🔍") || log.includes("📝") || log.includes("🔧")) return "log-action";
+  return "";
 }

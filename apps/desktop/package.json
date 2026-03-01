@@ -7,8 +7,9 @@
   "type": "module",
   "main": "dist/main/main.js",
   "scripts": {
-    "dev": "vite --config src/renderer/vite.config.ts",
-    "dev:electron": "ts-node src/main/main.ts",
+    "dev": "concurrently \"pnpm dev:vite\" \"wait-on http://localhost:5173 && pnpm dev:electron\"",
+    "dev:vite": "vite --config src/renderer/vite.config.ts --port 5173",
+    "dev:electron": "cross-env NODE_ENV=development electron dist/main/main.js",
     "build": "pnpm build:renderer && pnpm build:main && pnpm package",
     "build:renderer": "vite build --config src/renderer/vite.config.ts",
     "build:main": "tsc -p tsconfig.json",
@@ -21,15 +22,18 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.4",
-    "electron": "^35.7.5",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^40.6.1",
     "electron-builder": "^24.0.0",
     "electron-builder-squirrel-windows": "^26.8.1",
+    "esbuild": "0.25.0",
     "execa": "^9.6.1",
     "prebuild-install": "^7.1.3",
     "react": "^18.3.0",
     "react-dom": "^18.3.0",
     "typescript": "^5.5.0",
     "vite": "^5.4.0",
-    "esbuild": "0.25.0"
+    "wait-on": "^9.0.4"
   }
 }

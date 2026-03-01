@@ -19,7 +19,9 @@ function createWindow() {
   });
 
   if (process.env.NODE_ENV === "development") {
-    mainWindow.loadURL("http://localhost:5173");
+    // استخدام المتغير البيئي أو 5173 كافتراضي
+    const devPort = process.env.VITE_DEV_PORT || "5173";
+    mainWindow.loadURL(`http://localhost:${devPort}`);
     mainWindow.webContents.openDevTools();
   } else {
     mainWindow.loadFile(path.join(__dirname, "../../renderer/index.html"));

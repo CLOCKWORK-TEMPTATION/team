@@ -8,6 +8,7 @@ import {
   getLogsRoot,
   hasMigrationMarker,
   writeMigrationMarker,
+  ensureArtifactsStructure,
 } from "../artifacts/paths.js";
 
 /**
@@ -15,12 +16,17 @@ import {
  * إلى الموقع الجديد الموحد (root artifacts أو userData artifacts)
  */
 export function runMigration(): { migrated: boolean; message: string } {
+  // التأكد من وجود مجلد artifacts قبل أي شيء
+  ensureArtifactsStructure();
+
   // التحقق إذا كان الترحيل قد تم بالفعل
   if (hasMigrationMarker()) {
     return { migrated: false, message: "Migration already completed (marker found)." };
   }
 
-  const projectRoot = path.resolve(getArtifactsRoot(), "../../..");
+  const artifactsRoot = getArtifactsRoot();
+  // جذر المشروع: من artifacts نرتفع مستويين (artifacts -> team)
+  const projectRoot = path.resolve(artifactsRoot, "..");
   const oldArtifactsPath = path.join(projectRoot, "packages", "engine", "artifacts");
 
   // التحقق من وجود البيانات القديمة
