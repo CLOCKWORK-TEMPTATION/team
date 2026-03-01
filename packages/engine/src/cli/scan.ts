@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import { resolve } from "node:path";
-import { getDbClient, runMigrations, writeJsonArtifact } from "@pkg/storage";
+import { getDbClient, runMigration, writeJsonArtifact } from "@pkg/storage";
 import {
   createTsProject,
   buildImportGraph,
@@ -18,9 +18,13 @@ export const scanCommand = new Command("scan")
     const runId = generateId("run_");
     logger.info({ runId, repoPath }, "Starting repository scan");
 
-    const dbPath = resolve("artifacts/db/refactor.sqlite");
-    runMigrations(dbPath);
-    const db = getDbClient(dbPath);
+    // تشغيل الترحيل إذا لزم الأمر
+    const migrationResult = runMigration();
+    if (migrationResult.migrated) {
+      logger.info("Migration completed: " + migrationResult.message);
+    }
+
+    const db = getDbClient();
 
     db.prepare(`INSERT INTO runs (run_id, repo_id, repo_path, created_at, status) VALUES (?, ?, ?, ?, ?)`).run(
       runId,
@@ -60,8 +64,7 @@ export const scanCommand = new Command("scan")
       boundaryViolations: [],
     };
 
-    const artifactsBase = resolve("artifacts");
-    await writeJsonArtifact(db, artifactsBase, runId, "findings", "findings.json", findings);
+    await writeJsonArtifact(db, runId, "findings", "findings.json", findings);
 
     logger.info({ runId, deadCodeCount: deadCode.length }, "Scan completed successfully.");
     db.close();

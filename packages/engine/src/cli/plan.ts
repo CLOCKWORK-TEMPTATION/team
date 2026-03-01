@@ -1,5 +1,4 @@
 import { Command } from "commander";
-import { resolve } from "node:path";
 import * as p from "@clack/prompts";
 import { getDbClient, readJsonArtifact, writeJsonArtifact } from "@pkg/storage";
 import { generatePlan, approvePlan, rejectPlan } from "@pkg/planning";
@@ -13,13 +12,10 @@ export const planCommand = new Command("plan")
   .action(async (runId: string, opts: { interactive?: boolean }) => {
     logger.info({ runId }, "Planning refactor...");
 
-    const dbPath = resolve("artifacts/db/refactor.sqlite");
-    const artifactsBase = resolve("artifacts");
-
-    const db = getDbClient(dbPath);
+    const db = getDbClient();
 
     logger.info("Reading latest findings...");
-    const findings = await readJsonArtifact<Findings>(db, artifactsBase, runId, "findings", "findings.json");
+    const findings = await readJsonArtifact<Findings>(db, runId, "findings", "findings.json");
 
     if (!findings) {
       logger.error({ runId }, "No findings found for this run. Please run 'scan' first.");
@@ -32,7 +28,7 @@ export const planCommand = new Command("plan")
 
     if (plan.steps.length === 0) {
       logger.info("No refactoring steps generated.");
-      await writeJsonArtifact(db, artifactsBase, runId, "plan", "plan.json", plan);
+      await writeJsonArtifact(db, runId, "plan", "plan.json", plan);
       db.close();
       return;
     }
@@ -57,7 +53,7 @@ export const planCommand = new Command("plan")
     }
 
     logger.info("Saving refactor plan...");
-    await writeJsonArtifact(db, artifactsBase, runId, "plan", "plan.json", plan);
+    await writeJsonArtifact(db, runId, "plan", "plan.json", plan);
 
     db.prepare(`UPDATE runs SET status = ? WHERE run_id = ?`).run("PLANNED", runId);
 

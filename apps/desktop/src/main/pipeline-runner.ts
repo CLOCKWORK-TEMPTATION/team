@@ -6,8 +6,9 @@ import {
   setArtifactsRoot,
   getArtifactsRoot,
   ensureArtifactsStructure,
-} from "../../../../packages/storage/src/artifacts/paths.js";
-import { runMigration } from "../../../../packages/storage/src/db/migrate.js";
+  runMigration,
+  getPlanPath,
+} from "@pkg/storage";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -92,16 +93,9 @@ export function recordApproval(
 /**
  * يتحقق من وجود موافقة صالحة
  */
-export function assertApproved(runId: string): { approved: boolean; message: string } {
+export function checkApproval(runId: string): { approved: boolean; message: string } {
   try {
-    const artifactsDir = getArtifactsRoot();
-    const planPath = path.join(
-      artifactsDir,
-      "runs",
-      runId,
-      "plan",
-      "refactor_plan.json"
-    );
+    const planPath = getPlanPath(runId);
 
     if (!fs.existsSync(planPath)) {
       return { approved: false, message: "Plan not found" };
@@ -131,14 +125,14 @@ export async function runScan(repoPath: string): Promise<{
   success: boolean;
   output?: string;
   error?: string;
-  runId?: string;
+  runId?: string | undefined;
 }> {
   try {
     const { stdout } = await execa("node", [cliPath, "scan", repoPath]);
 
     // استخراج runId من الخرج
     const runIdMatch = stdout.match(/run[_-]?([a-f0-9]+)/i);
-    const runId = runIdMatch ? runIdMatch[0] : undefined;
+    const runId = runIdMatch?.[0];
 
     return { success: true, output: stdout, runId };
   } catch (error: any) {
@@ -171,7 +165,7 @@ export async function runApply(runId: string): Promise<{
   error?: string;
 }> {
   // التحقق من الموافقة قبل التنفيذ
-  const approvalCheck = assertApproved(runId);
+  const approvalCheck = checkApproval(runId);
   if (!approvalCheck.approved) {
     return { success: false, error: approvalCheck.message };
   }

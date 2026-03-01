@@ -45,7 +45,7 @@ export function checkBoundaries(
       recursionStack.add(node);
       path.push(node);
 
-      const neighbors = adj.get(node) || [];
+      const neighbors = adj.get(node) ?? [];
       for (const neighbor of neighbors) {
         if (!visited.has(neighbor)) {
           if (dfs(neighbor, path)) {

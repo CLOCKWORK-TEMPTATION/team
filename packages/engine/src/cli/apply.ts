@@ -2,6 +2,8 @@ import { Command } from "commander";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { RefactorPlanSchema } from "@pkg/schemas";
+import { getPlanPath } from "@pkg/storage";
+import { assertApproved } from "@pkg/planning";
 
 export const applyCommand = new Command("apply")
   .description("Apply refactor plan to target repository")
@@ -16,15 +18,18 @@ export const applyCommand = new Command("apply")
       process.exit(1);
     }
 
-    // Find the plan file
-    const planPath = path.resolve(`artifacts/runs/${runId}/plan/plan.json`);
+    // Find the plan file using the unified path system
+    const planPath = getPlanPath(runId);
 
     try {
       const planContent = await fs.readFile(planPath, "utf8");
       const plan = RefactorPlanSchema.parse(JSON.parse(planContent));
 
-      if (plan.approvalStatus !== "APPROVED") {
-        console.error("Plan must be APPROVED before applying.");
+      // التحقق من وجود موافقة صالحة
+      try {
+        assertApproved(plan);
+      } catch (error) {
+        console.error("Approval check failed:", error instanceof Error ? error.message : String(error));
         process.exit(1);
       }
 

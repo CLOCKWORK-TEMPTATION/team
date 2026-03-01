@@ -1,5 +1,4 @@
 import { ipcMain, dialog, app } from "electron";
-import * as path from "node:path";
 import {
   initializeArtifacts,
   runScan,
@@ -7,7 +6,7 @@ import {
   runApply,
   runVerify,
   recordApproval,
-  assertApproved,
+  checkApproval,
 } from "./pipeline-runner.js";
 
 export function registerIpcHandlers() {
@@ -50,7 +49,7 @@ export function registerIpcHandlers() {
 
   // Check Approval
   ipcMain.handle("pipeline:checkApproval", async (_, runId: string) => {
-    const result = assertApproved(runId);
+    const result = checkApproval(runId);
     return result;
   });
 

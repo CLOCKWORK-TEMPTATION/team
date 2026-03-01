@@ -7,10 +7,8 @@ import type { ProviderId } from "./providers/types.js";
 import { AGENT_LLM_SPECS } from "./agent-mapping.js";
 import { loadPrompt } from "./prompt-loader.js";
 import {
-  loadModelsConfig,
   selectModelForProfile,
   isProviderAvailable,
-  type ModelConfig,
 } from "./config-loader.js";
 import { OpenAIProvider } from "./providers/openai.js";
 import { OpenAICompatProvider } from "./providers/openai-compatible.js";
