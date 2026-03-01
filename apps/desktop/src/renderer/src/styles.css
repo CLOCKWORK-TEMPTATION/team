@@ -69,6 +69,38 @@ body {
   pointer-events: none;
 }
 
+/* ===== Report Section ===== */
+.report-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.report-section h3 {
+  color: #667eea;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+
+.report-content {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 16px;
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.report-markdown {
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0;
+}
+
 .step-section h2 {
   color: #667eea;
   font-size: 1.25rem;

@@ -7,6 +7,7 @@ import {
   runVerify,
   recordApproval,
   checkApproval,
+  getPlanReport,
 } from "./pipeline-runner.js";
 
 export function registerIpcHandlers() {
@@ -36,6 +37,11 @@ export function registerIpcHandlers() {
   ipcMain.handle("pipeline:plan", async (_, runId: string) => {
     const result = await runPlan(runId);
     return result;
+  });
+
+  // Get Plan Report (للعرض بعد نجاح Plan)
+  ipcMain.handle("pipeline:getPlanReport", async (_, runId: string) => {
+    return getPlanReport(runId);
   });
 
   // Approve (يكتب الموافقة في الخطة ويسجلها)

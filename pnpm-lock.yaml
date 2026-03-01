@@ -91,6 +91,12 @@ importers:
         specifier: ^9.0.4
         version: 9.0.4
 
+  fixtures/dummy-project:
+    devDependencies:
+      typescript:
+        specifier: ^5.9.3
+        version: 5.9.3
+
   packages/analysis:
     dependencies:
       '@pkg/schemas':
@@ -157,6 +163,9 @@ importers:
       execa:
         specifier: ^9.6.1
         version: 9.6.1
+      ts-morph:
+        specifier: ^24.0.0
+        version: 24.0.0
       zod:
         specifier: ^3.23.8
         version: 3.25.76
@@ -238,6 +247,9 @@ importers:
       '@pkg/tooling':
         specifier: workspace:*
         version: link:../tooling
+      ts-morph:
+        specifier: ^24.0.0
+        version: 24.0.0
       zod:
         specifier: ^3.23.8
         version: 3.25.76

@@ -98,11 +98,13 @@ export function getArtifactsPath(runId: string, kind: string): string {
 }
 
 /**
- * يحدد مسار ملف plan.json لـ run محدد
+ * يحدد مسار ملف plan لـ run محدد
+ * يدعم plan.json (من engine CLI) و refactor_plan.json
  */
 export function getPlanPath(runId: string): string {
-  return path.join(getRunsRoot(), runId, "plan", "refactor_plan.json");
+  return path.join(getRunsRoot(), runId, "plan", "plan.json");
 }
+
 
 /**
  * يحدد مسار ملف log لـ run محدد

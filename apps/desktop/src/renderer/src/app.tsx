@@ -10,6 +10,7 @@ export function App() {
   const [logs, setLogs] = useState<string[]>([]);
   const [currentStep, setCurrentStep] = useState<"idle" | "scanning" | "planning" | "approving" | "applying">("idle");
   const [scanResult, setScanResult] = useState<{ success: boolean; runId?: string; error?: string } | null>(null);
+  const [planReport, setPlanReport] = useState<string | null>(null);
 
   // رسالة ترحيب عند البداية
   useEffect(() => {
@@ -85,6 +86,11 @@ export function App() {
     if (result.success) {
       addLog(`✅ Plan تم إنشاؤه بنجاح!`);
       addLog("📋 الخطوة التالية: راجع التقرير ثم اضغط 'Approve' للموافقة");
+      // جلب وعرض التقرير
+      const reportResult = await repoRefactor.getPlanReport(scanResult.runId!);
+      if (reportResult.success && reportResult.report) {
+        setPlanReport(reportResult.report);
+      }
     } else {
       addLog(`❌ فشل Plan: ${result.error}`);
     }
@@ -141,6 +147,7 @@ export function App() {
   // مسح السجل
   const clearLogs = () => {
     setLogs([]);
+    setPlanReport(null);
   };
 
   return (
@@ -197,6 +204,16 @@ export function App() {
           >
             {currentStep === "planning" ? "⏳ جاري التخطيط..." : "📝 Generate Plan"}
           </button>
+
+          {/* عرض التقرير عند نجاح Plan */}
+          {planReport && (
+            <div className="report-section">
+              <h3>📄 تقرير خطة التعديل</h3>
+              <div className="report-content">
+                <pre className="report-markdown">{planReport}</pre>
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Step 3: Approve */}

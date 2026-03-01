@@ -27,6 +27,7 @@
     "@pkg/tooling": "workspace:*",
     "commander": "^12.1.0",
     "execa": "^9.6.1",
+    "ts-morph": "^24.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

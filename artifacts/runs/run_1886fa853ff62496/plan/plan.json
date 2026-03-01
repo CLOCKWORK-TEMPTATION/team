@@ -1,0 +1,716 @@
+{
+  "planId": "plan_1f683792cee8463e",
+  "repoId": "local_repo",
+  "runId": "run_1886fa853ff62496",
+  "generatedAt": "2026-03-01T01:37:18.286Z",
+  "approvalStatus": "PENDING",
+  "steps": [
+    {
+      "stepId": "step_d79a73e3b1a4c524",
+      "patchTitle": "Delete dead code: ev_dac4e6c45b33c17f",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/ingestion-orchestrator.ts"
+      ],
+      "evidenceRefs": [
+        "ev_dac4e6c45b33c17f"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_231e0bfb78487eb6",
+      "patchTitle": "Delete dead code: ev_f01a55c0d96a8439",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/io.ts"
+      ],
+      "evidenceRefs": [
+        "ev_f01a55c0d96a8439"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_3a80b67b9624b480",
+      "patchTitle": "Delete dead code: ev_6a598c578e44c0a0",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/io.ts"
+      ],
+      "evidenceRefs": [
+        "ev_6a598c578e44c0a0"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_8f0c250173a4f814",
+      "patchTitle": "Delete dead code: ev_161eb8f12969f7fe",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/normalize.ts"
+      ],
+      "evidenceRefs": [
+        "ev_161eb8f12969f7fe"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_732769c00a9aee60",
+      "patchTitle": "Delete dead code: ev_171ee447ddefad04",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/normalize.ts"
+      ],
+      "evidenceRefs": [
+        "ev_171ee447ddefad04"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_ea0b6314a62026fd",
+      "patchTitle": "Delete dead code: ev_95238c2697f01fef",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/normalize.ts"
+      ],
+      "evidenceRefs": [
+        "ev_95238c2697f01fef"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_3b524a449fae427d",
+      "patchTitle": "Delete dead code: ev_ecb117f8c906c464",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/normalize.ts"
+      ],
+      "evidenceRefs": [
+        "ev_ecb117f8c906c464"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_58f32ae1199b036d",
+      "patchTitle": "Delete dead code: ev_8ad11049166c6e18",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/normalize.ts"
+      ],
+      "evidenceRefs": [
+        "ev_8ad11049166c6e18"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_be36dcd86fbda6b2",
+      "patchTitle": "Delete dead code: ev_707c984ca22da3f8",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/normalize.ts"
+      ],
+      "evidenceRefs": [
+        "ev_707c984ca22da3f8"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_4f0e53e215e4b8bb",
+      "patchTitle": "Delete dead code: ev_e63f5145d45019cd",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/patcher.ts"
+      ],
+      "evidenceRefs": [
+        "ev_e63f5145d45019cd"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_3de90f82bab7317d",
+      "patchTitle": "Delete dead code: ev_8387d126e685a23f",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/sanitized-import-pipeline.ts"
+      ],
+      "evidenceRefs": [
+        "ev_8387d126e685a23f"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_bfe4d08bd95b647d",
+      "patchTitle": "Delete dead code: ev_0e01c21b442e4b9c",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/sanitized-import-pipeline.ts"
+      ],
+      "evidenceRefs": [
+        "ev_0e01c21b442e4b9c"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_fddfe00e59789970",
+      "patchTitle": "Delete dead code: ev_7276259171fb1e84",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/components/app-shell/AppDock.tsx"
+      ],
+      "evidenceRefs": [
+        "ev_7276259171fb1e84"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_e5e6b7c2a5a1e164",
+      "patchTitle": "Delete dead code: ev_f42b2eb3304a7fe0",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/components/app-shell/AppFooter.tsx"
+      ],
+      "evidenceRefs": [
+        "ev_f42b2eb3304a7fe0"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_5b1152dc975b3253",
+      "patchTitle": "Delete dead code: ev_619493fa4d350970",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/components/app-shell/AppHeader.tsx"
+      ],
+      "evidenceRefs": [
+        "ev_619493fa4d350970"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_a3bd3772d018a642",
+      "patchTitle": "Delete dead code: ev_32dfc18a4527ba16",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/components/app-shell/AppSidebar.tsx"
+      ],
+      "evidenceRefs": [
+        "ev_32dfc18a4527ba16"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_055024c6c03ae21b",
+      "patchTitle": "Delete dead code: ev_505377bc025e30fb",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/domain/arabic-screenplay-validator.ts"
+      ],
+      "evidenceRefs": [
+        "ev_505377bc025e30fb"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_1da69d5ae5b00782",
+      "patchTitle": "Delete dead code: ev_ec50cbf371971c8e",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/domain/arabic-screenplay-validator.ts"
+      ],
+      "evidenceRefs": [
+        "ev_ec50cbf371971c8e"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_9d12e0906016d13a",
+      "patchTitle": "Delete dead code: ev_2188225e7609ba57",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/ocr/mistral-ocr-client.ts"
+      ],
+      "evidenceRefs": [
+        "ev_2188225e7609ba57"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_e04f26df4fbc85e5",
+      "patchTitle": "Delete dead code: ev_419373b9f50c60bb",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/ocr/provider.ts"
+      ],
+      "evidenceRefs": [
+        "ev_419373b9f50c60bb"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_819216a6d6b24996",
+      "patchTitle": "Delete dead code: ev_12b784129851ce91",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/patch/constrained-corrector.ts"
+      ],
+      "evidenceRefs": [
+        "ev_12b784129851ce91"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_123844e2649ac360",
+      "patchTitle": "Delete dead code: ev_3ffc11d38493d7f8",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts"
+      ],
+      "evidenceRefs": [
+        "ev_3ffc11d38493d7f8"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_a5b7e635b11fa14d",
+      "patchTitle": "Delete dead code: ev_e557b29d03a71bf5",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts"
+      ],
+      "evidenceRefs": [
+        "ev_e557b29d03a71bf5"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_5a29e1d2b5aed864",
+      "patchTitle": "Delete dead code: ev_94f8fdcf8f7bea7d",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts"
+      ],
+      "evidenceRefs": [
+        "ev_94f8fdcf8f7bea7d"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_640288db571ab647",
+      "patchTitle": "Delete dead code: ev_7e176c9b392d99c8",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts"
+      ],
+      "evidenceRefs": [
+        "ev_7e176c9b392d99c8"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_219079f7325978e5",
+      "patchTitle": "Delete dead code: ev_9cc2596361a187f7",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts"
+      ],
+      "evidenceRefs": [
+        "ev_9cc2596361a187f7"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_b2b0afe447615f3e",
+      "patchTitle": "Delete dead code: ev_f4bae7c86612d1a2",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/quality/suspicious-detector.ts"
+      ],
+      "evidenceRefs": [
+        "ev_f4bae7c86612d1a2"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_24cf3f5021a4abda",
+      "patchTitle": "Delete dead code: ev_77986277ccc6af01",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/pipeline/quality/suspicious-detector.ts"
+      ],
+      "evidenceRefs": [
+        "ev_77986277ccc6af01"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    },
+    {
+      "stepId": "step_da5c547f223105be",
+      "patchTitle": "Delete dead code: ev_59e9c7c7af384f6c",
+      "actions": [
+        "delete_dead"
+      ],
+      "targets": [
+        "E:/mo7rer/src/utils/file-import/open-pipeline.ts"
+      ],
+      "evidenceRefs": [
+        "ev_59e9c7c7af384f6c"
+      ],
+      "riskBand": "low",
+      "requiresHarness": false,
+      "preChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "postChecks": [
+        "tsc_noEmit",
+        "eslint"
+      ],
+      "rollbackStrategy": "git_revert_commit"
+    }
+  ],
+  "policies": {
+    "evidenceRequired": true,
+    "atomicCommits": true,
+    "stopOnScopeExplosion": true,
+    "harnessInRepo": true,
+    "testRunner": "vitest"
+  },
+  "scopeLimits": {
+    "maxChangedFilesPerStep": 50,
+    "maxChangedLinesPerStep": 2000
+  }
+}

@@ -2,12 +2,18 @@
   "name": "dummy-project",
   "version": "1.0.0",
   "description": "Dummy project to test refactoring engine",
-  "main": "index.js",
+  "main": "src/index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
+  }
 }

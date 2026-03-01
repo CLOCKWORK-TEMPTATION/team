@@ -9,6 +9,7 @@
   },
   "include": [
     "src/main/**/*.ts",
+    "src/preload/**/*.cts",
     "src/preload/**/*.ts"
   ]
 }

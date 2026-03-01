@@ -1,12 +1,48 @@
-import type { Project } from "ts-morph";
+import type { Project, CallExpression, Node } from "ts-morph";
+import { SyntaxKind } from "ts-morph";
 import type { CallGraphData, CallGraphNode, CallGraphEdge } from "@pkg/schemas";
-
-const SyntaxKindCallExpression = 206;
 
 const NODE_ID_SEP = "::";
 
 export function nodeId(file: string, name: string): string {
   return `${file}${NODE_ID_SEP}${name}`;
+}
+
+/**
+ * Resolve call target to its definition file and symbol name (cross-file resolution).
+ * Returns null if resolution fails (e.g. dynamic calls, external libs).
+ */
+function resolveCallTarget(expression: Node): { targetFile: string; targetName: string } | null {
+  try {
+    const symbol = expression.getSymbol();
+    if (!symbol) return null;
+
+    const declarations = symbol.getDeclarations();
+    if (!declarations || declarations.length === 0) return null;
+
+    const decl = declarations[0];
+    if (!decl) return null;
+
+    const declFile = decl.getSourceFile();
+    if (!declFile) return null;
+
+    const targetFile = declFile.getFilePath();
+    const declName = symbol.getName();
+
+    // For method declarations, use ClassName.methodName to match our node format
+    const declKind = decl.getKind();
+    if (declKind === SyntaxKind.MethodDeclaration || declKind === SyntaxKind.MethodSignature) {
+      const parent = decl.getParent();
+      if (parent?.getKind() === SyntaxKind.ClassDeclaration && "getName" in parent) {
+        const className = (parent as { getName: () => string }).getName() ?? "(anonymous)";
+        return { targetFile, targetName: `${className}.${declName}` };
+      }
+    }
+
+    return { targetFile, targetName: declName };
+  } catch {
+    return null;
+  }
 }
 
 export function buildCallGraph(project: Project): CallGraphData {
@@ -34,15 +70,31 @@ export function buildCallGraph(project: Project): CallGraphData {
         });
       }
 
-      for (const call of fn.getDescendantsOfKind(SyntaxKindCallExpression)) {
-        const expr = (call as unknown as { getExpression(): { getText(): string } }).getExpression();
-        const text = expr.getText();
-        const targetId = nodeId(filePath, text);
-        if (!nodeIds.has(targetId)) {
-          nodeIds.add(targetId);
-          nodes.push({ id: targetId, file: filePath, name: text, kind: "unknown" });
+      // Use getDescendants() and filter for CallExpression
+      const descendants = fn.getDescendants();
+      for (const desc of descendants) {
+        if (desc.getKind() === SyntaxKind.CallExpression) {
+          const callExpr = desc as CallExpression;
+          const expression = callExpr.getExpression();
+          const kind = expression.getKind();
+
+          if (kind !== SyntaxKind.Identifier && kind !== SyntaxKind.PropertyAccessExpression) {
+            continue;
+          }
+
+          const resolved = resolveCallTarget(expression);
+          const targetFile = resolved?.targetFile ?? filePath;
+          const targetName = resolved?.targetName ?? expression.getText();
+
+          if (!targetName) continue;
+
+          const targetId = nodeId(targetFile, targetName);
+          if (!nodeIds.has(targetId)) {
+            nodeIds.add(targetId);
+            nodes.push({ id: targetId, file: targetFile, name: targetName, kind: "unknown" });
+          }
+          edges.push({ source: id, target: targetId, kind: "call" });
         }
-        edges.push({ source: id, target: targetId, kind: "call" });
       }
     }
 

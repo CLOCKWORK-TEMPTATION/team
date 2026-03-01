@@ -1,0 +1,9 @@
+id,summary,classification,severity,effort_hours,effort_story_points,dependencies,owner
+TASK-001,Fix Call Graph symbol resolution cross-file,performance,critical,8,5,ts-morph,backend-engineer
+TASK-002,Planner populate targetSymbols and targetRanges,maintainability,critical,4,2,,planning-engineer
+TASK-003,Command mapping for preChecks/postChecks,performance,critical,4,2,,engine-engineer
+TASK-004,Add ts-morph to engine package.json,compatibility,critical,0.5,1,,any-engineer
+TASK-005,Invoke checkBarrelIntegrity in generatePlan,maintainability,high,3,2,,planning-engineer
+TASK-006,Fix ESLint dead-code.ts:131,quality,low,0.5,1,,any-engineer
+TASK-007,Merge generatePreChecks and generatePostChecks,maintainability,low,2,1,,any-engineer
+TASK-008,Apply use targetSymbols/targetRanges instead of metadata,maintainability,critical,2,1,TASK-002,engine-engineer

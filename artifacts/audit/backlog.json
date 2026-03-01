@@ -1,0 +1,97 @@
+{
+  "backlog": [
+    {
+      "id": "TASK-001",
+      "summary": "Fix Call Graph symbol resolution cross-file",
+      "classification": "performance",
+      "severity": "critical",
+      "effort_hours": 8,
+      "effort_story_points": 5,
+      "dependencies": ["ts-morph"],
+      "owner": "backend-engineer",
+      "description": "call-graph.ts uses nodeId(filePath, text) - target is always in current file. Add symbol resolution via ts-morph TypeChecker to resolve cross-file calls."
+    },
+    {
+      "id": "TASK-002",
+      "summary": "Planner populate targetSymbols and targetRanges",
+      "classification": "maintainability",
+      "severity": "critical",
+      "effort_hours": 4,
+      "effort_story_points": 2,
+      "dependencies": [],
+      "owner": "planning-engineer",
+      "description": "PlanStepSchema has targetSymbols and targetRanges but planner never populates them. Add from deadCode.evidence.target when creating steps."
+    },
+    {
+      "id": "TASK-003",
+      "summary": "Command mapping for preChecks/postChecks",
+      "classification": "performance",
+      "severity": "critical",
+      "effort_hours": 4,
+      "effort_story_points": 2,
+      "dependencies": [],
+      "owner": "engine-engineer",
+      "description": "runCheck splits 'tsc_noEmit' by space and runs as command - fails. Map tsc_noEmit->pnpm typecheck, eslint->pnpm lint, etc."
+    },
+    {
+      "id": "TASK-004",
+      "summary": "Add ts-morph to engine package.json",
+      "classification": "compatibility",
+      "severity": "critical",
+      "effort_hours": 0.5,
+      "effort_story_points": 1,
+      "dependencies": [],
+      "owner": "any-engineer",
+      "description": "Engine uses ts-morph in apply.ts but it's not in package.json - causes typecheck failure."
+    },
+    {
+      "id": "TASK-005",
+      "summary": "Invoke checkBarrelIntegrity in generatePlan",
+      "classification": "maintainability",
+      "severity": "high",
+      "effort_hours": 3,
+      "effort_story_points": 2,
+      "dependencies": [],
+      "owner": "planning-engineer",
+      "description": "checkBarrelIntegrity exists but is never called. Add to plan generation when target is re-exported from barrel."
+    },
+    {
+      "id": "TASK-006",
+      "summary": "Fix ESLint dead-code.ts:131",
+      "classification": "quality",
+      "severity": "low",
+      "effort_hours": 0.5,
+      "effort_story_points": 1,
+      "dependencies": [],
+      "owner": "any-engineer",
+      "description": "Use ! assertion per @typescript-eslint/non-nullable-type-assertion-style"
+    },
+    {
+      "id": "TASK-007",
+      "summary": "Merge generatePreChecks and generatePostChecks",
+      "classification": "maintainability",
+      "severity": "low",
+      "effort_hours": 2,
+      "effort_story_points": 1,
+      "dependencies": [],
+      "owner": "any-engineer",
+      "description": "DRY: both functions share same logic, differ only by vitest_run in post."
+    },
+    {
+      "id": "TASK-008",
+      "summary": "Apply use targetSymbols/targetRanges instead of metadata",
+      "classification": "maintainability",
+      "severity": "critical",
+      "effort_hours": 2,
+      "effort_story_points": 1,
+      "dependencies": ["TASK-002"],
+      "owner": "engine-engineer",
+      "description": "apply.ts reads (step as any).metadata?.symbol - schema has no metadata. Use step.targetSymbols?.[0] and step.targetRanges?.[0]."
+    }
+  ],
+  "metadata": {
+    "source": "TECHNICAL_AUDIT_REPORT.md",
+    "generated": "2026-03-01",
+    "version": "1.0"
+  }
+}

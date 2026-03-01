@@ -8,6 +8,7 @@
   },
   "scripts": {
     "dev": "pnpm -C apps/desktop dev",
+    "dev:fresh": "pwsh -File ./scripts/dev-fresh.ps1",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "typecheck": "pnpm -r typecheck",

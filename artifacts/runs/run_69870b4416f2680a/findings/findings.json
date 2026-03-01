@@ -1,0 +1,11 @@
+{
+  "runId": "run_69870b4416f2680a",
+  "repoId": "local_repo",
+  "evidencePackets": [],
+  "deadCode": [],
+  "textClones": [],
+  "semanticClones": [],
+  "duplicateFunctions": [],
+  "mergeCandidates": [],
+  "boundaryViolations": []
+}

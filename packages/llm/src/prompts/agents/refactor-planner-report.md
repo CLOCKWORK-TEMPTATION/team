@@ -18,6 +18,7 @@
 1) توليد خطة patch series:
    - خطوات صغيرة، commit لكل خطوة.
    - كل خطوة MUST تحتوي evidenceRefs صحيحة.
+   - **للخطوات delete_dead / rename_symbol / extract_function:** يجب أن تحتوي كل خطوة على `targetSymbols` (أسماء الرموز من evidence.target.symbol) و/أو `targetRanges` (مصفوفة [startLine, endLine] من evidence.target.range). على الأقل أحدهما غير فارغ.
    - high risk ⇒ requiresHarness=true + إضافة خطوات add_harness/generate_baseline قبلها.
    - لا دمج يعبر boundaries إلا مع تبرير + دون خلق cycles.
 2) كتابة report.md:
@@ -25,6 +26,6 @@
 3) ضبط approvalStatus=PENDING.
 
 المخرجات (بدون شرح خارج الملفات):
-- refactor_plan.json (وفق schema)
+- refactor_plan.json (وفق schema). للخطوات delete_dead/rename_symbol/extract_function: كل step يجب أن يحتوي targetSymbols: string[] و/أو targetRanges: [number,number][] مستخرجة من evidence.target.
 - findings.json (وفق schema)
 - report.md

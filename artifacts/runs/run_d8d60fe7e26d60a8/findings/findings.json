@@ -1,0 +1,313 @@
+{
+  "runId": "run_d8d60fe7e26d60a8",
+  "repoId": "local_repo",
+  "evidencePackets": [
+    {
+      "id": "ev_b71385e80ffba3f4",
+      "kind": "dead_code",
+      "target": {
+        "file": "e:/team/fixtures/dummy-project/src/index.ts",
+        "symbol": "unusedExport",
+        "range": [
+          29,
+          29
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_c1c83e25181f02f6",
+      "kind": "dead_code",
+      "target": {
+        "file": "e:/team/fixtures/dummy-project/src/utils.ts",
+        "symbol": "unusedUtilityFunction",
+        "range": [
+          5,
+          7
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_97fbd3f9f3a2d19a",
+      "kind": "dead_code",
+      "target": {
+        "file": "e:/team/fixtures/dummy-project/src/utils.ts",
+        "symbol": "deadFunctionWithRange",
+        "range": [
+          17,
+          21
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_4a25031fcdd4b720",
+      "kind": "dead_code",
+      "target": {
+        "file": "e:/team/fixtures/dummy-project/src/utils.ts",
+        "symbol": "anotherDeadFunction",
+        "range": [
+          24,
+          26
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    }
+  ],
+  "deadCode": [
+    {
+      "evidence": {
+        "id": "ev_b71385e80ffba3f4",
+        "kind": "dead_code",
+        "target": {
+          "file": "e:/team/fixtures/dummy-project/src/index.ts",
+          "symbol": "unusedExport",
+          "range": [
+            29,
+            29
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported symbol 'unusedExport' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_c1c83e25181f02f6",
+        "kind": "dead_code",
+        "target": {
+          "file": "e:/team/fixtures/dummy-project/src/utils.ts",
+          "symbol": "unusedUtilityFunction",
+          "range": [
+            5,
+            7
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported symbol 'unusedUtilityFunction' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_97fbd3f9f3a2d19a",
+        "kind": "dead_code",
+        "target": {
+          "file": "e:/team/fixtures/dummy-project/src/utils.ts",
+          "symbol": "deadFunctionWithRange",
+          "range": [
+            17,
+            21
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported symbol 'deadFunctionWithRange' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_4a25031fcdd4b720",
+        "kind": "dead_code",
+        "target": {
+          "file": "e:/team/fixtures/dummy-project/src/utils.ts",
+          "symbol": "anotherDeadFunction",
+          "range": [
+            24,
+            26
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported symbol 'anotherDeadFunction' has no callers and no import references"
+    }
+  ],
+  "textClones": [],
+  "semanticClones": [],
+  "duplicateFunctions": [],
+  "mergeCandidates": [],
+  "boundaryViolations": []
+}

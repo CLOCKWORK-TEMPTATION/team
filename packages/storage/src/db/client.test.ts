@@ -34,4 +34,16 @@ describe("getDbClientAtPath", () => {
 
     db.close();
   });
+
+  it("should create the runs table", () => {
+    const db = getDbClientAtPath(dbPath);
+    
+    const stmt = db.prepare("SELECT name FROM sqlite_master WHERE type='table' AND name='runs'");
+    const row = stmt.get() as { name: string } | undefined;
+    
+    expect(row).toBeDefined();
+    expect(row?.name).toBe("runs");
+    
+    db.close();
+  });
 });

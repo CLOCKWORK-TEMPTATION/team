@@ -1,0 +1,2188 @@
+{
+  "runId": "run_aa4f95aecef874f6",
+  "repoId": "local_repo",
+  "evidencePackets": [
+    {
+      "id": "ev_be54efc2252984a7",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/ingestion-orchestrator.ts",
+        "symbol": "runTextIngestionPipeline",
+        "range": [
+          157,
+          250
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_5bf4d3490e1357a5",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/io.ts",
+        "symbol": "readBinary",
+        "range": [
+          3,
+          5
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_8495bad1811d4ffe",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/io.ts",
+        "symbol": "writeText",
+        "range": [
+          7,
+          9
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_d3800dfdf3cb81e5",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/normalize.ts",
+        "symbol": "normalizeNewlines",
+        "range": [
+          1,
+          3
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_1d1728766408587f",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/normalize.ts",
+        "symbol": "normalizeSpaces",
+        "range": [
+          5,
+          10
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_8b5eb7e951a3cebc",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/normalize.ts",
+        "symbol": "normalizeArabicPunctuationForCompare",
+        "range": [
+          12,
+          21
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_02ead39feae17275",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/normalize.ts",
+        "symbol": "normalizeBulletsForRender",
+        "range": [
+          23,
+          26
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_45e6c26b5dd2765c",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/normalize.ts",
+        "symbol": "stripZeroWidth",
+        "range": [
+          28,
+          30
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_dff9a317b90bdb53",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/normalize.ts",
+        "symbol": "finalRenderLineNormalize",
+        "range": [
+          32,
+          34
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_793cf4ce539f832b",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/patcher.ts",
+        "symbol": "patchLineIfSafe",
+        "range": [
+          9,
+          28
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_8cf4ec8fe5739204",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/sanitized-import-pipeline.ts",
+        "symbol": "shouldUseSanitizedPipeline",
+        "range": [
+          48,
+          50
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_741e9aa4dd1bd339",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/sanitized-import-pipeline.ts",
+        "symbol": "runSanitizedImportPipeline",
+        "range": [
+          63,
+          88
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_e7a89586bcd83376",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/components/app-shell/AppDock.tsx",
+        "symbol": "AppDock",
+        "range": [
+          48,
+          92
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_91de5d63bd6c438d",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/components/app-shell/AppFooter.tsx",
+        "symbol": "AppFooter",
+        "range": [
+          10,
+          37
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_644290b8a6a8ce78",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/components/app-shell/AppHeader.tsx",
+        "symbol": "AppHeader",
+        "range": [
+          29,
+          177
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_c09bbe4946951c2b",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/components/app-shell/AppSidebar.tsx",
+        "symbol": "AppSidebar",
+        "range": [
+          19,
+          187
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_4eb315195ffbf3fe",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/domain/arabic-screenplay-validator.ts",
+        "symbol": "validateArabicScreenplayLine",
+        "range": [
+          6,
+          44
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_bdbc4ad4125d4fc3",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/domain/arabic-screenplay-validator.ts",
+        "symbol": "applyScreenplayValidation",
+        "range": [
+          46,
+          61
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_cf9939a3f2b4c6bf",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/ocr/mistral-ocr-client.ts",
+        "symbol": "mistralOcrPagesToText",
+        "range": [
+          460,
+          468
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_7e2b9b23bfc091c6",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/ocr/provider.ts",
+        "symbol": "chunkPages",
+        "range": [
+          3,
+          9
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_a75461609dd850bc",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/patch/constrained-corrector.ts",
+        "symbol": "applyOcrPatchesToPages",
+        "range": [
+          8,
+          35
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_2e5b5a6ff7dbaff3",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+        "symbol": "collectRawSuspiciousLines",
+        "range": [
+          53,
+          85
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_666415bdec7dbdad",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+        "symbol": "collectClassificationSuspiciousLines",
+        "range": [
+          87,
+          93
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_7ce428da78ba7483",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+        "symbol": "fuseSuspiciousSignals",
+        "range": [
+          107,
+          186
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_3e6fa8f07b68e6b5",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+        "symbol": "selectOcrFallbackTargets",
+        "range": [
+          188,
+          196
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_13cda74eed38340d",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+        "symbol": "groupOcrTargetsByPage",
+        "range": [
+          198,
+          209
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_5614b7ee7419479e",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/quality/suspicious-detector.ts",
+        "symbol": "getSuspiciousPages",
+        "range": [
+          3,
+          21
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_bf1a1e93838c5f64",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/pipeline/quality/suspicious-detector.ts",
+        "symbol": "countSuspiciousLines",
+        "range": [
+          23,
+          31
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    },
+    {
+      "id": "ev_a171cf51102471b0",
+      "kind": "dead_code",
+      "target": {
+        "file": "E:/mo7rer/src/utils/file-import/open-pipeline.ts",
+        "symbol": "buildFileOpenPipelineAction",
+        "range": [
+          104,
+          192
+        ]
+      },
+      "evidence": {
+        "importGraph": {
+          "inboundCount": 0,
+          "inboundFiles": []
+        },
+        "callGraph": {
+          "callers": []
+        }
+      },
+      "exceptions": {
+        "dynamicImportSuspicion": false,
+        "sideEffectModule": false,
+        "publicApiExposure": false
+      },
+      "risk": {
+        "score": 50,
+        "band": "low",
+        "reasons": [
+          "No callers found",
+          "No import references"
+        ]
+      },
+      "recommendedAction": "delete",
+      "requiresHarness": false
+    }
+  ],
+  "deadCode": [
+    {
+      "evidence": {
+        "id": "ev_be54efc2252984a7",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/ingestion-orchestrator.ts",
+          "symbol": "runTextIngestionPipeline",
+          "range": [
+            157,
+            250
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'runTextIngestionPipeline' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_5bf4d3490e1357a5",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/io.ts",
+          "symbol": "readBinary",
+          "range": [
+            3,
+            5
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'readBinary' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_8495bad1811d4ffe",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/io.ts",
+          "symbol": "writeText",
+          "range": [
+            7,
+            9
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'writeText' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_d3800dfdf3cb81e5",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/normalize.ts",
+          "symbol": "normalizeNewlines",
+          "range": [
+            1,
+            3
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'normalizeNewlines' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_1d1728766408587f",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/normalize.ts",
+          "symbol": "normalizeSpaces",
+          "range": [
+            5,
+            10
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'normalizeSpaces' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_8b5eb7e951a3cebc",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/normalize.ts",
+          "symbol": "normalizeArabicPunctuationForCompare",
+          "range": [
+            12,
+            21
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'normalizeArabicPunctuationForCompare' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_02ead39feae17275",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/normalize.ts",
+          "symbol": "normalizeBulletsForRender",
+          "range": [
+            23,
+            26
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'normalizeBulletsForRender' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_45e6c26b5dd2765c",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/normalize.ts",
+          "symbol": "stripZeroWidth",
+          "range": [
+            28,
+            30
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'stripZeroWidth' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_dff9a317b90bdb53",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/normalize.ts",
+          "symbol": "finalRenderLineNormalize",
+          "range": [
+            32,
+            34
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'finalRenderLineNormalize' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_793cf4ce539f832b",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/patcher.ts",
+          "symbol": "patchLineIfSafe",
+          "range": [
+            9,
+            28
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'patchLineIfSafe' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_8cf4ec8fe5739204",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/sanitized-import-pipeline.ts",
+          "symbol": "shouldUseSanitizedPipeline",
+          "range": [
+            48,
+            50
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'shouldUseSanitizedPipeline' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_741e9aa4dd1bd339",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/sanitized-import-pipeline.ts",
+          "symbol": "runSanitizedImportPipeline",
+          "range": [
+            63,
+            88
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'runSanitizedImportPipeline' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_e7a89586bcd83376",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/components/app-shell/AppDock.tsx",
+          "symbol": "AppDock",
+          "range": [
+            48,
+            92
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'AppDock' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_91de5d63bd6c438d",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/components/app-shell/AppFooter.tsx",
+          "symbol": "AppFooter",
+          "range": [
+            10,
+            37
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'AppFooter' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_644290b8a6a8ce78",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/components/app-shell/AppHeader.tsx",
+          "symbol": "AppHeader",
+          "range": [
+            29,
+            177
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'AppHeader' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_c09bbe4946951c2b",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/components/app-shell/AppSidebar.tsx",
+          "symbol": "AppSidebar",
+          "range": [
+            19,
+            187
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'AppSidebar' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_4eb315195ffbf3fe",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/domain/arabic-screenplay-validator.ts",
+          "symbol": "validateArabicScreenplayLine",
+          "range": [
+            6,
+            44
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'validateArabicScreenplayLine' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_bdbc4ad4125d4fc3",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/domain/arabic-screenplay-validator.ts",
+          "symbol": "applyScreenplayValidation",
+          "range": [
+            46,
+            61
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'applyScreenplayValidation' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_cf9939a3f2b4c6bf",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/ocr/mistral-ocr-client.ts",
+          "symbol": "mistralOcrPagesToText",
+          "range": [
+            460,
+            468
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'mistralOcrPagesToText' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_7e2b9b23bfc091c6",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/ocr/provider.ts",
+          "symbol": "chunkPages",
+          "range": [
+            3,
+            9
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'chunkPages' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_a75461609dd850bc",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/patch/constrained-corrector.ts",
+          "symbol": "applyOcrPatchesToPages",
+          "range": [
+            8,
+            35
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'applyOcrPatchesToPages' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_2e5b5a6ff7dbaff3",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+          "symbol": "collectRawSuspiciousLines",
+          "range": [
+            53,
+            85
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'collectRawSuspiciousLines' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_666415bdec7dbdad",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+          "symbol": "collectClassificationSuspiciousLines",
+          "range": [
+            87,
+            93
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'collectClassificationSuspiciousLines' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_7ce428da78ba7483",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+          "symbol": "fuseSuspiciousSignals",
+          "range": [
+            107,
+            186
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'fuseSuspiciousSignals' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_3e6fa8f07b68e6b5",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+          "symbol": "selectOcrFallbackTargets",
+          "range": [
+            188,
+            196
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'selectOcrFallbackTargets' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_13cda74eed38340d",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/quality/suspicion-fusion.ts",
+          "symbol": "groupOcrTargetsByPage",
+          "range": [
+            198,
+            209
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'groupOcrTargetsByPage' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_5614b7ee7419479e",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/quality/suspicious-detector.ts",
+          "symbol": "getSuspiciousPages",
+          "range": [
+            3,
+            21
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'getSuspiciousPages' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_bf1a1e93838c5f64",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/pipeline/quality/suspicious-detector.ts",
+          "symbol": "countSuspiciousLines",
+          "range": [
+            23,
+            31
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'countSuspiciousLines' has no callers and no import references"
+    },
+    {
+      "evidence": {
+        "id": "ev_a171cf51102471b0",
+        "kind": "dead_code",
+        "target": {
+          "file": "E:/mo7rer/src/utils/file-import/open-pipeline.ts",
+          "symbol": "buildFileOpenPipelineAction",
+          "range": [
+            104,
+            192
+          ]
+        },
+        "evidence": {
+          "importGraph": {
+            "inboundCount": 0,
+            "inboundFiles": []
+          },
+          "callGraph": {
+            "callers": []
+          }
+        },
+        "exceptions": {
+          "dynamicImportSuspicion": false,
+          "sideEffectModule": false,
+          "publicApiExposure": false
+        },
+        "risk": {
+          "score": 50,
+          "band": "low",
+          "reasons": [
+            "No callers found",
+            "No import references"
+          ]
+        },
+        "recommendedAction": "delete",
+        "requiresHarness": false
+      },
+      "reason": "Exported function 'buildFileOpenPipelineAction' has no callers and no import references"
+    }
+  ],
+  "textClones": [],
+  "semanticClones": [],
+  "duplicateFunctions": [],
+  "mergeCandidates": [],
+  "boundaryViolations": []
+}

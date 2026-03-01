@@ -1,0 +1,19 @@
+{
+  "planId": "plan_c940b5e56644d18a",
+  "repoId": "local_repo",
+  "runId": "run_a6a4a6d0f59828e8",
+  "generatedAt": "2026-03-01T02:37:39.114Z",
+  "approvalStatus": "PENDING",
+  "steps": [],
+  "policies": {
+    "evidenceRequired": true,
+    "atomicCommits": true,
+    "stopOnScopeExplosion": true,
+    "harnessInRepo": true,
+    "testRunner": "vitest"
+  },
+  "scopeLimits": {
+    "maxChangedFilesPerStep": 50,
+    "maxChangedLinesPerStep": 2000
+  }
+}

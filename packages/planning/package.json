@@ -18,6 +18,7 @@
     "@pkg/analysis": "workspace:*",
     "@pkg/harness": "workspace:*",
     "@pkg/llm": "workspace:*",
+    "ts-morph": "^24.0.0",
     "zod": "^3.23.8"
   },
   "devDependencies": {

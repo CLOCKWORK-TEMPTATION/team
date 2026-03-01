@@ -76,4 +76,32 @@ describe("detectDeadCode", () => {
     
     expect(candidates).toHaveLength(0);
   });
+
+  it("should return evidence with importGraph, callGraph, and exceptions for downstream evidenceSummary", () => {
+    const project = new Project({ useInMemoryFileSystem: true });
+    project.createSourceFile("/src/utils.ts", `
+      export function unusedUtil() { return 1; }
+    `);
+
+    const candidates = detectDeadCode(
+      project,
+      new Map(),
+      { nodes: [], edges: [] },
+      { runtime: [], test: [], tooling: [] }
+    );
+
+    expect(candidates).toHaveLength(1);
+    const ev = candidates[0]!.evidence;
+    expect(ev.evidence.importGraph).toBeDefined();
+    expect(ev.evidence.importGraph?.inboundCount).toBe(0);
+    expect(ev.evidence.importGraph?.inboundFiles).toEqual([]);
+    expect(ev.evidence.callGraph).toBeDefined();
+    expect(ev.evidence.callGraph?.callers).toEqual([]);
+    expect(ev.exceptions).toBeDefined();
+    expect(ev.exceptions.dynamicImportSuspicion).toBe(false);
+    expect(ev.exceptions.sideEffectModule).toBe(false);
+    expect(ev.exceptions.publicApiExposure).toBe(false);
+    expect(ev.risk.reasons).toContain("No callers found");
+    expect(ev.risk.reasons).toContain("No import references");
+  });
 });

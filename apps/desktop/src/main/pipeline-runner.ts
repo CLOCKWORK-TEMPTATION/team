@@ -54,21 +54,7 @@ export function recordApproval(
   notes?: string
 ): { success: boolean; error?: string } {
   try {
-    const artifactsDir = getArtifactsRoot();
-    const planPath = path.join(
-      artifactsDir,
-      "runs",
-      runId,
-      "plan",
-      "refactor_plan.json"
-    );
-    const reportPath = path.join(
-      artifactsDir,
-      "runs",
-      runId,
-      "report",
-      "report.md"
-    );
+    const planPath = getPlanPath(runId);
 
     // تحديث ملف الخطة
     if (fs.existsSync(planPath)) {
@@ -128,7 +114,7 @@ export async function runScan(repoPath: string): Promise<{
   runId?: string | undefined;
 }> {
   try {
-    const { stdout } = await execa("node", [cliPath, "scan", repoPath]);
+    const { stdout } = await execa("node", ["--max-old-space-size=4096", cliPath, "scan", repoPath]);
 
     // استخراج runId من الخرج
     const runIdMatch = stdout.match(/run[_-]?([a-f0-9]+)/i);
@@ -149,10 +135,52 @@ export async function runPlan(runId: string): Promise<{
   error?: string;
 }> {
   try {
-    const { stdout } = await execa("node", [cliPath, "plan", runId]);
+    const { stdout } = await execa("node", ["--max-old-space-size=4096", cliPath, "plan", runId]);
     return { success: true, output: stdout };
   } catch (error: any) {
     return { success: false, error: error.message };
+  }
+}
+
+/**
+ * يقرأ خطة التعديل ويُرجعها كتقرير Markdown للعرض
+ */
+export function getPlanReport(runId: string): { success: boolean; report?: string; error?: string } {
+  try {
+    const planPath = getPlanPath(runId);
+    if (!fs.existsSync(planPath)) {
+      return { success: false, error: "Plan not found" };
+    }
+    const planContent = fs.readFileSync(planPath, "utf8");
+    const plan = JSON.parse(planContent);
+
+    const lines: string[] = [
+      "# تقرير خطة التعديل",
+      "",
+      `**Plan ID:** ${plan.planId}`,
+      `**Run ID:** ${plan.runId}`,
+      `**تاريخ الإنشاء:** ${plan.generatedAt}`,
+      `**حالة الموافقة:** ${plan.approvalStatus}`,
+      "",
+      "## خطوات التعديل",
+      "",
+    ];
+
+    for (let i = 0; i < plan.steps.length; i++) {
+      const step = plan.steps[i];
+      lines.push(`### ${i + 1}. ${step.patchTitle}`);
+      lines.push("");
+      lines.push(`- **الإجراءات:** ${step.actions.join(", ")}`);
+      lines.push(`- **الملفات المستهدفة:** ${step.targets.join(", ")}`);
+      lines.push(`- **مستوى المخاطرة:** ${step.riskBand}`);
+      lines.push(`- **يتطلب Harness:** ${step.requiresHarness ? "نعم" : "لا"}`);
+      lines.push("");
+    }
+
+    return { success: true, report: lines.join("\n") };
+  } catch (error) {
+    const errorMsg = error instanceof Error ? error.message : String(error);
+    return { success: false, error: errorMsg };
   }
 }
 
@@ -171,7 +199,7 @@ export async function runApply(runId: string): Promise<{
   }
 
   try {
-    const { stdout } = await execa("node", [cliPath, "apply", runId]);
+    const { stdout } = await execa("node", ["--max-old-space-size=4096", cliPath, "apply", runId]);
     return { success: true, output: stdout };
   } catch (error: any) {
     return { success: false, error: error.message };

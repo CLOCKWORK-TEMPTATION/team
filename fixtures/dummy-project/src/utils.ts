@@ -12,3 +12,15 @@ class InternalHelper {
     return "help";
   }
 }
+
+// Dead function with range
+export function deadFunctionWithRange() {
+  const unusedVar = "I'm dead";
+  const anotherUnused = "Also dead";
+  return "This entire function is dead";
+}
+
+// Another dead function
+export function anotherDeadFunction() {
+  return "This is also dead";
+}

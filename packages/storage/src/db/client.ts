@@ -2,6 +2,7 @@ import Database from "better-sqlite3";
 import path from "node:path";
 import fs from "node:fs";
 import { getDbPath, ensureArtifactsStructure } from "../artifacts/paths.js";
+import { ensureDbSchema } from "./schema.js";
 
 /**
  * يُنشئ ويعيد عميل قاعدة البيانات SQLite
@@ -21,6 +22,8 @@ export function getDbClient(): Database.Database {
   db.pragma("journal_mode = WAL");
   db.pragma("foreign_keys = ON");
 
+  ensureDbSchema(db);
+
   return db;
 }
 
@@ -36,6 +39,8 @@ export function getDbClientAtPath(dbPath: string): Database.Database {
 
   db.pragma("journal_mode = WAL");
   db.pragma("foreign_keys = ON");
+
+  ensureDbSchema(db);
 
   return db;
 }
